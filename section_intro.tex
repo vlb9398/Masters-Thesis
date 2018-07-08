@@ -1,0 +1,124 @@
+\section{Introduction}
+%%%%%%%%%%%%%%%%
+\subsection{The Extragalactic Background Light}
+The extragalactic background light (EBL) is comprised of the integrated light from all sources outside of the Milky Way Galaxy. In contrast to the Cosmic Microwave Background (CMB), the EBL does not have a single origin. Rather, it is an ensemble of light from objects that cannot be resolved either due to their diffuse nature or due to the confused emission of the objects (e.g. galaxies at high redshift).
+For example, at far infrared (FIR) wavelengths, the EBL is dominated by diffuse dust emission while in the high energy window like X-ray/gamma, it can be dominated by active galactic nuclei (AGN), quasars, or hot intergalactic material (IGM). 
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/EBL_IR_Cooray2016review.png} 
+	\caption[The optical and infrared EBL as reported by various experiments.]{The optical and infrared EBL as reported by various experiments. (Red circles, stars, open squares) DIRBE data. (Purple crosses) IRTS. (Open triangle) \textit{Spitzer}. (Green circles) HST. (Blue upper limit) UVS/STIS. (Blue circle) CIBER. (Black line) FIRAS. (Blue squares) IRAS. (Shaded blue region) estimate from H.E.S.S blazar absorption spectra. Lower limits are inferred from source counts using data from HST, \textit{Spitzer}/IRAC, ISO, \textit{Spitzer}/MIPS, \textit{Herschel}/PACS, \textit{Herschel}/SPIRE, and SCUBA. \textit{Credit: \citet{Cooray2016} and ref. therein}.\label{fig:EBL_IR}}
+\end{figure}
+
+Figure \ref{fig:EBL_IR} presents the current EBL measurements in the optical/near infrared. 
+The infrared portion of the EBL (also known as the Cosmic Infrared Background, CIB) is of special importance since it contains contributions from high redshift populations, including the first stars (Pop III) and galaxies that formed in the early Universe \citep{Madau2005, Kashlinsky2005}. The newly-born luminous structures began to ionize the neutral intergalactic medium shortly after their formation, therefore this period becomes known as the Epoch of Reionization (EOR).
+Pop III stars are extremely massive and produce a large number of rest-frame UV photons. Due to the expansion of the Universe, these photons are now redshifted into the infrared, therefore we need to make observation in this part of the electromagnetic spectrum to probe the EOR signals. 
+As pointed out in \citet{Fan2006b}, the EOR marks the transition between the last scattering of photons (the CMB) and the current era of galaxies (from present day up to redshift of $z \sim 6$). Understanding the abundance and luminosity distribution of EOR galaxy populations helps astronomers see how galaxies evolve with redshift, and how the Universe went from mostly neutral during the CMB to the mostly ionized phase that is observed today. Unfortunately, while the CMB and the current epoch of galaxies have been studied extensively with projects such as the \textit{Planck} satellite \citep{Planck2011} or the \textit{Sloan Digital Sky Survey} \citep{Sloan2006_telescope, Sloan_SDSS-I, Sloan_SEGUE, Sloan_SDSS-II, Sloan_SDSS-III, Sloan_SDSS-IV}, the transitional period between the two eras remains poorly understood. There are a lot of unanswered questions about this so-called ``dark age'' such as: which processes were responsible for ionizing the gas, and exactly how long did the EOR take? Although different scenarios have been proposed, the currently available data does not distinguish between the possibilities. \citet{Salvaterra2009} points out that not only is more data require but there is also a need fore instruments and techniques with better sensitivity in order to break the current degeneracy in interpreting the ionization processes.
+In fact, the New Worlds, New Horizons Decadal Report \citep{Decadal2010} highlights that EOR is a scientific discovery area where ``\emph{new technologies, observing strategies, theories, and computations open...opportunities for transformational comprehension.}''
+While future missions like the James Webb Space Telescope (JWST) can theoretically detect some of the brightest galaxies at EOR redshift, the noise and resolution limits of those source surveys mean that the very faint end of EOR galaxy population will be missed or undetectable. Despite their low luminosity, statistical studies have shown that the faint, low-mass galaxy population is likely more abundant in number \citep{Conselice2016}, so collectively they still play an important role in the formation of large-scale structure. Investigating the EBL allows astronomers to compliment source surveys by probing the population that cannot be resolved and enables better characterization of the structure formation history in the Universe. 
+
+
+
+%%%%%%%%%%%%%%%%
+\subsection{EBL Observations}
+
+One way to measure the EBL signal is to perform absolute photometry, which is a count of all the photons on the sky that can be detect along the line of sight. 
+Using this technique, the EBL has been measured at multiple wavelengths using both ground-based and space telescopes. Table \ref{table:EBL_values} summarizes the current ranges of values for the EBL as a function of wavelength \citep{Cooray2016}. In the optical/IR window between, the EBL intensity has been reported to be $\sim 1 - 30$ [nW m$^{-2}$ sr$^{-1}$] \citep{Giavalisco2004, Cooray2004, Kashlinsky2005, Kashlinsky2007, Thompson2007, Matsumoto2011, HESS2013, ZemcovScience, Zemcov2017}. It is clear that there are large uncertainties and scattering in the optical/near IR data, the reason for which is explained below.
+
+In theory, the mean brightness of extragalactic fields is a direct measurement of its intensity. In reality, the signal, $\lambda I_\lambda^{meas}$, is a combination of the EBL, photons from sources between the EOR galaxies and the observers (``foregrounds''), plus any diffuse emission along the line of sight (see Figure \ref{fig:foregrounds}) \citep{Zemcov2017}:
+
+\begin{equation}
+	\lambda I_\lambda^{meas} = \lambda I_\lambda^{ZL} + \lambda I_\lambda^{*} + \lambda I_\lambda^{RS} + \lambda I_\lambda^{DGL} + \epsilon \lambda I_\lambda^{EBL} + \lambda I_\lambda ^{inst}
+\end{equation}
+
+\noindent where:\\
+$\lambda I_\lambda^{ZL}$: the brightness of the Zodiacal light (ZL), caused by interplanetary dust scattering off solar radiation\\
+$\lambda I_\lambda^{*}$: the brightness associated with resolved stars\\
+$\lambda I_\lambda^{RS}$: the residual stellar emission from faint stars below detection limit or the residual wings of masked sources\\
+$\lambda I_\lambda^{DGL}$: the brightness of the diffuse galactic light (DGL), which is integrated light scattered by the interstellar medium\\
+$\lambda I_\lambda^{EBL}$: the brightness of the EBL. The factor $\epsilon$ accounts for absorption by galactic dust\\
+$\lambda I_\lambda ^{inst}$: the brightness associated with the instrument
+
+\begin{table}[!ht]
+	\begin{center}
+	\caption[EBL intensity as a function of wavelength.]{EBL intensity as a function of wavelength. \textit{Credit: \citet{Cooray2016} and ref. therein.}}\label{table:EBL_values}
+		\begin{tabular}{c|c}
+			\tableline\tableline
+			Wavelength		&		Intensity [nW m$^{-2}$ sr$^{-1}$]\\
+			\tableline		
+			$\gamma$-ray		&	0.015\\
+			X-ray				& 	0.3\\
+			UV (4.9 nm)			& 	0.01 - 0.02\\
+			Optical				&	24 $\pm$ 4 ($\pm$ 5 systematic)\\
+			Infrared				&	$\sim$30 $\pm$ 10\\
+			CMB					&	960\\
+			Radio				&	$<$ 0.001\\
+			\tableline
+		\end{tabular}
+	\end{center}
+	\vspace{-20pt}
+\end{table}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/eor.pdf} 
+	\caption[Observed EBL signal with foregrounds.]{The signal from the sky consists of the EBL component (coming from the first generation of EOR stars and galaxies, \textit{left panel}), plus the contributions from resolved sources like local stars or galaxies (\textit{middle panel}), along with any diffuse components like Zodiacal light and Diffuse galactic light. As a result, the sky image (\textit{right panel}) is complex and requires careful analysis to extract the information on EBL. \textit{Credit: Courtesy of the SPHEREx Collaboration.}\label{fig:foregrounds}}
+\end{figure}
+
+
+The foregrounds pose a serious challenge to the absolute measurement of the EBL.
+Because they are many times more luminous than the EBL, in order to distinguish the EBL signal from the foregrounds' statistical photon noise, it is necessary to know the foregrounds' contributions very precisely. Secondly, the instrument used to measure the EBL needs to be highly sensitive and stable. 
+The noise in the electronics system of the instrument also needs to be well-characterized so that the signal can be distinguished from instrumental effects. The difficulty in directly detecting the EBL signal calls for a new observing technique that is uniquely sensitive to its faint and diffuse nature.
+
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.78\textwidth]{figures/ZL_Cooray2016review.jpg} 
+%	\caption[Zodiacal light model.]{Zodiacal light model inferred from dust density measurements made by Pioneer 10 \citep{Pioneer10}. Compared to the diffuse galactic light from the interstellar medium (ISM - green solid line) and two semi-analytical model of light from galaxies up to $z\sim5$ (solid and dashed red lines) (\citet{Cooray2016} adapted from \citet{Primack2008}), the ZL at 1 AU is $\sim$100 times brighter than either sources. Most observations of the EBL so far are made at this distance, and subsequently suffer from the extreme contamination due to ZL. Only a few EBL values have been inferred from data from interplanetary mission beyond 5 [au], for example from instrument onboard the \textit{New Horizons} spacecraft as detailed in \citet{Zemcov2017}. \textit{Credit: \citet{Cooray2016}.}\label{fig:ZL}}
+%\end{figure}
+
+Recently, a new technique has proven successful in probing the EBL: mapping the variations from the mean intensity (``fluctuations'') of the observed EBL \citep{Cooray2004, Kashlinsky2005, Kashlinsky2007, Thompson2007, Matsumoto2011, ZemcovScience, Cooray2012}. This new method is uniquely sensitive to anisotropy and faint emission. Instead of counting all photons, the fluctuations in the images are mapped for various angular scales and in different wavebands, which would allow astronomers to simultaneously fit the colors and spatial distribution of the fluctuations. Resolved foregrounds can be masked using external catalogs like the \textit{Two Micron All Sky Survey} (2MASS) \citep{2MASS}. Diffuse emission like ZL which poses difficulty for absolute photometry, can be accounted for using the knowledge of the foregrounds' spectrum and typical scale size on the sky. Faint low-redshift galaxies below the detection level can be probed by modeling their contribution based on statistical studies. The EOR component in the EBL has its own spectral signature that further assists us in identifying its contribution: the Lyman break.
+The Lyman break is caused when rest-frame UV photons are absorbed by the neutral intergalactic medium (IGM) between the EOR and the observers. Based on the redshift of the end of the EOR ($z \sim 7$), this break is now shifted into the red end of the optical and the near infrared windows. 
+By combining the fluctuations in different wavelengths, one can detect the dropout due to the Lyman break and simultaneously fit for the spectral and spatial distributions of the foregrounds as well as the EBL.
+
+
+Using this technique, some recent studies from \textit{Hubble Space Telescope} (HST), \textit{Akari}, and \textit{Spitzer} -- among others -- have found that the near IR EBL fluctuates more than what can be accounted for by known galaxy populations (up to redshift of $z \sim 5$) \citep{Matsumoto2005, Matsumoto2011}. 
+The first \textit{Cosmic Infrared Background ExpeRiment} (CIBER-1) \citep{Bock2006, Zemcov2013, Bock2013, Korngut2013, Tsumura2013, ZemcovScience} -- a sounding rocket experiment specifically designed to use intensity mapping -- further confirms these results with their own observation at 1.1 and 1.6 $\mu$m. \citet{Matsuura2017}, using a separate spectrograph flown on the same CIBER-1 payload, also finds that the fluctuations are higher than expected in the unexplored $0.8-1.7$ $\mu$m band.
+The excess fluctuations are also higher than the contributions from known foregrounds and instrument uncertainties. Furthermore, the excess fluctuations detected by different instruments at different wavelengths are shown to be correlated (Figure \ref{fig:CIBER_cross-correlation}), implying that they may all have the same astrophysical origin \citep{ZemcovScience}. Some possible sources are:
+
+% DCBH
+\noindent $\bullet$ \textbf{Primordial, direct collapse black holes (DCBH) at high redshift ($z \geq $ 12)} \citep{Cappelluti2013,Yue2013}: motivated by X-ray observation \citep{Yue2013}, DCBH provides a mechanism to form the very massive quasars at redshift of 6 and 7 that have been observed \citep{Fan2001, Fan2003, Fan2004, Fan2006}. The DCBH are believed to generate enough near infrared excess fluctuations to fit the \textit{Spitzer} data, but they do not produce enough fluctuations at 1.1 and 1.6 $\mu$m to be observed by CIBER-1 \citep{ZemcovScience}.
+
+% DGL
+\noindent $\bullet$ \textbf{Diffuse galactic light (DGL)}: combining CIBER-1 data at 0.95 - 1.65 $\mu$m, and 100 $\mu$m dust map from the \emph{Diffuse Infrared Background Experiment (DIRBE)} \citep{Schlegel1998}, \citet{Arai2015} calculates DGL emission and shows that it can be modeled by Rayleigh scattering from intergalactic dust. As a result, its contribution to the EBL spectrum can be found by comparing it with thermal dust emission.
+
+% IHL
+\noindent $\bullet$ \textbf{Intra-halo light (IHL)}: the emission from stars that were gravitationally stripped from their host galaxies after mergers and now reside at the edge of the merged dark matter halo \citep{Cooray2012,ZemcovScience}.
+\citet{Cooray2012} shows that after the DGL contribution is accounted for, the remaining excess fluctuations can be attributed to an IHL population at low redshift ($z \sim 0.5-2$). 
+
+To explain the excess fluctuations in CIBER-1 data, a moderate level of 0.1 - 1 \% IHL luminosity (relative to their host galaxy) in low-mass systems is required. The variations in the fraction of IHL are due to the merger history of specific systems. One argument for a more recent population being responsible for the excess fluctuations (as opposed to a $z\sim12$ population) is that the fluctuations at bluer wavelengths (1.1 and 1.6 $\mu$m) are higher than that at longer wavelength (3.6 $\mu$m, see Figure \ref{fig:CIBER_cross-correlation}). 
+
+The IHL model is consistent with other tracers \citep{Schroedter2005} and constraints inferred from high energy data \citep{HESS2013}. CIBER-1 data suggests that in order to produce the amount of excess fluctuations observed, the IHL emission is on the same order of magnitude as the integrated light from known galaxy population. The large contribution implies a larger than expected distribution of baryonic mass that may ease the tension on the ``missing baryonic matter'' problem \citep{Ashman1992,Bock1998}. While this interpretation is intriguing, further evidence is still needed to confirm it.
+
+Following the success of CIBER-1, a second CIBER experiment has been proposed and successfully funded (CIBER-2) \citep{Lanz2014}. Similar to CIBER-1, CIBER-2 will be launched multiple times on a sounding rocket with an approximately six-month separation between flights.
+CIBER-2 aims to address the questions posed by the findings of CIBER-1, namely to disentangle the IHL components from the EBL. To do so, first CIBER-2 will once again search for the EOR Lyman break feature while fitting the colors of IHL based on the current model that IHL originates at $z \sim 0.5 - 2$.
+If we extend the spectral coverage of our experiment (CIBER-2) further into the optical window, we should see that the IHL component still exists while the EOR part of the EBL drops out due to the Lyman break (see Figure \ref{fig:ciber2_motivation}). We will also improve the spectral energy distribution fit by adding more wavebands and increase the data point from two (1.1 and 1.6 $\mu$m) in CIBER-1 to six in CIBER-2. Secondly, CIBER-2 is designed to have much higher sensitivity than CIBER-1 so that we can reach the level of the EOR components (the shaded yellow region in Figure \ref{fig:ciber2_motivation}). CIBER-2 is designed to achieve such sensitivity with data from one flight, with further improvements after more flights are added.
+
+In this report, I will go over the design requirements of CIBER-2 in \S\ref{S:design} and detail how different components fit together. \S\ref{S:progress} will give updates on the integration progress of the experiment. \S\ref{S:future} will outline the next steps in getting the payload ready for launch and the future data analysis tasks.
+ 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ciber_spitzer.jpg} 
+	\caption[CIBER-1 and \textit{Spitzer} cross-correlated power spectra.]{CIBER-1 and \textit{Spitzer} data, expressed as angular power spectra which show the strength of the fluctuations as a function of angular scale. The angular sizes decrease to the right of these plots. (A) CIBER-1: 1.1x1.6 $\mu$m and 1.6x1.6 $\mu$m, (B) CIBER-1: 1.1x1.6 $\mu$m, (C) CIBER-1 and \textit{Spitzer}: 1.1x3.6 $\mu$m and 1.6x3.6 $\mu$m, (D) \textit{Spitzer}: 3.6x3.6 $\mu$m power spectra. Open circles are earlier measurements including those from HST where deeper masking was applied compared to CIBER-1. It is clear that CIBER-1 and \textit{Spitzer} data are highly correlated and therefore should have a common astrophysical origin. Constraints on astrophysical sources are shown: low redshift galaxies (up to $z = 5$), ZL, and DGL measurement from \citet{Arai2015}. Significant fluctuation excess at large angular scale ($l \sim$ 5000) cannot be explained by these known foregrounds alone and require a new IHL component in the model. The thick solid lines show the total emission after the IHL is added to the foregrounds, plus the EBL component from EOR. \textit{Credit: \citet{ZemcovScience}.}\label{fig:CIBER_cross-correlation}}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ciber_2_IHL.png} 
+	\caption[Revised theoretical model of the observed EBL to include IHL.]{\label{fig:ciber2_motivation}Revised theoretical model of the observed EBL. The best-fit model of the IHL shows that it has a different color than the EBL due to EOR stars/galaxies. It also does not have the dropout in the optical window due to the Lyman break like EOR galaxies. CIBER-2 science driver is to extend the spectral coverage into the optical window and increase the sensitivity to probe the Lyman break feature of the EOR and disentangle the IHL from the EBL signal. \textit{Credit: Courtesy of the CIBER-2 Collaboration.}}
+\end{figure}
+
