@@ -397,18 +397,23 @@ TIME will not be able to create a large survey of kSZE, but by improving detecti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Expected TIME SZ Measurements}
 
-% include discussion on atmosphere from Sayers paper here
-(Sayers 2013):
-%"As detailed in Section 4.1, a model is required to interpret our SZ data because the large-angular scale atmospheric noise necessitates high-pass filtering of the data, which removes signal on large angular scales. As a result, a spatial model of the SZ is the only way to recover this large-scale signal in order to obtain an absolute surface brightness."
-%To remove atmospheric fluctuations from the data, we first subtract a template of the common mode signal over the FOV, and we then high-pass filter (HPF) the time- stream data at 250 and 500 mHz at 140 and 268 GHz, re- spectively. The large amplitude of the atmospheric fluc- tuations in the 268 GHz data necessitates this more ag- gressive HPF, and this filtering represents a slight change from the M12 analysis, which used a 250 mHz HPF for both datasets.
-One of the improvements that TIME will seek to make is modeling of the atmosphere. While SuZIE II suffered from differential atmospheric contamination, TIME will have dedicated monitoring channels that will sample both on and off the cluster. This should help remove any time varying atmospheric signal from the data, but there are also other techniques that could be applied in the data pipeline.
+One of the improvements that TIME will seek to make is in modeling atmospheric noise. While SuZIE II suffered from differential atmospheric contamination, TIME will have dedicated monitoring channels that will sample both on and off the cluster. This should help remove any time varying atmospheric signal from the data, but there are also other techniques that could be applied in the data pipeline. In similar form to \cite{Sayers2010}, a combination of atmospheric models combined with instrument parameters can be used to determine the optimal atmospheric subtraction technique for TIME. 
 
-% The one caveat to this method is that the atmospheric variation must be on angular scales larger than the cluster in question. However, in addition to subtracting atmospheric noise, beam differencing can also subtract any other time variant noises, including those induced by the detector (system gains/losses) [\cite{Birkinshaw1999}]. 
+Firstly, any modelling is most effectively done in power space, since bolometers are sensitive to the total intensity power spectrum. The TIME instrument has a field of view on the scale of arcminutes, which is the limiter for the smallest and largest modes it is sensitive to. For the atmosphere, fluctuations at the largest scales will impact bolometer data at the highest frequencies. Often, instruments will have data pipelines with high or low pass band filters that will cut out the unwanted noise. But this kind of aggressive chopping has downsides. For Bolocam, another bolometric SZE instrument similar to TIME, a high pass filter was applied to remove large angular scale atmospheric fluctuations, but it had the negative side effect of removing the SZE signal, also on large angular scales. If the atmospheric emission varies on scales equal to the size of the cluster, then significant portions of SZE data are lost by this method. The only way that the data could be recovered was through spatial modeling of SZE, and comparing it to the remaining data set for a parametric fit. The data fitting that model could then be recreated, but with significant biases [\cite{Sayers2013}].
 
-Another common problem with early instruments was that the resolution was not fine enough to eliminate other contaminating radio sources in the cluster, besides the measurements desired. Massive clusters are rich environments for many different types of phenomena, including dusty galaxies and lensing contamination, which can radiate heavily in the radio to sub-mm portion of the spectrum. If the resolution is poor, the radio contamination would be misconstrued as the actual SZE signal for the cluster. With the angular resolution of TIME, the cluster contaminating sources can simply be removed from the offending data cube ``pixel'' and fitted with a smoothing function to reduce signal averaging errors. 
+One common technique applied in several analyses, including that for Bolocam, is subtracting a template for common mode fluctuations over the field of view. This method involves creating a statistic called a correlation coefficient, which depends on a template of the beam responsitivity. One example is from \cite{Sayers2010} given below. Equation \ref{eq:sayers1} shows the correlation coefficient, and Equation \ref{eq:sayers2} gives the template.
+\begin{equation}\label{eq:sayers1}
+    \tilde{c_{i}} = \frac{\sum_{j=1}^{j=N_{s}} T_{n}d_{in}}{\sum_{j=1}^{N_{s}} T_{n}^{2}}
+\end{equation}
+\begin{equation}\label{eq:sayers2}
+    T_{n} = \frac{\sum_{i=1}^{N_{b}} c_{i}^{-1} d_{in}}{\sum_{i=1}^{i=N_{b}} c_{i}^{-1}}
+\end{equation}
 
-A background that can safely be ignored by TIME is dust emission. In Figure \ref{fig:dust}, the isolated dust contribution for SZE measurements of Abell 2163 is shown. Dust emission falls off completely before 300 GHz, only slightly within the outer limits of the TIME high frequency band (183-326 GHz). 
+$d_{in}$ is the signal meausured by the detector, $N_{b}$ is the number of detectors, $T_{n}$ is the template for that bolometer, and $c_{i}$ is the relative responsivity of the detector.
 
+The template is calculated for each bolometer over a predetermined length scan and then correlated across every other template from every other bolometer. Each time, the correlation coefficient is recalculated and fed back into the template. Each time, the new $\tilde{c_{i}}$ becomes the new $c_{i}$. This process is repeated until $c_{i}$ converges to a value. If any templates don't converge, they are discarded from the data set. This generally removes the majority of the atmosphere from the data. If additional noise must be removed, more sophisticated methods are available, including higher order atmospheric template subtraction and adaptive principal component analysis (PCA) algorithms (see sections 4.3 and 4.4 in \cite{Sayers2010} respectively).
+
+One background source that won't require this complex modeling or subtraction is dust emission.
 \begin{wrapfigure}{r}{0.55\textwidth}
 \vspace{-0.8cm}
   \begin{center}
@@ -417,12 +422,15 @@ A background that can safely be ignored by TIME is dust emission. In Figure \ref
 \caption[TIME's frequency window will be mostly free of dust emission contamination. -(\cite{Birkinshaw1999})]{Measurements of Abell 2163 from mm to far-IR by multiple instruments. The solid line is a best-fit model for combined dust emission and SZE. The dash-dotted line is tSZE, while the dashed line is the isolated dust contribution. The dust emission falls off completely after $\sim$ 1000 microns [\cite{Birkinshaw1999}].}
 \label{fig:dust}
 \end{wrapfigure}
+In Figure \ref{fig:dust}, the isolated dust contribution for SZE measurements of Abell 2163 is shown. Dust emission falls off completely before 300 GHz, only slightly within the outer limits of the TIME high frequency band (183-326 GHz). 
 
 Intrinsic to this frequency range is also the ability to isolate the kSZE signal to high significance. In the left graph of Figure \ref{fig:tksze}, it was shown that for most frequencies, the kSZE signal is so faint that it is virtually impossible to detect for a high redshift cluster, if the tSZE signal is present. If the Kompaneets Equation presented above is examined more carefully, it can be seen that the tSZE has a null at 218 GHz, directly in the spectral range of TIME. This value can shift slightly for clusters with large numbers of relativistic electrons, as shown in the right graph of Figure \ref{fig:tksze}, but the effect is minimal. 
 
+Another common problem with early instruments was that the resolution was not fine enough to eliminate other contaminating radio sources in the cluster, besides the measurements desired. Massive clusters are rich environments for many different types of phenomena, including dusty galaxies and lensing contamination, which can radiate heavily in the radio to sub-mm portion of the spectrum. If the resolution is poor, the radio contamination would be misconstrued as the actual SZE signal for the cluster. With the angular resolution of TIME, the cluster contaminating sources can simply be removed from the offending data cube ``pixel'' and fitted with a smoothing function to reduce signal averaging errors. 
+
 This combination of features allows for high significance kSZE measurements, without the explicit need for extremely high mass clusters, and without tSZE contamination.The expected measurements of kSZE for TIME are shown in Figure \ref{fig:time1}. TIME's sensitivity will easily reach kSZE intensities for a massive cluster at $v_{pec} = 1000 km/s$, and extend to clusters below that velocity.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 \centering
 \captionsetup{width=0.8\textwidth}
 \includegraphics[width=0.8\textwidth]{time1.png}
