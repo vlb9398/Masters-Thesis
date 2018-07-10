@@ -251,6 +251,39 @@ While this is simply theory, some of the first interferometric observations of c
 \subsection{Theorized kSZE Advances}
 
 \subsubsection{Implications for Cosmology}
+%%
+
+
+After the formation of the universe in the Big Bang, the temperature was so high that only subatomic particles could survive. Radiation was the dominant energy density, where particles were still heavily coupled to the cosmic plasma. Afterwards, a brief inflationary phase magnified any quantum fluctuations in the surrounding medium and rapidly reduced the temperature to the point where atomic nuclei could form (recombination) and photons decouple (decoupling). Those photons have been propagating ever since, with little interaction, and still retain a perfect Blackbody spectrum, known as the Cosmic Microwave Background (CMB). 
+
+This is a theoretical timeline for the early history of the universe, but with some uncertain epochs, including when dark matter particle production began. Current models assume that it is before decoupling, where there was enough time for it to couple to baryonic matter and initiate gravitational collapse. These gravitational instabilities are observable in the power spectrum of the CMB, with the first mode sensitive to the present day distribution of large scale structure. What is still unknown is the evolutionary process from those first gravitational instabilities to the largest gravity potential wells created by galaxy clusters. 
+
+One method to understand the role of dark matter in this evolution is through the Boltzmann Equations for cold dark matter particles. A version of a first order solution, taken from \cite{Dodelson2003}, is shown in Equation 1. Here, the overdots are derivatives with conformal time, where \(\delta\) is the dark matter overdensity, k is the magnitude of the wavevector (which in Fourier space is analogous to the three-space coordinate x), and v is the velocity of the dark matter particles. The quantities are related to the gravitational potential that the particles exert on the surrounding space-time metric.
+
+\begin{equation}
+\dot{\delta} + ikv = -3\dot{\Phi}
+\end{equation}
+
+Additionally, the overdensity of dark matter can also be related to the observed anisotropy  through Equation 2, also taken from \cite{Dodelson2003}. The variable \(\Theta_{0}\) corresponds to the monopole of the perturbation of the matter density field, at a given point from its average over all space, and the other two variables are consistent with those above. From this, it is easily seen that an overdense region produces a reduction in the observed CMB anisotropy. This is due to the the photon losing energy as it attempts to move outside of its potential well. Regions with more dark matter, and more baryonic matter, have larger potential wells, and will have a more negative anisotropy compared to underdense regions. 
+
+\begin{equation}
+(\Theta_{0} + \Phi)(k,\eta_{\star}) = -\frac{1}{6} \delta(\eta_{\star})
+\end{equation}
+
+It should be noted that this solution is valid only for large-scale modes, which is appropriate for galaxy clusters. The methodology for extracting the physical properties of galaxies is much more convoluted  for non-linear regimes, as many other contaminating elements, namely dipole and quadropole fields (an example of a quadropole field being gravitational waves) create a difficult solution to the Boltzmann equations. The relationship between the anisotropies and the underlying physics of the system are much harder to correlate in that instance. 
+
+Work has also been done to show the relationship between the emitted photons and the physics of the cluster, based on the measured CMB brightness. The equation below taken from \cite{Dodelson1995} shows the change in the CMB brightness depending on the number density of the electrons in the cluster and their bulk velocity. This first order solution to the Boltzmann Equation is derived assuming a flat, matter dominated universe, and only includes terms which are caused by the relative motion of the gas. Higher order effects have been ignored. The $\Delta$ are the relative change in the CMB brightness, $n_{e}$ is the electron number density, $\sigma_{T}$ is the Thompson scattering cross section, a is the cosmic scale factor, and the $4 \mu \tilde v$ is the doppler shift term due to the motion of the electrons. The derivative is over conformal time, with the tildes denoting Fourier space. 
+
+\begin{equation}
+\dot{\tilde \Delta} + ik\mu \tilde\Delta = n_{e} \sigma_{T} a (4 \mu \tilde v - \tilde \Delta)
+\end{equation}
+
+While these equations make it apparent that studying the CMB anisotropies would lead to insights about the the dark matter densities in galaxy clusters, it also implies that anything that modifies the local gravitational potential would create deviations from the expected temperature fluctuations. The kinematic effects on the CMB photons from the bulk velocities of the electrons shown in Equation 3 show a very similar dependence to that of gravitational potentials of the clusters themselves. This leads to the conclusion that the properties of dark matter on large scales can be derived from the kSZE. 
+
+
+
+
+%Even more insights can be drawn if this effect was measured at multiple redshifts. This can probe the history and evolution of large-scale matter density structure, and reveal how dark matter and baryonic matter coupled in the early universe. Larger surveys can reveal the process through which clusters emerge from the initial density field, and how the initial density affects the resultant mass of the cluster, which is still widely unknown. Measurements constraining the density field are also a good check on the standard \(\Lambda Cold Dark Matter\) (\(\Lambda CDM\)) paradigm. The kSZE is sensitive to the largest overdensities in the field; clusters. If the number of peaks in the density field matches the well established cosmological model, it will provide an independent confirmation of the parameter space that we live in. 
 
 Constraining cosmological parameters:
 	%(Kaiser 1987 ; Scoccimarro 2004 ; Bhattacharya & Kosowsky 2008/2009)
@@ -292,33 +325,7 @@ Constraining Lambda CDM cosmology through bulk flow upper limits
 
 % Understanding the Role of Dark Matter in Cluster Evolution:
 
-It is now clear that measuring the amplitude of the kSZE in clusters is essentially measuring their bulk motions relative to the Hubble Flow. Since this flow is predicted by $\Lambda CDM$ cosmology [\cite{Mak2011}], it is worth exploring whether dark energy/matter are part of the phenomenon, or if their properties can be constrained from its measurement. Both are usually described by their effect on their surroundings, and seem more well defined in mathematical contexts, such as the Friedmann Equation (FE) of state. Dark energy, or sometimes referred to as negative pressure, is one of the energy densities contained in the FE, and by current measurements appears to account for roughly 70\% of the total energy density of the universe, and might have important consequences for the late evolution of our universe. Dark matter has slightly more observational evidence, for example when looking at the flat rotation curves of galaxies, and is believed to constitute 25\% of the mass energy density of the universe [CITE REFERENCE HERE].
-
-%%
-At the earliest point in the universes history, radiation was the dominant energy density, where subatomic particles were still coupled to the cosmic plasma. Afterwards, a brief inflationary phase magnified any quantum fluctuations in the surrounding medium and rapidly reduced the temperature to the point where atomic nuclei could form (recombination) and photons decouple. While the exact timeline has not been conclusively proven, it is theorized that dark matter production also took place at some point before decoupling, allowing baryonic matter to begin gravitational clustering, which can then be seen in the CMB anisotropies. This gravitational perturbation continued to grow and evolve as matter continued to form into first neutral atoms and molecules, and eventually to stars and galaxies. The relationship between these perturbations and dark matter is easily seen by deriving the Boltzmann Equations for cold dark matter particles. A version of a first order solution, taken from \cite{Dodelson2003}, is shown in Equation 1. Here, the overdots are derivatives with conformal time, where \(\delta\) is the dark matter overdensity, k is the magnitude of the wavevector (which in Fourier space is analogous to the three-space coordinate x), and v is the velocity of the dark matter particles. The quantities are related to the gravitational potential that the particles exert on the surrounding space-time metric.
-
-\begin{equation}
-\dot{\delta} + ikv = -3\dot{\Phi}
-\end{equation}
-
-Additionally, the overdensity of dark matter can also be related to the observed anisotropy  through Equation 2, also taken from \cite{Dodelson2003}. The variable \(\Theta_{0}\) corresponds to the monopole of the perturbation of the matter density field, at a given point from its average over all space, and the other two variables are consistent with those above. From this, it is easily seen that an overdense region produces a reduction in the observed CMB anisotropy. This is due to the the photon losing energy as it attempts to move outside of its potential well. Regions with more dark matter, and more baryonic matter, have larger potential wells, and will have a more negative anisotropy compared to underdense regions. 
-
-\begin{equation}
-(\Theta_{0} + \Phi)(k,\eta_{\star}) = -\frac{1}{6} \delta(\eta_{\star})
-\end{equation}
-
-It should be noted that this solution is valid only for large-scale modes, which is appropriate for galaxy clusters, another reason why the kSZE survey is not focused on individual galaxies. The methodology for extracting the physical properties of galaxies is much more convoluted  for non-linear regimes, as many other contaminating elements, namely dipole and quadropole fields (an example of a quadropole field being gravitational waves) create a difficult solution to the Boltzmann equations. The relationship between the anisotropies and the underlying physics of the system are much harder to correlate in that instance. 
-
-Work has also been done to show the relationship between the emitted photons and the physics of the cluster, based on the measured CMB brightness. The equation below taken from \cite{Dodelson1995} shows the change in the CMB brightness depending on the number density of the electrons in the cluster and their bulk velocity. This first order solution to the Boltzmann Equation is derived assuming a flat, matter dominated universe, and only includes terms which are caused by the relative motion of the gas. Higher order effects have been ignored. The del's are the relative change in the CMB brightness, $n_{e}$ is the electron number density, $\sigma_{T}$ is the Thompson scattering cross section, a is the cosmic scale factor, and the $4 \mu \tilde v$ is the doppler shift term due to the motion of the electrons. The derivative is over conformal time, with the tildes denoting Fourier space. 
-
-\begin{equation}
-\dot{\tilde \Delta} + ik\mu \tilde\Delta = n_{e} \sigma_{T} a (4 \mu \tilde v - \tilde \Delta)
-\end{equation}
-
-While these equations make it apparent that studying the CMB anisotropies would lead to insights about the the dark matter densities in galaxy clusters, it also implies that anything that modifies the local gravitational potential would create deviations from the expected temperature fluctuations. The kinematic effects on the CMB photons from the bulk velocities of the electrons shown in Equation 3 show a very similar dependence to that of gravitational potentials of the clusters themselves. This leads to the conclusion that the properties of dark matter on large scales can be derived from the kSZE. 
-
-Even more insights can be drawn if this effect was measured at multiple redshifts. This can probe the history and evolution of large-scale matter density structure, and reveal how dark matter and baryonic matter interacted in the early universe. Larger surveys can reveal the process through which clusters emerge from the initial density field, and how the initial density affects the resultant mass of the cluster, which is still widely unknown. Measurements constraining the density field are also a good check on the standard \(\Lambda Cold Dark Matter\) (\(\Lambda CDM\)) paradigm. The kSZE is sensitive to the largest overdensities in the field; clusters. If the number of peaks in the density field matches the well established cosmological model, it will provide an independent confirmation of the parameter space that we live in. 
-
+%It is now clear that measuring the amplitude of the kSZE in clusters is essentially measuring their bulk motions relative to the Hubble Flow. Since this flow is predicted by $\Lambda CDM$ cosmology [\cite{Mak2011}], it is worth exploring whether dark energy/matter are part of this phenomenon, or if their properties can be constrained from its measurement. Both are usually described by their effect on their surroundings, and seem more well defined in mathematical contexts, such as the Friedmann Equation (FE) of state. Dark energy, or sometimes referred to as negative pressure, is one of the energy densities contained in the FE, and by current measurements appears to account for roughly 70\% of the total energy density of the universe, and might have important consequences for the late evolution of our universe. Dark matter has slightly more observational evidence, for example when looking at the flat rotation curves of galaxies, and is believed to constitute 25\% of the mass energy density of the universe [CITE REFERENCE HERE].
 
 %(not relevant to what I'm doing)
 % kSZE also probes the transverse component of the velocity field. When combined with imaging done through weak gravitational lensing, which is sensitive to the other two velocity components, it can create a 3D velocity map of each galaxy cluster which will allow more accurate modeling of the true shape of the cluster potential well and the cosmic filament that large structures are believed to reside in [\cite{Birkinshaw1999}].
