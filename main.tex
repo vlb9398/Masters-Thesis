@@ -12,7 +12,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{gensymb} % general symbols
 \usepackage{graphicx} % display figures
-    \graphicspath{ {figures/} } % to make list of figures
+\graphicspath{{figures/}} % to make list of figures
 \usepackage{amsmath} % equations
 \usepackage{float} % figure floating
 \usepackage[english]{babel}
@@ -105,7 +105,7 @@ In order to arrive at a final solution, some estimates have to be made about  $f
     \subfloat{{\includegraphics[width=0.4\textwidth]{gong2.png} }}%
     \singlespace
     \caption[Calculated line intensities for CII in the ISM and IGM. -(\cite{Gong2012})]{Left: The expected line intensity of CII for values consistent with the Milky Way ISM at varying redshift, electron temperature, and gas density. Right: Same as left but with IGM parameters substituted. It is clear that the CII intensity in both cases saturates at some critical value, and that the IGM does not contribute as significantly to the overall CII emission [\cite{Gong2012}].}%
-    \label{fig:example}%
+    \label{fig:gong1}%
 \end{figure}
 
 These plots reveal that the CII intensity is predicted to have an increasing trend with redshift, and that the signal is high enough to be detected above shot noise and cosmic variance in the total CII power spectrum. The power spectrum also reveals the distribution of galaxies during re-ionization, and can reveal how matter was clumped to produce the strength of emission observed. It should be noted that the above analytical model agrees well with simulations of galaxies that tune their parameters to match those of observations. However, one physical affect that has not yet been taken into account is line contamination from foreground sources. The rotational and vibrational transitions of CO molecules at low redshift have a similar intensity to those of CII at high redshift, and can contaminate the assumed detection of CII. CO lines  can add as much as 2-30\% change in the apparent CII brightness, leading to incorrect assumptions about the physics of the ISM [\cite{Gong2012}]. Contamination by CI and NII are also present, but not to the same degree as CO. The expected detection of CO and CII by TIME is plotted below [\cite{Crites2014}].
@@ -163,7 +163,7 @@ An example of this technique was given in \cite{Cheng2016}, who created a realis
     \subfloat{{\includegraphics[width=0.45\textwidth]{cheng3.png} }}%
     \singlespace
     \caption[Deblending of the CII and CO power spectrums. -(\cite{Cheng2016})]{Deblending of the CII and CO powerspectrum. The leftmost figure is the CII power spectrum, right for CO both at z = 6. [\cite{Cheng2016}]}%
-    \label{fig:example}%
+    \label{fig:cheng1}%
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,9 +285,8 @@ Cluster velocities measured with respect to the positions of other large scale s
  \end{equation}
 \(\tilde{W}_{r}(k)\) is the 3D Fourier transform of a real space top-hat filter over a comoving sphere of radius r, \(P_{m}(k,z)\) is the matter power spectrum, and E(a) is the energy density change with scale factor. This allows a direct comparison of cluster velocities to the predicted matter power spectrum, as observed using the CMB.
 
-%==================================================================================
-
-(Bhattacharya & Kosowsky 2008):
+%==========================================================
+(Bhattacharya \& Kosowsky 2008):
 
 %we describe the dark energy in terms of three phenomenological parameters: its current energy density ΩΛ, and two parameters w0 and wa describing the redshift evolution of its equation of state w(a) = w0 +(1−a)wa. Assuming a spatially flat universe, the set of cosmological parameters p on which the velocity field depends are the normalization of the matter power spectrum σ8 (or equivalently the normalization constant B in Eq. (5)), the power law index of the primordial power spectrum nS, and the Hubble parameter h, plus the dark energy parameters.
 
@@ -312,67 +311,48 @@ Testing dark energy vs. modified gravity
 %===================================================================================
 \subsubsection{Implications for Cluster Physics}
 
-Clusters are one of the largest gravitationally bound systems in the universe, meaning that they are also host to unique gas physics, and internal processes not found in individual galaxies. Some of these include movement through equilibrium states (hydrostatic, thermal, ionization), feedback, cooling outflows, mergers, and enrichment of the ICM. So why are these important? For cluster research, better understanding the current state of the ICM can give insights into the process of mergers, and reveal part of the evolutionary history for how these structures were created. From the perspective of kSZE research, these processes disrupt the normal isothermal beta model that has been assumed for most spectral fitting profiles, and have been a significant source of error for compton y estimates. Conversely, kSZE has the potential to reveal these deviations from static, equilibrium conditions and improve the modeling of the ICM, as well as study unique cluster physics. 
+Clusters are one of the largest gravitationally bound systems in the universe, meaning that they are also host to unique gas physics, and internal processes not found in individual galaxies. Some of these include movement through equilibrium states (hydrostatic, thermal, ionization), feedback, cooling outflows, mergers, and enrichment of the ICM. So why are these important? For cluster research, better understanding the current state of the ICM can give insights into the process of mergers, and reveal part of the evolutionary history for how these structures were created. From the perspective of kSZE research, these processes disrupt the normal isothermal beta model that has been assumed for most spectral fitting profiles, and have been a significant source of error for compton y estimates. Conversely, kSZE has the potential to reveal these deviations from static, equilibrium conditions and improve the modeling of the ICM, as well as probe gas physics. 
 
-The collective knowledge of ICM properties comes from only the inner \~10\% with respect to volume. Cluster outskirts have been measured but only to very low resolution. The reason why varies depending on which wavelength/method was used for observing. For X-ray, the brightness is dependent on \(n_{e}^{2}\) , or the squared electron number density. In the outskirts of the cluster, the signal becomes too faint to distinguish above foreground and background sources, due to the diffuse nature of the gas. Even gravitational lensing suffers from projection effects out to such distances 
+Despite the importance of the ICM, most observations only extend to the first 10\% from the cluster center by volume. Cluster outskirts have been measured but only to very low resolution. The reason why varies depending on which wavelength/method was used for observing. For X-ray, the brightness is dependent on the squared electron number density. In the outskirts of the cluster, the signal becomes too faint to distinguish above foreground and background sources, due to the diffuse nature of the gas.  This has made measurements of the filamentary gas structures between clusters, locations of dark and baryonic matter interaction, challenging to detect. Even gravitational lensing suffers from projection effects out to such distances (\cite{Reiprich2013}). X-ray also suffers from dimming with increased redshift, specifically by \((1+z)^{4}\) as shown in \ref{eq:xraydim}. The kSZE is sensitive to the linear change in the gas density, providing an extended range for detecting cluster gas in the outskirts. 
+
+\begin{equation}\label{eq:xraydim}
+S_{X} \propto \frac{1}{(1+z)^4} \Large\int^{\infty}_{-\infty}  n_{e}^{2} dl
+\end{equation}
+
+Recent hydrodynamical simulations of clusters have attempted to induce some of the lost physics in standard cluster models, which typically included AGN and mergers. Analytic models are necessarily simplistic,  and make assumptions such as hydrodynamical equillibrium and spherical symmetry that are now being shown as ineffective. For cluster cores, the velocity pattern of the ICM was studied using an adaptive mesh refinement technique and found that kinetic and turbulent energy accounted for 5-25 percent of the total thermal energy inside of the virial radius. Additionally, accretion patterns of AGN's were more complex in the cluster outskirts than previously believed, with turbulence and shocks that prevented the use of simple gravitationally dominant models. This indicated that the outskirts of the ICM were clearly not in hydrostatic equillibrium, and that the interior had small scale fluctuations that were missed by most observations (\cite{Reiprich2013}).  
+
+Another discovery of unique cluster physics was found by Chandra, and showed cold shock fronts in the ICM, mixed with hotter and rarefied ambient gas. These clouds were found not only in clusters presenting merging activity or AGN, but also in relaxed clusters, with sizes often twice that of the central core radius. Some theories to describe this phenomenon are that the cold clouds are oscillating back and forth across the minimum of the cluster potential well, or that the motion was induced by other events, such as those listed above. The clouds are expected to induce a kSZE signal, making it a ripe opportunity to discover the nature and source of these clouds (\cite{Diego2003}). These cooling flows have since presented a challenge for basic Beta models, as they typically over fit to X-ray data, since X-ray observations are more sensitive to over-densities in the core (\cite{Benson2003}). 
+
+These cold shock fronts and others associated with merging activity have typically been easier to observe behind the contact discontinuity, for X-rays. The actual shock fronts themselves can be easily observed with the kSZE, since bulk velocity is a direct probe for gas dynamics. To prove this concept, a simulation of the bullet cluster was made, and then artificially observed using ALMA resolution and sensitivities. The result is given in Figure \ref{fig:bulletcluster}, where in the right graph, the clear kSZE spectrum is observable, as well as definitive jumps near the shock fronts and contact discontinuity (\cite{Kitayama2014}). 
+
+\begin{figure}[h!]
+\centering
+\captionsetup{width=0.8\textwidth}
+\includegraphics[width=0.8\textwidth]{bulletcluster.png}
+\caption[ Bullet Cluster Simulated Shock Front kSZE Detection -[\cite{Kitayama2014}]]{Left: Simulated shock from in the Bullet Cluster at z = 0.296. Right: Simulated SZE image by ALMA at 90 GHz with standard noise components. The this dotted line indicates the location of the contact discontinuity, while the thick dashed line is the location of the shock front. Error bars indicate the expected intensity through the region in the left plot white box (\cite{Kitayama2014})}
+\label{fig:bulletcluster}
+\end{figure}
+With this method, kSZE can be used to determine the velocity field of the cluster gas in cases where the gas is both hot or cold in a shock front, without relying on high electron temperatures or densities. 
 
 %So, there the X-ray-emitting electrons may have a cooler temperature than the invisible protons, resulting in a steeper X-ray temperature gradient towards the outskirts and, therefore, an underestimate of the total mass (Fig. 3). (see equation 16)
 %Because shock heating is an important process, and both protons and electrons are involved in the process of heating and cooling, and one is more efficient than the other, by detecting the x-ray emission from electrons (which cool more quickly), the mass of the cluster is underestimated using x-rays
 
-%filamentary gas distribution between clusters, a direct measurement of the dark matter component of cosmic filaments, still hasn't been well detected by x-rays because it is too diffuse.
-
 % Within the spread of predictions it matches best the numerical simulations that implement AGN feedback, and it presents a slightly flatter profile compared to most of the above theoretical expectations in the outerparts. (combined measurements between Planck and XMM-Newton)
-
-(\cite{Reiprich2013}). The kSZE is sensitive to the linear change in the gas density, providing an extended range for detecting cluster gas in the outskirts. 
-
-Recent hydrodynamical simulations of clusters have attempted to induce some of the lost physics in the standard beta profiles, for various effects including AGN and mergers. For cluster cores, the velocity pattern of the ICM was studied using a adaptive mesh refinement technique and found that kinetic and turbulent energy accounted for 5-25 percent of the total thermal energy inside of the virial radius. This indicated that the outskirts of the ICM were clearly not in hydrostatic equillibrium, and that the accretion pattern in the outskirts cannot be fit by a simple model (\cite{Reiprich2013}).  
-
-Another discovery of unique cluster physics was found by Chandra, and showed cold fronts in the ICM, mixed with hotter and rarefied ambient gas. These clouds were found not only in clusters presenting merging activity or AGN, but also in relaxed clusters, with sizes often twice that of the central core radius. Some theories to describe this phenomenon are that these cold clouds are oscillating back and forth across the minimum of the cluster potential well, or that the motion was induced by other events, such as those listed above. The clouds are expected to induce a kSZE signal, making it a ripe opportunity to discover the nature and source of these clouds. 
-
-(Reiprich 2013):
-
-%However, simulations highlight that the accretion pattern in the outskirts is indeed complicated. Non-adiabatic effects like turbulence and shocks are frequent in unrelaxed systems and can influence the pressure profiles.
-
-%Indeed, modelling cluster outskirts with hydrodynamical simulations is generally considered an easier task with respect to cluster cores. The reason is that any form of feedback effect is usually connected with active galactic nuclei (AGN) and star-formation and, therefore, with gas density, thus leaving the external regions more dominated by gravitational collapse. In fact, it has been shown with hydrodynamical simulations that different physical prescriptions have a small impact on clusters’ profiles in the outskirts.
-
-%Recently, Vazza et al. (2009) ran simulations with the Eulerian adaptive mesh refinement (AMR) code ENZO including the implementation of a new sub-grid refining scheme, allowing them to study the velocity pattern of the ICM in simulated clusters. Their results showed that the kinetic and turbulent energy associ- ated with the ICM account for 5–25 per cent of the total thermal energy inside rvir.
-
-
-(Kitayama 2014):
-%You can use the kSZE to measure the shock fronts from merging events and the gas dynamics to view the kinematics of the gas structure. "Since the thermal SZE and the kinematic SZE are proportional to thermal pressure and the bulk velocity, respectively, they serve as direct probes of shock fronts (i.e., pressure gaps) and gas dynamics." Figure 11 shows a simulation of the bullet cluster, and then the expected SZE image by ALMA. Tracing the shape of the SZE spectrum can reveal the location of the shock fronts. 
-
-%Shocks in galaxy clusters are in general hard to find in X-rays because they often appear at outskirts and are also hidden by a sharp radial gradient of n2e; density peaks behind the contact discontinuity are much easier to be seen inX-rays as cold fronts
-
-
-% modeling of the cluster properties (see below)
-%It also provides further constraints on the modeling of the gas within the cluster. Since our measurements are extremely sensitive to the motions and temperature of the gas, (and with high enough resolution instruments, the gas mass with radius), we can determine the hydrodynamical evolution of the cluster gas with redshift, in addition to cluster mass. This could include information about evolutionary effects such as feedback and cooling outflows, and how they affect the cluster environment, specifically in the ICM.
-%Another use is to determine whether cluster properties vary with redshift, or perhaps with other parameters such as merger rates and non-linear affects. One parameter space that is still being researched is the relationship between cluster mass and its resulting temperature.
 
 (Reconstructing gravitational potentials)
 	%(Knox & Peel 2002)
 (Merging Clusters) 
-   (Kock & Jetzer 2004)
-   (Diego et al 2003 )
-    % The most likely explanation for the presence of a cold front is that the cluster hosts a dense cold gas cloud that is moving with respect to the hotter and more rarefied ambient gas (Vikh-linin et al. 2001). So far it is not completely clear why so many clusters (especially rounder, relaxed clusters) host moving gas clouds. One possibility is that the gas cloud in the central region is oscillating (sloshing) around the minimum of the cluster potential well (see, e.g., Markevitch et al. 2001, 2002; Mazzotta et al. 2003). This bulk gas motion may be either the result of a recent merger or due to dynamic feedback from the central (not necessarily currently active) active galactic nucleus.
+   (Kock \& Jetzer 2004)
     
-(Scaling Relations to determine cluster mass)
-	%The average mass and total number of clusters in the Universe is highly sensitive to the effects of dark energy in the distant universe, and the effects of dark matter in the nearby universe. The final number and mass is also closely tied to the primordial matter power spectrum. 
+(Scaling Relations to determine cluster mass) 
 	%(Benson et al. 2013 ; Rozo et al. 2010)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%X-ray data has largely contributed to the knowledge of clusters, since the emission from the ICM is a much larger signal than that of kSZE. However, the conclusions that are derived from this data are significantly dependent on modeling based on the local universe. The assumptions of gas mass fraction, stellar census with age, and radiative transfer that are simulated for these clusters may not actually hold across every redshift, and cannot be confirmed without a secondary source of data. In order to make assumptions about the ratio of baryonic mass in the cluster to the total mass also relies on modeling of the clumpiness of the gas, and the assumption of hydrostatic equillibrium, both of which can also vary widely per cluster, and are a significant source of uncertainty in many measurements. kSZE provides a measurement that is independant of this type of modeling [\cite{Carlstrom2002}].
-
-%(Benson 2004)
-%One of the systematic effects that we are primarily concerned about in using X-ray models to fit SZ observations is that the X-ray Beta models might over-fit to the cooling core for cooling flow clusters. This is a result of X-ray observations being more sensitive to over-densities in the core of a cluster than SZ observations, because LX ? n2e while ISZ ? ne.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pitfalls of studying the ICM with Xrays (McNamara et al 2005; Markevitch & Vikhlinin 2007)
 
-%for example the (1 + z)4 dimming of the X-ray surface brightness (eq. 19). In practice, however, this redshift independence is currently not fully exploitable due to finite beam sizes. Another major advantage is the linear dependence of the SZ signal on electron density, as opposed to the n2e dependence of X-ray brightness, which potentially makes it more suitable to study the low density outskirt environments.'' (Reiprich 2013) (Also reference equation 19 to show the effect of cosmological diming on the X-ray surface brightness)%
+%for example the (1 + z)4 dimming of the X-ray surface brightness (eq. 19)
 
-%Mrockzkowski 2012 discusses the dimming of the x-ray signal due to increase in distance. Something SZE doesn't suffer from.%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Previous Cluster SZE Detections \& Advancements}
 
 The study of SZE is not a new branch in the field of Cosmology. Some of the first SZE measurements of clusters were made back in the 1970's on the Chilbolton Observatory 25 meter telescope in England, and at the Owens Valley Radio Observatory (OVRO) in California in the 1980's (\cite{Birkinshaw1999}). These instruments provided proof that SZE was detectable in massive clusters, but the results were often confusing, as measurements of the same object between different telescopes returned different cluster gas temperatures. These differing values were often not within error of each other, revealing a serious systemic uncertainty not accounted for in the analysis. At the time, so few clusters were being targeted for SZE research that it was impossible to make any global statements about the properties of the intra cluster medium, or to determine the cause of the uncertainty in the measurements. 
@@ -383,7 +363,7 @@ Despite the ubiquity of tSZE meaurements, dedicated large scale kSZE surveys are
 
 The results from observing 6 clusters showed an average peculiar velocity of 150 $\pm (+430,-390)$ km/s , which is not a statistically significant result [\cite{Benson2003}]. In subsequent analysis, it was discovered that the results were heavily affected by differential atmospheric emission, which was not subtracted effectively by either of the above methods, leading to a modified 68\% certainty in the results [\cite{Mauskopf2000},\cite{Carlstrom2002}]. The atmospheric templates were also dependent on the modeling of the cluster gas, and were sensitive to the distribution and temperature. SuZIE II also had large beam sizes which meant low resolution, and the inability to mask point source contamination without sacrificing large fractions of data. 
 
-In a following data release, the total clusters observed by SuZIE II increased to 15, with additional analysis of the SZ flux and central Comptonization parameter. This led to two important insights; that combining x-ray data with SZE signals could improve the results, and variations of the standard Beta model used in determining cluster temperatures radically changed the results. Central Comptonization is similar to the Compton Y parameter introduced above, but is applied at the center of the cluster, and depends on the electron density and temperature. The cluster centroid was determined using X-ray data from ROSAT, which included published models of gas density and electron temperature. However, as described previously, those values are sensitive to other processes within the cluster, such as cooling flows. When two different models were fit against the data for cluster A1689, the calculated central comptonization changed by 40\% [\cite{Holzapfel et al. 1997b}, \cite{Reese et al. 2002}]. This was because the cluster was poorly resolved by SuZIE II, and relied entirely on the assumed ICM gas model [\cite{Benson2004}]. 
+In a following data release, the total clusters observed by SuZIE II increased to 15, with additional analysis of the SZ flux and central Comptonization parameter. This led to two important insights; that combining x-ray data with SZE signals could improve the results, and variations of the standard Beta model used in determining cluster temperatures radically changed the results. Central Comptonization is similar to the Compton Y parameter introduced above, but is applied at the center of the cluster, and depends on the electron density and temperature. The cluster centroid was determined using X-ray data from ROSAT, which included published models of gas density and electron temperature. However, as described previously, those values are sensitive to other processes within the cluster, such as cooling flows. When two different models were fit against the data for cluster A1689, the calculated central comptonization changed by 40\% [\cite{Holzapfel1997b}, \cite{Reese2002}]. This was because the cluster was poorly resolved by SuZIE II, and relied entirely on the assumed ICM gas model [\cite{Benson2004}]. 
 
 Other instruments followed SuZIE II to make kSZE improved measurements of individual clusters, including Z-Spec. Rather than relying on photometry, Z-Spec utilized an R ~ 300 grating spectrometer between 185 - 305 GHz to make measurements of a single cluster RX J1347.5-1145. One interesting result from the retrieved kSZE spectrum were possible contaminants. In this cluster, there was reported a shock region to the southeast of the cluster center, along with several other subshocks. This combined with variations in the cluster shape led to difficulty in constraining an optimal isothermal beta model, since shocks and non-uniform structure change the clumping and temperature of the cluster gas. The team reported that if the beta model was changed to those used in other literature, the Compton Y value would change as much as 25 \%. The traditional beta model is given by 
 \begin{equation}
@@ -397,7 +377,7 @@ This issue of beta model dependancy is a standing problem for SZE research, and 
 
 Z-Spec also highlighted additional uncertainties in the data, one component from the Cosmic Infrared Background, and another from varying models of the AGN present in the cluster. A simulation was run with several sub-mm sources fed through the Z-Spec data pipeline for a random patch of sky, with changes in the continuum background flux reported next to the kSZE. The result has a mean near zero, but a bias as large as 300 $\nu Jy$ if a source were in the beam. Most analysis performed for kSZE assumes that the sub-mm background is well understood. However that assumption may not hold if the cluster is significantly lensed, and could cause problems for large scale kSZE surveys of the future [\cite{Zemcov2012}].
 
-Each instrument presented so far has reported some dependence on the beta model, and also had differing beam sizes. TIME will also share these traits, which is why research into this dependence is vital to understanding data results. Investigations made by \cite{Saliwanchick2015} et al. discovered that the optimal beam size for least dependence on the gas model was one the same size as the cluster. This result was obtained by first creating a simulated universe based on current cosmology, and populating it with realistic CMB background fluctuations, sub-mm clusters, radio point sources, and others. Any of the clusters created were given a standard isothermal beta profile, and were then ``measured'' in the same way as the South Pole Telescope (SPT) performed observations. The beam size across the cluster was allowed to vary, and the recovered profiles of the cluster, namely the calculated Compton Y parameter was compared to the one inputted by the simulation. The calculation is similar to the one employed by the SPT, where the source function of the SZE signal is integrated over some finite area
+Each instrument presented so far has reported some dependence on the beta model, and also had differing beam sizes. TIME will also share these traits, which is why research into this dependence is vital to understanding data results. Investigations made by \cite{Saliwanchik2015} et al. discovered that the optimal beam size for least dependence on the gas model was one the same size as the cluster. This result was obtained by first creating a simulated universe based on current cosmology, and populating it with realistic CMB background fluctuations, sub-mm clusters, radio point sources, and others. Any of the clusters created were given a standard isothermal beta profile, and were then ``measured'' in the same way as the South Pole Telescope (SPT) performed observations. The beam size across the cluster was allowed to vary, and the recovered profiles of the cluster, namely the calculated Compton Y parameter was compared to the one inputted by the simulation. The calculation is similar to the one employed by the SPT, where the source function of the SZE signal is integrated over some finite area
 
 \begin{equation}
 Y_{SZ} = 2\pi \int_{0}^{\Theta_{int}} S(\theta) \theta d\theta
@@ -415,7 +395,7 @@ $f_{x}$ is the equation for the relativistically corrected canonical SZE given b
   \begin{center}
     \includegraphics[width=0.5\textwidth]{saliwanchick1.png}
    \end{center}
-\caption[MCMC Cluster Simulation Showing Scatter Versus Integration Angle -[\cite{Saliwanchick2013}]]{The tSZE only simulation contains intrinsic scatter of the dataset. The full scatter set includes the CMB, point sources, atmospheric, and instrumental noise. This was a simulation for clusters at a median redshift of $z ~ 0.6$[\cite{Saliwanchick2013}]}
+\caption[MCMC Cluster Simulation Showing Scatter Versus Integration Angle -[\cite{Saliwanchik2015}]]{The tSZE only simulation contains intrinsic scatter of the dataset. The full scatter set includes the CMB, point sources, atmospheric, and instrumental noise. This was a simulation for clusters at a median redshift of $z ~ 0.6$[\cite{Saliwanchik2015}]}
 \label{fig:sali1}
 \end{wrapfigure}
 relativistically corrected SZ spectrum, $T_{CMB}$ is the temperature of the CMB background at 2.73 K, while $\delta T_{0}$ is the central temperature decrement compared to the CMB. They then compared the observation data and real data to known scaling relationships and compared the scatter for both tSZE only and tSZE + Noise measurements. The results shown in Figure ~\ref{fig:sali1} clearly indicate that the least scatter from the retrieved data set is for beam sizes equivalent to the angular diameter of the cluster at the given redshift. TIME is still in the process of selecting optimal cluster candidates, but this additional factor will be taken into consideration to relieve some modeling uncertainty.  
@@ -432,7 +412,7 @@ In order to remove redshift dependencies (infrared galaxy emission, tSZE signal 
     \begin{center}
       \includegraphics[width=0.5\textwidth]{hand1.png}
     \end{center}
-\caption[Mean Pairwise Momentum of BOSS DR9 Selected Clusters using kSZE -(\cite{hand2012})]{TOP: Mean pairwise kSZE signal for the 5000 most luminous BOSS DR9 galaxies in the ACT sky region, as well as a simulation for comparison. The real data set is shown in red, while the simulation, based off of large-volume cosmological simulations, is shown in black. The red data points were corrected for any redshift dependent temperature contributions, and minimizes the total Poisson and pixel noise. Errors were estimated using bootstrap resampling. BOTTOM: The probability of data given a null signal, consistent with a null signal. [\cite{hand2012}]}
+\caption[Mean Pairwise Momentum of BOSS DR9 Selected Clusters using kSZE -(\cite{Hand2012})]{TOP: Mean pairwise kSZE signal for the 5000 most luminous BOSS DR9 galaxies in the ACT sky region, as well as a simulation for comparison. The real data set is shown in red, while the simulation, based off of large-volume cosmological simulations, is shown in black. The red data points were corrected for any redshift dependent temperature contributions, and minimizes the total Poisson and pixel noise. Errors were estimated using bootstrap resampling. BOTTOM: The probability of data given a null signal, consistent with a null signal. [\cite{Hand2012}]}
 \label{fig:hand1}
 \end{wrapfigure}
 This was subtracted from the kSZE calculated temperature of $T_{kSZ} = - N_{kSZ} p_{i} \cdot \hat{r_{i}}$, where $N_{kSZ}$ is a normalization factor accounting for the size of the beam, pixel scale, and cluster density profile. $T_{kSZ}$ is only an acceptable statistic if it is assumed the ratio of the total cluster mass to its mass in hot gas is the same universal ratio of matter to baryon density. 
@@ -494,7 +474,7 @@ This combination of features allows for high significance kSZE measurements, wit
 \centering
 \captionsetup{width=0.8\textwidth}
 \includegraphics[width=0.8\textwidth]{time1.png}
-\caption[Expected TIME kSZE & tSZE Measurements]{Simulated measurements of tSZE and kSZE with TIME. Grey bands are atmospheric monitoring channels. The solid and dashed lines are theoretical calculations of the effect using the equations given in the science discussion above, while the diamonds are the estimated performance for TIME. This estimated detection assumes astrophysical contamination, the atmospheric subtraction method described above, and assumes 10 hours of observation on the cluster.}
+\caption[Expected TIME kSZE \& tSZE Measurements]{Simulated measurements of tSZE and kSZE with TIME. Grey bands are atmospheric monitoring channels. The solid and dashed lines are theoretical calculations of the effect using the equations given in the science discussion above, while the diamonds are the estimated performance for TIME. This estimated detection assumes astrophysical contamination, the atmospheric subtraction method described above, and assumes 10 hours of observation on the cluster.}
 \label{fig:time1}
 \end{figure}
 
@@ -601,7 +581,7 @@ TIME will be commissioned at the Arizona Radio Observatory (ARO) at Kitt Peak on
     \subfloat{{\includegraphics[width=0.45\textwidth]{time2d.png} }}%
     \singlespace
     \caption[]{}%
-    \label{fig:time2ab}%
+    \label{fig:time2cd}%
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
