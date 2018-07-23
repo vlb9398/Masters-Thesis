@@ -15,6 +15,8 @@
 \graphicspath{{figures/}} % to make list of figures
 \usepackage{amsmath} % equations
 \usepackage{float} % figure floating
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 \usepackage[english]{babel}
 \bibliographystyle{aasjournal}
 % change margins
@@ -68,12 +70,17 @@ This paper overviews the dedicated kSZE research that will be conducted by the T
  
 Section 2 discusses the observational technique known as intensity mapping, which will be employed by TIME, in order to provide clarity on the subjects of data acquisition and analysis. Section 3 covers the scientific background of the SZE and what TIME's expected contributions will be, and Section 4 will do the same but for CII and CO detection. Section 5 will summarize the key points presented, and impress upon the reader the important role that TIME will play in the advancement of the field of Cosmology. 
  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{TIME Primary Science Goal: CII/CO Line Emission and the Epoch of Reionization}
+\section{TIME Primary Science Goal: CII/CO Line Emission and the Epoch of Re-ionization}
 
 \subsection{The Mysterious EOR}
+%%
+%The evolution of large-scale structure is something that was discussed previously in the context of mass aggregation, and understanding the role of dark matter in galaxy cluster formation. While the study of galaxy clusters is revealing, how these super structures ended up in their current state is still a debated topic. 
 
-The evolution of large-scale structure is something that was discussed previously in the context of mass aggregation, and understanding the role of dark matter in galaxy cluster formation. While the study of galaxy clusters is revealing, how these super structures ended up in their current state is still a debated topic. Models have been made that can simulate the clustering of matter from initial primordial fluctuations to the present day universe, but the observational evidence corroborating them have been somewhat lacking. Current evolutionary theories predict that the universe cooled to the point where elementary hydrogen and helium could form, and then cooled further to where photons decoupled from matter. This led to a period of time known as the ``dark ages'', where the universe was mostly neutral, with no emitting sources. Eventually, the initial primordial fluctuations in the hydrogen/helium gas gave rise high density regions that could collapse under their own gravity, and ignite the first stars. Because of the chemical composition and abundance of gaseous material, these ``Population III'' stars are assumed to be super massive and short lived compared to their present day counterparts [\cite{Zaroubi2012}]. This first generation of stars, and possibly some other unknown objects (micro-quasars, x-ray binaries), began reionizing the interstellar medium, and eventually conglomerated into primordial galaxies that then ionized the intergalactic medium. This is dubbed the Epoch of Reionization, where slowly, pockets of isolated galaxies developed ionization bubbles that grew with the stellar population. In addition to being ionized, the ISM and IGM also became metal rich, due to the evolution of the stars from Pop III, to Pop II and finally the present day stellar population. While this sounds like a plausible scenario, the types of objects during this time, and the growth of the ionization bubbles is still poorly understood, making the evolution of these objects to present day difficult to model accurately. If these first objects could be studied in detail for their luminosities, chemical compositions and relative number densities, the complete evolution of the universe could be mapped through the EOR, and the evolution of stars and galaxies to their current states better constrained. The problem arises in the current methods of detection. The very first luminous galaxies are assumed to be very faint, owing to their small masses and incredible distance from us, with properties similar to dwarf galaxies. Detections by both HST and ALMA are capable of probing the bright end of the luminosity function for high redshift sources, but neither are able to detect the faint dwarf population, or do so by more than a few individual detections. Individual detections of a handful of galaxies are insufficient for any global properties of the EOR to be determined. The TIME instrument will have the capability to measure the CII (doubly ionized carbon) intensity power spectrum, a tracer for the total star formation activity in high redshift galaxies, over a wide field of view and redshift space, providing the first comprehensive look at EOR galactic evolution. 
+One of the mysteries yet to be uncovered through the study of the early universe is how matter evolved and began to re-ionize the interstellar and intergalactic medium. Models have been made that can simulate the clustering of matter from initial primordial fluctuations to the present day universe, but the observational evidence corroborating them have been somewhat lacking. This is due to the faintness and low mass of these sources at such high redshifts, combined with bright foreground galaxies. 
+
+Current evolutionary theories predict that the earliest stars, supposedly one of the first ionizing sources, were created out of hydrogen and helium, with little to no heavier elements. 
+%that the universe cooled to the point where elementary hydrogen and helium could form, and then cooled further to where photons decoupled from matter. This led to a period of time known as the ``dark ages'', where the universe was mostly neutral, with no emitting sources. Eventually, the initial primordial fluctuations in the hydrogen/helium gas gave rise high density regions that could collapse under their own gravity, and ignite the first stars. 
+Because of the chemical composition and abundance of the gaseous material, these ``Population III'' stars are assumed to be super massive and short lived compared to their present day counterparts [\cite{Zaroubi2012}]. This first generation of stars, and possibly some other unknown objects (micro-quasars, x-ray binaries), began re-ionizing the interstellar medium, and eventually conglomerated into primordial galaxies that then ionized the intergalactic medium. This is dubbed the Epoch of Re-ionization, where slowly, pockets of isolated galaxies developed ionization bubbles that grew with the stellar population. In addition to being ionized, the interstellar medium (ISM) and intergalactic medium (IGM) also became metal rich, due to the evolution of the stars from Pop III, to Pop II and finally the present day stellar population. While this sounds like a plausible scenario, the types of objects during this time, and the growth of the ionization bubbles is still poorly understood, making the evolution of these objects to present day difficult to model accurately. If these first objects could be studied in detail for their luminosities, chemical compositions and relative number densities, the complete evolution of the universe could be mapped through the EOR, and the evolution of stars and galaxies to their current states better constrained. The problem arises in the current methods of detection. The very first luminous galaxies are assumed to be very faint, owing to their small masses and incredible distance from us, with properties similar to dwarf galaxies. Detections by both HST and ALMA are capable of probing the bright end of the luminosity function for high redshift sources, but neither are able to detect the faint dwarf population, or do so by more than a few individual detections. Individual detections of a handful of galaxies are insufficient for any global properties of the EOR to be determined. The TIME instrument will have the capability to measure the CII (doubly ionized carbon) intensity power spectrum, a tracer for the total star formation activity in high redshift galaxies, over a wide field of view and redshift space, providing the first comprehensive look at EOR galactic evolution. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{CII: Revelations of the EOR}
@@ -647,9 +654,41 @@ Lastly but not least is the flexibility of the underlying architecture for data 
 
 \subsection{Higher Level Data Analysis Suite}
 
-The software described above works well for situations in the lab for live visualization of the detector arrays. However, additional software is required for commissioning of the instrument, and actual observations. For the telescope, a number of tests are required to ensure that the pointing is accurate. This requires generation of 
+The software described above works well for situations in the lab for live visualization of the detector arrays. However, additional software is required for commissioning of the instrument, and actual observations. The interface will have three main components. The first is one that automatically generates images for the user once a test or calibration is complete. The other is a data retrieval suite that allows the user to access the desired files and select analysis procedures to run on archived data. Lastly, a small amount of pre-processing subroutines will be run on raw data files after storage. This includes any scripts that will need to be universally applied across each analysis routine. Table ~\ref{table:pipeline} is included below, and lists the steps necessary for calibration and commissioning at the telescope, as well as the types of analysis that will be included in the suite. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+An example of the first case is performing pointing model checks on the telescope before beginning a night of observing. A ``pointing cross'' is created by nodding the telescope through all four cardinal positions, and comparing the reported position to the one requested in software. After the nod is completed, a visualization of the on-sky positions for both reported and requested data is plotted and shown to the user on screen. They then have the option of saving the image into a pre-selected analysis directory. 
+
+The second and 
+\begin{wrapfigure}{r}{0.55\textwidth}
+\vspace{-0.8cm}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{tau.png}
+   \end{center}
+\caption[SCUBA Optical Loading Skydips -(\cite{Archibald2002})]{Optical Loading for Various Wavelengths to determine optical depth for the SCUBA instrument. The sky brightness is determined by performing telescope sky dips. The open circles here are the measurements taken at different airmasses (or elevations), and the solid line is the fit to the data which provides the optical depth. The conversion used by SCUBA is given in \cite{Archibald2002} by Equation 2. A similar model will be used by TIME, but with Rayleigh-Jeans temperature approximations. This type of graph will be produced by the Data Analysis Suite.}
+\label{fig:tau}
+\end{wrapfigure}
+third cases are both run on archival data after calibration or observing tests have been completed. The data retrieval suite will have access to a series of directories that are named based on the Julian Date (JD) and type of data (either telescope or detector), and can be queried for other specifics including the observer, specific times, etc. The pre-processing pipeline will be available as a button on the interface that the user activates, and can include processes such as data decimation, removal of corrupted data, application of anti-aliasing filters, high pass filters, and atmospheric removal, to name a few. An example of this process in action is for determining the change in atmospheric loading on the detectors with elevation. The opacity of the atmosphere changes with elevation and effects the brightness of sources viewed through it. Fortunately, it can be characterized by sky dips, where the telescope is moved through various elevations, while the detectors record the sky brightness temperature. To accomplish the actual goal of measuring \(\tau \) , the raw data must be retrieved and then have several conversions to transform it from sky brightness to optical depth. This type of analysis requires a conversion from the voltage returned by the detector, to resistance, and then finally to the bolometer temperature. This temperature can be related back to the Rayleigh-Jeans equivalent temperature, and then used with a basic plane-parallel atmospheric model to determine \(\tau\) . These conversions will be automated, and present a plot of the subsequent analysis after the appropriate data is selected by the user. An example is shown in Figure ~\ref{fig:tau}.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Tests} & \textbf{Analysis}\\
+\hline
+\hline
+  \tabitem Pointing Model & \tabitem Detector Noise\\
+  \tabitem Beam Model & \tabitem Telescope Noise\\
+  \tabitem Optical Loading for various El & \tabitem Raster Maps\\
+  \tabitem Internal/Software Data Downsampling & \tabitem El Dips\\
+  \tabitem Anti-Aliasing Method & \tabitem Sky Dips\\
+  \tabitem Low/High Pass Filter & \tabitem Pointing Cross\\
+  \tabitem Filter Deconvolution Technique & \tabitem Telescope Focus\\
+  \tabitem Common Mode Atmospheric Template & \tabitem Detector Offsets\\
+  \tabitem Load Curves (lab/telescope) & \tabitem Point Source Calibration\\
+  \tabitem Atmospheric Conditions (airmass, water vapor, etc.) & \tabitem Beam Mapping/Fitting\\
+\hline
+\end{tabular}\label{table:pipeline}
+\end{center}
+
 \section{K-Mirror Image Rotator}
 The telescope at which TIME will be deployed is an ALMA Prototype 12m antenna, which rotates on an Alt-Azimuth mount. This presents unique challenges for the optical path from the primary mirror to the cryostat, because of the line scan observation strategy. The reason why can be easily shown in Figure ~\ref{fig:km1}. The rotation of the earth causes objects on the sky to trace out a circular path with time, while the telescope mount provides motion only in linear directions, not circularly. When the line of bolometers is projected on the sky under this rotation, they show an unnatural overlap or gap when measuring the source. Some past experiments have corrected for this in software [cite reference here], but the process is computationally costly, and not well refined. 
 \begin{wrapfigure}{r}{0.5\textwidth}
