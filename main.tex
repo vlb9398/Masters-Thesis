@@ -28,7 +28,7 @@
 
 \setcounter{tocdepth}{3}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \slugcomment{AST Ph.D Qualifier Research Report}
 \newcommand{\myemail}{vlb9398@g.rit.edu}
 \shorttitle{TIME: Tomographic Ionized-Carbon Mapping Experiment}
@@ -59,7 +59,7 @@ Previous ground based instruments that have attempted detection of this effect h
 \setcounter{page}{1}
 
 \section{Introduction}
-
+%%
  Advances in the field of astronomy are inevitably linked to the technological advancements that are, in many cases, created specifically for astrophysical research. One such advance will happen in 2020 when JWST launches and replaces the Hubble Space Telescope as the pioneer in optical and near-IR research. Ground based telescopes have mirror sizes that are increasingly larger in diameter, with the largest currently under construction the 24.5 meter segmented primary mirror at the Giant Magellan Telescope. In comparison, the next largest segmented mirror telescope used regularly is the Keck interferometers, each with equivalent mirror sizes at 10 meters. Continuous upgrades to detector technology in concert with telescope modifications have allowed for faster data acquisition, higher signal to noise ratios, and higher resolution imaging. This combination provided deeper fields of views to fainter objects, and allowed resolution of the interiors of high redshift galaxies, to name but a few benefits. 
  
  The field of Cosmology is no exception to this trend. Instruments researching the Cosmic Microwave Background (CMB) received three distinct upgrades as they cycled through first the Cosmic Background Explorer (COBE), the Wilkinson Microwave Anisotropy Probe (WMAP), and finally Planck. COBE made the first full sky measurements of the CMB anisotropies, while WMAP and Planck increased their sensitivities to the same temperature variations but at much smaller angular scales. Finely tuned determinations of parameters such as the baryonic energy density were made possible by these upgrades, and the understanding that the majority of matter in the universe is non-baryonic. Some secondary features of the CMB were also measured to high significance, such as gravitational lensing due to large scale structure, and a phenomenon proposed in a 1969 paper by Rashid Sunyaev and Yakov Zel'dovich, now known as the SZ Effect (SZE). 
@@ -69,43 +69,53 @@ Previous ground based instruments that have attempted detection of this effect h
 This paper overviews the dedicated kSZE research that will be conducted by the Tomographic Ionized Carbon Mapping Experiment (TIME), and how this instrument will expand our current understanding of the evolution of large scale structure and the physics of stars and galaxies during the Epoch of Reionization (EOR). In addition to studying SZE, TIME will also observe the line emissions from CII and CO in extremely high redshift galaxies ($5 < z < 9$). Though the instrument was designed specifically for carbon line emission detection, the frequency range and type of detector was also optimal for measuring the kSZE, and is the primary scientific interest of the writer. However, both phenomenon and their implications will be discussed equally in the interest of completeness. 
  
 Section 2 discusses the observational technique known as intensity mapping, which will be employed by TIME, in order to provide clarity on the subjects of data acquisition and analysis. Section 3 covers the scientific background of the SZE and what TIME's expected contributions will be, and Section 4 will do the same but for CII and CO detection. Section 5 will summarize the key points presented, and impress upon the reader the important role that TIME will play in the advancement of the field of Cosmology. 
- 
-\section{TIME Primary Science Goal: CII/CO Line Emission and the Epoch of Re-ionization}
+%================================================================================================================
+\section{TIME Science Goals}
+\subsection{Objective 1: CII/CO Line Emission and the Epoch of Re-ionization}
 
-\subsection{The Mysterious EOR}
-%%
-%The evolution of large-scale structure is something that was discussed previously in the context of mass aggregation, and understanding the role of dark matter in galaxy cluster formation. While the study of galaxy clusters is revealing, how these super structures ended up in their current state is still a debated topic. 
+One of the mysteries yet to be uncovered is how matter evolved and began to re-ionize the interstellar and intergalactic medium. Models have been made that can simulate the clustering of matter from initial primordial fluctuations to the present day universe, but the observational evidence corroborating them have been somewhat lacking. This is due to the faintness and low mass of these sources at such high redshifts, combined with bright foreground galaxies. 
 
-One of the mysteries yet to be uncovered through the study of the early universe is how matter evolved and began to re-ionize the interstellar and intergalactic medium. Models have been made that can simulate the clustering of matter from initial primordial fluctuations to the present day universe, but the observational evidence corroborating them have been somewhat lacking. This is due to the faintness and low mass of these sources at such high redshifts, combined with bright foreground galaxies. 
+Current evolutionary theories predict that the earliest stars, likely one of the first ionizing sources, were created out of hydrogen and helium, with little to no heavier elements. Because of the chemical composition and abundance of gaseous material, these ``Population III'' stars are assumed to be super massive and short lived compared to their present day counterparts (\cite{Zaroubi2012}). This first generation of stars, and possibly some other unknown objects (micro-quasars, x-ray binaries), began re-ionizing the interstellar medium (ISM), and eventually conglomerated into primordial galaxies that then ionized the intergalactic medium (IGM). This is dubbed the Epoch of Re-ionization (EOR), where slowly, pockets of isolated galaxies developed ionization bubbles that grew with the stellar population. In addition to being ionized, the ISM and IGM also became metal rich, due to the evolution of stars from Pop III, to Pop II, and finally the present day stellar population. 
 
-Current evolutionary theories predict that the earliest stars, supposedly one of the first ionizing sources, were created out of hydrogen and helium, with little to no heavier elements. 
-%that the universe cooled to the point where elementary hydrogen and helium could form, and then cooled further to where photons decoupled from matter. This led to a period of time known as the ``dark ages'', where the universe was mostly neutral, with no emitting sources. Eventually, the initial primordial fluctuations in the hydrogen/helium gas gave rise high density regions that could collapse under their own gravity, and ignite the first stars. 
-Because of the chemical composition and abundance of the gaseous material, these ``Population III'' stars are assumed to be super massive and short lived compared to their present day counterparts [\cite{Zaroubi2012}]. This first generation of stars, and possibly some other unknown objects (micro-quasars, x-ray binaries), began re-ionizing the interstellar medium, and eventually conglomerated into primordial galaxies that then ionized the intergalactic medium. This is dubbed the Epoch of Re-ionization, where slowly, pockets of isolated galaxies developed ionization bubbles that grew with the stellar population. In addition to being ionized, the interstellar medium (ISM) and intergalactic medium (IGM) also became metal rich, due to the evolution of the stars from Pop III, to Pop II and finally the present day stellar population. While this sounds like a plausible scenario, the types of objects during this time, and the growth of the ionization bubbles is still poorly understood, making the evolution of these objects to present day difficult to model accurately. If these first objects could be studied in detail for their luminosities, chemical compositions and relative number densities, the complete evolution of the universe could be mapped through the EOR, and the evolution of stars and galaxies to their current states better constrained. The problem arises in the current methods of detection. The very first luminous galaxies are assumed to be very faint, owing to their small masses and incredible distance from us, with properties similar to dwarf galaxies. Detections by both HST and ALMA are capable of probing the bright end of the luminosity function for high redshift sources, but neither are able to detect the faint dwarf population, or do so by more than a few individual detections. Individual detections of a handful of galaxies are insufficient for any global properties of the EOR to be determined. The TIME instrument will have the capability to measure the CII (doubly ionized carbon) intensity power spectrum, a tracer for the total star formation activity in high redshift galaxies, over a wide field of view and redshift space, providing the first comprehensive look at EOR galactic evolution. 
+While this sounds like a plausible scenario, the types of objects during this time, and the growth of the ionization bubbles is still poorly understood, making the evolution of these objects to present day difficult to model accurately. If these first objects could be studied in detail for their luminosities, chemical compositions and relative number densities, the complete evolution of the universe could be mapped through the EOR, and the evolution of stars and galaxies to their current states better constrained. Past and even future attempts at such measurements have been/will be limited by the lower luminosity sensitivity of different instruments\footnote{HST has managed to probe the bright end of the UV luminosity function at \(z > 6\), while JWST NIRcam will be insensitive to the faint dwarf galaxy population, responsible for the majority of photons for high redshifts (\cite{Staniszewski2014})}. The very first luminous galaxies are assumed to be very faint, owing to their small masses and incredible distance from us, with properties similar to dwarf galaxies. 
+%Detections by both HST and ALMA are capable of probing the bright end of the luminosity function for high redshift sources, but neither are able to detect the faint dwarf population, or do so by more than a few individual detections. A handful of galaxies are insufficient for any global properties of the EOR to be determined. 
+And thus, only individual, luminous, high redshift galaxies have been observed. The TIME instrument will have the capability to measure the CII (doubly ionized carbon) intensity power spectrum, a tracer for the total star formation activity in high redshift galaxies, between \(5 < z < 9\) , providing the first comprehensive look at EOR evolution. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{CII: Revelations of the EOR}
-Several properties of CII make it an ideal candidate for measuring star formation for galaxies at multiple redshifts, and for constraining the EOR. For one, it happens to be one of the most abundant elements in the universe, and has an ionization energy that is smaller than that of hydrogen, at 11.26 eV. It is also one of the brightest emission lines in star forming galaxies, with a total far infrared luminosity of between 0.1-1.0 \% of the total [\cite{Stacey1991}]. By measuring the total intensity of CII of thousands of galaxies, TIME can probe even the faintest end of the CII luminosity function and constrain the EOR photon production at scales on order of  $0.01 < k < 0.3$  $[Mpc^{-1}]$  [\cite{Gong2012}, \cite{Crites2014}]. Recent measurements of individual galaxies in the far-IR, of CII emission, show a clear evolution of the gas in galaxies with redshift, indicating that something is changing about the ionizing sources of the ISM. This could be a window into the evolution of stellar populations of these galaxies, and how they are changing with time. By measuring the change of this emission with redshift, and spatial correlations, we can determine how some of the earliest populations of stars transformed their surroundings, and watch the spread of the ionization bubbles of these galaxies at various scales. 
-%\begin{figure}[h!]
-%\centering
-%\captionsetup{width=0.8\textwidth}
-%\includegraphics[width=0.8\textwidth]{gong3.png}
-%\caption[CII measurements from various sources and expected emission for EOR galaxies. -(Bock et al 2011)]{A recent collection of individual galaxies whose CII emission has been measured. The black line indicates the expected CII emission for galaxies at redshifts near the EOR. [Bock et al 2011]}
-%\end{figure}
+%Recent measurements of individual galaxies in far-IR of CII emission shows a clear evolution of the gas in galaxies with redshift, indicating that something is changing about the ionizing sources of the ISM. This could be a window into the evolution of stellar populations of these galaxies, and how they are changing with time. By measuring the change of this emission with redshift, and spatial correlations, we can determine how some of the earliest populations of stars transformed their surroundings, and watch the spread of the ionization bubbles of these galaxies at various scales. 
 
-In order to understand exactly what detection at different limits means for the underlying physics of high-redshift galaxies, we must also understand the physical mechanisms involved in CII production. This is even more critical for large scales, since the interaction with CII and it's ionizing environment changes depending on whether it's detected in the ISM or IGM. In the ISM, there are normal radiative processes, like spontaneous and stimulated emission that could account for the ionization, however there is also collisional excitation and de-excitation, the dominant processes depending on the number density of atoms and the gas temperature. Additionaly, the ionizing particles can be either electrons, but also neutral hydrogen, since it will have a different critical density. The CII critical density is believed to be near 100 $cm ^{-3}$ , while for hydrogen this value is closer to $10^{3} - 10^{4}$  $cm^{-3}$ .  An assumption of complete ionization of the ISM would create an electron ionizing dominant process for CII emission. [\cite{Gong2012}]. 
+\subsubsection{CII: Revelations of the EOR}
+Several properties of CII make it an ideal candidate for measuring star formation for galaxies at multiple redshifts, and for constraining the EOR. For one, it happens to be one of the most abundant elements in the universe, and has an ionization energy that is smaller than that of hydrogen, at 11.26 eV. It is also one of the brightest emission lines in star forming galaxies, with a total far infrared luminosity of between 0.1-1.0 \% of the total (\cite{Stacey1991}). By measuring the total intensity of CII of thousands of galaxies, TIME can probe even the faintest end of the CII luminosity function and constrain the EOR photon production at scales on order of  $0.01 < k < 0.3$  $[Mpc^{-1}]$  (\cite{Gong2012}, \cite{Crites2014}). 
 
-For the IGM, the story is slightly different, due to the varying gas physics at work. The IGM is naturally a more diffuse environment, and much less heavily ionized due to the lack of stars. This decreases the relevance of the collisional processes, and increases the important of the radiative processes, like spontaneous emission and stimulated absorption. These processes are influenced by CMB photons, which now that the ionization fraction and gas density has gone well below the critical values, are more influential to the CII ionization. An added process which can create a fine structure transition is UV pumping, although it is mostly limited to high redshift galaxies, where the first stars and quasars provide energy at wavelengths perfect for exciting the carbon atom to re-emit at the CII frequencies. Both of these mediums contribute to the observed line intensity of CII, but must be modeled carefully according to their unique environments. 
+In order to understand exactly what detection at different limits means for the underlying physics of high-redshift galaxies, we must also understand the physical mechanisms involved in CII production. This is even more critical for large scales, since the interaction with CII and it's ionizing environment changes depending on whether it's detected in the ISM or IGM. In the ISM, there are normal radiative processes, like spontaneous and stimulated emission that could account for the ionization, however there is also collisional excitation and de-excitation, the dominant processes depending on the number density of atoms and the gas temperature. Additionally, the ionizing particles can be either electrons, but also neutral hydrogen, since it will have a different critical density. The CII critical density is believed to be near 100 $cm ^{-3}$ , while for hydrogen this value is closer to $10^{3} - 10^{4}$  $cm^{-3}$ .  An assumption of complete ionization of the ISM would create an electron ionizing dominant process for CII emission. (\cite{Gong2012}). 
 
-\cite{Gong2012} has generated some analytical functions to determine what the CII intensity would be for various redshifts, and also to determine the total power spectrum, as would be observed by TIME. In order to understand their result, it is useful to see how the properties that were just discussed have been included in the calculation. The following derivation is taken from \cite{Gong2012}, which starts by writing the radiative transfer equation, which reads \(\frac{dI_{\nu}(z)}{ds} = j_{\nu}(z) - \alpha_{nu}(z)I_{\nu} - 3 \frac{H(z)}{c}I_{\nu}\) . The first and second terms being radiative emission and absorption respectively, while the last term is a correction for the expansion of the universe. The first two right hand terms take the traditional forms \(j_{\nu}(z) = \frac{h\nu_{ul}}{4 \pi} n_{u}(z) A_{ul}\phi(\nu)\) and \(\alpha_{nu}(z) = \frac{h\nu_{ul}}{4 \pi} \phi(\nu)(n_{1}B_{lu} - n_{u}B_{ul})\). In this case, $\phi(\nu)$ is the line profile with redshift where \(\phi(\nu') = \phi[\nu_{0}(1+z')] = [(1+z)/\nu]\delta(z'-z)\),  and $A_{ul},B_{lu},B_{ul}$ are the Einstein coefficients for spontaneous emission, stimulated emission, and absorption. The energy for a photon is also included. This encapsulates the processes, energies, and universal properties at work. The final form of the first equation experiences a change of variables from line of sight to redshift, and then is integrated to form Equation 7. The value of the number density for the various population states is taken from deriving the statistical balance relations for the ISM and IGM. 
-\begin{equation}
-\Delta I_{\nu} = \frac{h c}{4 \pi H(z) (1+z)^{3}} A_{ul} f_{CII}^{grd} n_{CII}(z) \times \frac{g_{u}}{g_{1}} exp(-T_{\star,ul}/T_{S,ul})[1-\frac{exp(T_{\star,ul}/T_{S,ul}) - 1}{(2h\nu^{3}/c^{2}I_{\nu})_{\nu_{ul}}}]
+For the IGM, the story is slightly different. The IGM is naturally a more diffuse environment, and much less heavily ionized due to the lack of stars. This decreases the relevance of the collisional processes, and increases the important of the radiative processes, like spontaneous emission and stimulated absorption. These processes are influenced by CMB photons, which now that the ionization fraction and gas density have gone well below the critical values, are more influential in the CII ionization. An added process which can create a fine structure transition is UV pumping, although it is mostly limited to high redshift galaxies, where the first stars and quasars provide energy at wavelengths perfect for exciting the carbon atom to re-emit at the CII frequencies. Both of these mediums contribute to the observed line intensity of CII, but must be modeled carefully according to their unique environments. 
+
+\cite{Gong2012} has generated some analytical functions to determine what the CII intensity would be for various redshifts, and also to determine the total power spectrum, as would be observed by TIME. In order to understand the result, it is useful to see how the properties that were just discussed have been included in the calculation. The following derivation is taken from \cite{Gong2012}, which starts with the radiative transfer equation in Equation ~\ref{eq:radtrans}.
+\begin{equation}\label{eq:radtrans}
+\frac{dI_{\nu}(z)}{ds} = j_{\nu}(z) - \alpha_{nu}(z)I_{\nu} - 3 \frac{H(z)}{c}I_{\nu}
 \end{equation}
-This can further be reduced by making an assumption that the spin temperature of the total CII intensity is much greater than that of the CMB and equivalent temperature of the level transition, then 
-\begin{equation}
+
+The first and second terms are radiative emission and absorption respectively, while the last term is a correction for the expansion of the universe. 
+
+%The first two right hand terms take the traditional forms 
+% \begin{gather}\label{eq:alphabeta}
+% j_{\nu}(z) = \frac{h\nu_{ul}}{4 \pi} n_{u}(z) A_{ul}\phi(\nu) \\ \alpha_{nu}(z) = \frac{h\nu_{ul}}{4 \pi} \phi(\nu)(n_{1}B_{lu} - n_{u}B_{ul})
+% \end{gather}
+
+%In this case, $\phi(\nu)$ is the line profile with redshift where \(\phi(\nu') = \phi[\nu_{0}(1+z')] = [(1+z)/\nu]\delta(z'-z)\),  and $A_{ul},B_{lu},B_{ul}$ are the Einstein coefficients for spontaneous emission, stimulated emission, and absorption. The energy for a photon is also included. This encapsulates the processes, energies, and universal properties at work. 
+
+The final form of the first equation experiences a change of variables from line of sight to redshift, and then is integrated. The value of the number density for the various population states is taken from deriving the statistical balance relations for the ISM and IGM. 
+%\begin{equation}\label{eq:ciiint}
+%\Delta I_{\nu} = \frac{h c}{4 \pi H(z) (1+z)^{3}} A_{ul} f_{CII}^{grd} n_{CII}(z) \times \frac{g_{u}}{g_{1}} exp(-T_{\star,ul}/T_{S,ul})[1-\frac{exp(T_{\star,ul}/T_{S,ul}) - 1}{(2h\nu^{3}/c^{2}I_{\nu})_{\nu_{ul}}}]
+%\end{equation}
+Further simplifying assumptions can be made, including the spin temperature of the total CII intensity is much greater than that of the CMB and equivalent temperature of the level transition. The result is Equation ~\ref{eq:finalciiint}.
+\begin{equation}\label{eq:finalciiint}
 \Delta I_{\nu} = \frac{h c}{4 \pi H(z) (1+z)^{3}} A_{ul} f_{CII}^{grd} n_{CII}(z) \frac{g_{u}}{g_{1}} 
 \end{equation}
-In order to arrive at a final solution, some estimates have to be made about  $f_{CII}^{grd}$, the number of atoms in the ground state, and $n_{CII}(z)$ the number density of CII ions at various redshifts. Estimating the number of ions in their ground states is relatively easy through an estimate of the spin temperature of the gas with respect to the CMB, since in certain limits, fractional values can be found. This also happens to vary depending on whether or not the ions are in the ISM or IGM, since it is linked to the gas clumping of both mediums. These parameters can be estimated through simulations of galaxies based on observational data taken from ALMA and Herschel, but decent estimates can also be taken from nearby galaxies and solar abundance values of carbon. The estimated values for the ISM and IGM are used with Equation 8 to generate the following two plots.
-\begin{figure}[!ht]%
+In order to arrive at a final solution, some estimates had to be made about  $f_{CII}^{grd}$, the number of atoms in the ground state, and $n_{CII}(z)$ the number density of CII ions at various redshifts. 
+%Estimating the number of ions in their ground states is relatively easy through an estimate of the spin temperature of the gas with respect to the CMB, since in certain limits, fractional values can be found. This also happens to vary depending on whether or not the ions are in the ISM or IGM, since it is linked to the gas clumping of both mediums. 
+These parameters can be narrowed down through simulations of galaxies, based on observational data taken from ALMA and Herschel. However, decent values can also be taken from nearby galaxies and solar abundance values of carbon. The estimated values for the ISM and IGM are used with Equation ~\ref{eq:finalciiint} to generate the following two plots.
+\begin{figure}[H]%
     \centering
     \subfloat{{\includegraphics[width=0.4\textwidth]{gong1.png} }}%
     \qquad
@@ -113,30 +123,36 @@ In order to arrive at a final solution, some estimates have to be made about  $f
     \singlespace
     \caption[Calculated line intensities for CII in the ISM and IGM. -(\cite{Gong2012})]{Left: The expected line intensity of CII for values consistent with the Milky Way ISM at varying redshift, electron temperature, and gas density. Right: Same as left but with IGM parameters substituted. It is clear that the CII intensity in both cases saturates at some critical value, and that the IGM does not contribute as significantly to the overall CII emission [\cite{Gong2012}].}%
     \label{fig:gong1}%
+    \vspace{-0.8cm}
 \end{figure}
 
-These plots reveal that the CII intensity is predicted to have an increasing trend with redshift, and that the signal is high enough to be detected above shot noise and cosmic variance in the total CII power spectrum. The power spectrum also reveals the distribution of galaxies during re-ionization, and can reveal how matter was clumped to produce the strength of emission observed. It should be noted that the above analytical model agrees well with simulations of galaxies that tune their parameters to match those of observations. However, one physical affect that has not yet been taken into account is line contamination from foreground sources. The rotational and vibrational transitions of CO molecules at low redshift have a similar intensity to those of CII at high redshift, and can contaminate the assumed detection of CII. CO lines  can add as much as 2-30\% change in the apparent CII brightness, leading to incorrect assumptions about the physics of the ISM [\cite{Gong2012}]. Contamination by CI and NII are also present, but not to the same degree as CO. The expected detection of CO and CII by TIME is plotted below [\cite{Crites2014}].
+These plots reveal that the CII intensity is predicted to have an increasing trend with redshift, and that the signal is high enough to be detected above shot noise and cosmic variance\footnote{In this case, cosmic variance refers to the fact that observing one region of space will not reveal the actual statistical properties for other regions, due to the random distribution of large scale structure.} in the total CII power spectrum. The power spectrum also reveals the distribution of galaxies during re-ionization, and can reveal how matter was clumped to produce the strength of emission observed. 
 
-\begin{figure}[h!]
+It should be noted that the above analytical model agrees well with simulations of galaxies that tune their parameters to match those of observations. However, one physical affect that has not yet been taken into account is line contamination from foreground sources. The rotational and vibrational transitions of CO molecules at low redshift have a similar intensity to those of CII at high redshift, and can contaminate the assumed detection of CII. CO lines  can add as much as 2-30\% change in the apparent CII brightness, leading to incorrect assumptions about the physics of the ISM [\cite{Gong2012}]. Contamination by CI and NII are also present, but not to the same degree as CO. The expected detection of CO and CII by TIME is plotted in Figure ~\ref{fig:coc2power}[\cite{Crites2014}].
+
+\begin{figure}[H]
 \centering
-\captionsetup{width=0.7\textwidth}
-\includegraphics[width=0.7\textwidth]{bock1.png}
-\caption[The expected power spectrum for CII and CO using TIME. -()]{The expected power spectrum for CII and CO using TIME. [\cite{Crites2014}]}
+\captionsetup{width=0.6\textwidth}
+\includegraphics[width=0.6\textwidth]{bock1.png}
+\caption[The expected power spectrum for CII and CO using TIME. -()]{The expected power spectrum for CII and CO using TIME for 1000 hours of integration time on the ALMA 12 meter prototype antenna at Kitt Peak. Values for CII were generated from a luminosity function developed by Serra et al 2016. Models of the UV luminosity function were made by observations with HST. Measurements of CO were cast from low redshift into the CII regime\footnote{Reproduced with permission by the TIME Collaboration}.}
+\vspace{-0.8cm}
+\label{fig:coc2power}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Carbon Monoxide: A Star Formation Proxy}
+\subsubsection{Carbon Monoxide: A Star Formation Proxy}
 
-While the word ``contaminant'' has been used to describe CO, it also may present a unique opportunity to probe a different property of the ISM, the molecular gas from which stars are formed. The CO transitions that TIME is sensitive to are present from $0.5 < z < 2$, the peak of star formation [\cite{Madau2014}] down to the more local universe.  With CO, it can be established whether the significant decline in star formation rates is due to the depletion of the cool gas reservoirs in galaxies, or from some other source. The majority of high redshift star formation data is from UV, optical and IR observations, which rely on having a minimum brightness consistent with only the most luminous of the galaxies, and most likely are not representative of the true galactic population. These sources of emission are also caused by hot ionized gas in the ISM, which is not sensitive to the cool gas reservoirs. As with CII, the method of intensity mapping can detect the faintest population that other detections can't reach, and can reveal the potential of those galaxies to produce future stars. By monitoring the cool gas of the ISM, the complete history of the rise and fall of the Epoch of Peak Star Formation can be traced, and the cosmic CO luminosity density can be mapped [\cite{Kovetz2017}]. This still depends on understanding the correlation between CO and H2, which has been a consistent uncertainty for many other scientific missions. Currently, the best conversions are done using H2 to CO conversions consistent with Milky Way measurements of gas densities, but these are not necessarily valid for high-redshift galaxies. The most common relationship used is that between the far-IR and CO luminosity which, in turn can also be related back to the total star formation rate density. 
-\begin{equation}
+While the word ``contaminant'' has been used to describe CO, it also may present a unique opportunity to probe a different property of the ISM, the molecular gas from which stars are formed. The CO transitions that TIME is sensitive to are present from $0.5 < z < 2$, the peak of star formation [\cite{Madau2014}] down to the more local universe.  With CO, it can be established whether the significant decline in star formation rates is due to the depletion of the cool gas reservoirs in galaxies, or from some other source. The majority of high redshift star formation data is from UV, optical and IR observations, which rely on having a minimum brightness consistent with only the most luminous of the galaxies, and most likely are not representative of the true galactic population. These sources of emission are also caused by hot ionized gas in the ISM, which is not sensitive to the cool gas reservoirs. As with CII, the method of intensity mapping can detect the faintest population that other detections can't reach, and can reveal the potential of those galaxies to produce future stars. By monitoring the cool gas of the ISM, the complete history of the rise and fall of the Epoch of Peak Star Formation can be traced, and the cosmic CO luminosity density can be mapped (\cite{Kovetz2017}). 
+
+This still depends on understanding the correlation between CO and H2, which has been a consistent uncertainty for many other scientific missions. Currently, the best conversions are done using H2 to CO conversions consistent with Milky Way measurements of gas densities, but these are not necessarily valid for high-redshift galaxies. The most common relationship used is that between the far-IR and CO luminosity which, in turn can also be related back to the total star formation rate density. 
+\begin{equation}\label{eq:breysse1}
 \frac{L_{FIR}}{L_{sun}} = C_{FIR}(\frac{L'_{CO}}{K km s^{-1} pc^{2}})^{X_{FIR}}
 \end{equation}
-The constants $C_{FIR}$ and $X_{FIR}$ have been observationally determined, and the values are consistent across multiple redshifts. Higher redshift galaxies typically have a lower metallicity, allowing for easier dissociation of CO from a lack of shielding by dust, but a consistent H2 density. Knowing this conversion factor accurately can therefor still provide reasonable gas estimates of H2.  Far-IR luminosities have been measured with high accuracy, which makes this a feasible calculation [\cite{Carilli2013}].  $L_{FIR}$ can then be used with the Kennicutt relationship for star formation rates, which was derived through an estimation of the Schmidt law index [\cite{Kennicutt1998}], where $C_{SFR}$ is a conversion factor between far-IR luminosities and star formation rate that is observationally determined. 
-\begin{equation}
+The constants $C_{FIR}$ and $X_{FIR}$ have been observationally determined, and the values are consistent across multiple redshifts. Higher redshift galaxies typically have a lower metallicity, allowing for easier dissociation of CO from a lack of shielding by dust, but a consistent H2 density. Knowing this conversion factor accurately can therefor still provide reasonable gas estimates of H2.  Far-IR luminosities have been measured with high accuracy, which makes this a feasible calculation (\cite{Carilli2013}).  $L_{FIR}$ can then be used with the Kennicutt relationship for star formation rates, which was derived through an estimation of the Schmidt law index (\cite{Kennicutt1998}), where $C_{SFR}$ is a conversion factor between far-IR luminosities and star formation rate that is observationally determined. 
+\begin{equation}\label{eq:breysse2}
 \frac{SFR}{M_{sol}/yr} = C_{SFR}\frac{L_{FIR}}{L_{sol}}
 \end{equation}
 
-Equations 9 and 10 were taken from \cite{Breysse2016}, in their effort to determine SFRD from CO emission using intensity mapping.  They present a pessimistic uncertainty of 50\% in the conversion between CO luminosity and star formation, but also admit that if intensity mapping could be compared with other galactic features, this model uncertainty would decrease, with intensity mapping creating a significant improvement to the redshift dependence of CO.  
+Equations ~\ref{eq:breysse1} and ~\ref{eq:breysse2} were taken from \cite{Breysse2016}, in their effort to determine SFRD from CO emission using intensity mapping.  They present a pessimistic uncertainty of 50\% in the conversion between CO luminosity and star formation, but also admit that if intensity mapping could be compared with other galactic features, this model uncertainty would decrease, with intensity mapping creating a significant improvement to the redshift dependence of CO.  
 
 The predicted CO signal produced by galaxies of varying masses and redshifts is given by \cite{Visbal2010}, who include two terms  $f_{\star}$ and $\epsilon_{duty}$, which correspond to the halo star formation efficiency and 
 duty cycle (the fraction of time it takes for the galaxy to emit detectable levels of radiation). 
@@ -145,15 +161,14 @@ L = 6.6\times10^{6}(\frac{R}{3.8\times10^{6}})(\frac{M}{10^{10}})(\frac{1+z}{7})
 \end{equation}
 These two terms are once again based on observation and modeling, and carry their own intrinsic error. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{CII-CO Separation}
+\subsubsection{CII-CO Separation}
 CO has the potential to make advancing contributions to our understanding of the gas reservoir of high redshift galaxies. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
   \begin{center}
     \includegraphics[width=0.48\textwidth]{cheng1.png}
   \end{center}
-  \caption[Calculated CO and CII power spectrums, showing the difficulty in separating the two signals. -(\cite{Cheng2016})]{Calculated CO and CII power spectrums for a simulated universe, with the apparent mixing of the signals at various scales for specific CO transitions. [\cite{Cheng2016}]}
+  \caption[Calculated CO and CII power spectrums, showing the difficulty in separating the two signals. -(\cite{Cheng2016})]{Calculated CO and CII power spectrums for a simulated universe, with the apparent mixing of the signals at various scales for specific CO transitions. Lower redshift CO transitions consistently contaminate the higher redshift CII signal at every scale length (\cite{Cheng2016}).}
 \end{wrapfigure}
 However, since the CII and CO intensities are confused for high redshift measurements, no insights will happen unless the two signals can be disentangled (see Figure 6). Two distinct methods have been proposed by the TIME group to accomplish this task. This can in part be accomplished through correlations of the estimated CO signal with other metrics such as far-IR. As was discussed above, some empirical relationship exists between the CO and far-IR luminosity, which can be used to separate it from the CII intensity.  
 
@@ -169,45 +184,49 @@ An example of this technique was given in \cite{Cheng2016}, who created a realis
     \qquad
     \subfloat{{\includegraphics[width=0.45\textwidth]{cheng3.png} }}%
     \singlespace
-    \caption[Deblending of the CII and CO power spectrums. -(\cite{Cheng2016})]{Deblending of the CII and CO powerspectrum. The leftmost figure is the CII power spectrum, right for CO both at z = 6. [\cite{Cheng2016}]}%
+    \caption[Deblending of the CII and CO power spectrums. -(\cite{Cheng2016})]{Deblending of the CII and CO powerspectrum. Both figures represent CII power spectra data from z=6. However, the right figure has been incorrectly processed using a z=2 model, changing the uniform spectrum to an anisotropic one (\cite{Cheng2016}).}%
     \label{fig:cheng1}%
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{CII-CO-21 cm Cross Correlations}
-The TIME instrument will not be conducting research into 21cm emission, however, it has been noted by some authors [\cite{Zaroubi2012},\cite{Gong2012}] that it is a useful comparator with CII and CO for determining evolutionary properties within the ISM and IGM. However, in order for it to be a useful correlator, it must also have some intrinsic scientific value, and have a relative spin temperature above that of the CMB. 21cm traces neutral hydrogen reservoirs, with a spin temperature that is highly sensitive to the physical processes at work including gas dynamics and feedback. Understanding the evolution of this tracer can lead to a more thorough understanding of these processes through the EOR. 
+\subsubsection{CII-CO-21 cm Cross Correlations}
+The TIME instrument is not designed to detect 21cm emission, however, it has been noted by some authors (\cite{Zaroubi2012},\cite{Gong2012}) that it is a useful comparator with CII and CO for determining evolutionary properties within the ISM and IGM. 
+%However, in order for it to be a useful correlator, it must also have some intrinsic scientific value, and have a relative spin temperature above that of the CMB. 
+21cm traces neutral hydrogen reservoirs, with a spin temperature that is highly sensitive to the physical processes at work including gas dynamics and feedback. Understanding the evolution of this tracer can lead to a more thorough understanding of these processes through the EOR. 
 
-The 21cm line is a forbidden transition between the hydrogen triplet and singlet state, where the orientation of the spin axis is ``flipped'' between the proton and electron. While the spontaneous emission of this line has a decay on order $10^{7}$ years, the high abundance of neutral hydrogen makes this transition easily detectable. The measured intensity is sensitive to several different processes, including the absorption and stimulated emission of CMB photons, collisional excitations, and Lyman $\alpha$ pumping. These processes are incorporated into the effective spin temperature of the emitted photon, which must be of a different temperature than that of the CMB to be detected. Depending on the type of object creating the emission, this spin temperature will show fluctuations even when other parameters are held constant (such as redshift and peculiar velocity). For example, excitation from UV pumping will transfer a specific amount of energy to the surrounding atomic hydrogen depending on the energy of the photons and the optical depth of the neutral medium. Excitation due to x-ray sources however have energies too high to create 21 cm spin flips, but can cause collisional excitation due to scattering electrons. The strength of the x-ray emission will determine the energy of the collision, and how many scattering events will happen. It could also produce collision ionization and heating. By carefully mapping the intensities of 21 cm emission, the types of EOR objects ionizing the IGM can be determined [\cite{Zaroubi2012}].
+The 21cm line is a forbidden transition between the hydrogen triplet and singlet state, where the orientation of the spin axis is ``flipped'' between the proton and electron. While the spontaneous emission of this line has a decay on order $10^{7}$ years, the high abundance of neutral hydrogen makes this transition easily detectable. The measured intensity is sensitive to several different processes, including the absorption and stimulated emission of CMB photons, collisional excitations, and Lyman $\alpha$ pumping. These processes are incorporated into the effective spin temperature of the emitted photon, which must be of a different temperature than that of the CMB to be detected. Depending on the type of object creating the emission, this spin temperature will show fluctuations even when other parameters are held constant (such as redshift and peculiar velocity). For example, excitation from UV pumping will transfer a specific amount of energy to the surrounding atomic hydrogen depending on the energy of the photons and the optical depth of the neutral medium. Excitation due to x-ray sources however have energies too high to create 21 cm spin flips, but can cause collisional excitation due to scattering electrons. The strength of the x-ray emission will determine the energy of the collision, and how many scattering events will happen. It could also produce collision ionization and heating. By carefully mapping the intensities of 21 cm emission, the types of EOR objects ionizing the IGM can be determined (\cite{Zaroubi2012}).
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 	\centering
-	\subfloat{{\includegraphics[width=0.4\textwidth]{santos1.png} }}%
+	\subfloat{{\includegraphics[width=0.45\textwidth]{santos1.png} }}%
 	\qquad
-	\subfloat{{\includegraphics[width=0.4\textwidth]{santos2.png} }}%
+	\subfloat{{\includegraphics[width=0.45\textwidth]{santos2.png} }}%
 	\singlespace
-	\caption[21 cm brightness maps for different redshifts. -(\cite{Santos2010})]{Results of simulations for 21 cm brightness variations with space and redshift [\cite{Santos2010}]}%
-	\label{fig: Santos et al 2010 Simulated 21cm Brightness}%
+	\caption[21 cm brightness maps for different redshifts. -(\cite{Santos2010})]{Results of simulations for 21 cm brightness variations with space and redshift. An evolution of ionization pockets can clearly be seen, with both an increase in the size and number of ionizing source with decrease in redshift (\cite{Santos2010}).}%
+	\label{fig:santos1}%
 \end{figure}
 
-As was mentioned above, a comparison between CII and 21 cm, where both are tracing the ionization history of the ISM, can be very fruitful. CII is essentially a proxy for neutral hydrogen abundances, while 21 cm probes this population directly, making it useful for corroborating CII gas mass estimates.
+As was mentioned above, a comparison between CII and 21 cm, where both are tracing the ionization history of the ISM, can be very fruitful. CII is essentially a proxy for neutral hydrogen abundances, while 21 cm probes this population directly, making it useful for corroborating CII gas mass estimates. In addition, both are tracing the same density field, meaning their power spectrums will allow an angular scale determination for ionization bubble size with redshift. \cite{Santos2010} created simulated power spectra for both galaxy halo mass and 21 cm emission to predict the evolution of the EOR with redshift. The evolution of the ionization bubble size can easily be seen in Figure ~\ref{fig:santos1} from snapshots taken from redshifts of z = 21 and z = 11 in the simulation. It can be seen that the ionization of the ISM increases significantly, and the ionization of the IGM starts to become more complete at z = 11. 
+
+\cite{Gong2012} coupled these 21 cm brightnesses with the expected CII intensity to create a cross-correlation coefficient calculated by \(r_{CII,HI}(k) = P_{CII,HI}(k)/\sqrt{P_{CII}(k)P_{HI}(k)}\). The mean ionization bubble size corresponds to the region where the coefficient reaches zero (from negative values) in Figure ~\ref{fig:gong1}. For z = 6, this corresponds to a larger scale than that for either z = 7 or z = 8, consistent with the higher redshift models from the \cite{Santos2010} simulations. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
   \begin{center}
     \includegraphics[width=0.48\textwidth]{gong4.png}
   \end{center}
-  \caption[Cross correlation coefficient for CII and 21 cm showing ionization bubble size with redshift. -(\cite{Gong2012})]{Cross correlation coefficient for CII and 21 cm for changing scale sizes. There is a clear change in the scale of negative to positive correlation for changing redshift. [\cite{Gong2012}]}
+  \caption[Cross correlation coefficient for CII and 21 cm showing ionization bubble size with redshift. -(\cite{Gong2012})]{Cross correlation coefficient for CII and 21 cm for changing scale sizes. There is a clear change in the scale of negative to positive correlation for changing redshift, indicating the average scale size for ionization bubbles (\cite{Gong2012}).}
+  \label{fig:gong1}
+  \vspace{-0.8cm}
 \end{wrapfigure}
-In addition, both are tracing the same density field, meaning their power spectrums will allow an angular scale determination for ionization bubble size with redshift. \cite{Santos2010} created simulated power spectra for both galaxy halo mass and 21 cm emission to predict the evolution of the EOR with redshift. The evolution of the ionization bubble size can easily be seen in Figure 8 from snapshots taken from redshifts of z = 21 and z = 11 in the simulation. It can be seen that the ionization of the ISM increases significantly, and the ionization of the IGM starts to become more complete at z = 11. 
+This particular model was created using an assumed millimeter spectroscopic survey and the 10m Square Kilometer Array. It should be noted that this same comparison can also be done with CO, but the correlation is slightly different. For large scales, CO is anti-correlated with 21 cm, since the CO implies an increase in the number density of galaxies and ionization, but a decrease in the neutral 21 cm intensity. For small scales, these two metrics are fairly uncorrelated, since CO no longer necessarily traces with galaxy counts and the neutral medium is also too small to contain a galaxy. This CO-21cm anti-correlation traces the size of large scale structure and neutral hydrogen reservoirs, allowing a determination of the ionization bubble sizes as well. 
 
-\cite{Gong2012} coupled these 21 cm brightnesses with the expected CII intensity to create a cross-correlation coefficient calculated by \(r_{CII,HI}(k) = P_{CII,HI}(k)/\sqrt{P_{CII}(k)P_{HI}(k)}\). The mean ionization bubble size corresponds to the region where the coefficient reaches zero (from negative values) in Figure 9. For z = 6, this corresponds to a larger scale than that for either z = 7 or z = 8, consistent with the higher redshift models from the \cite{Santos2010} simulations. This particular model was created using an assumed millimeter spectroscopic survey and the 10m Square Kilometer Array. It should be noted that this same comparison can also be done with CO, but the correlation is slightly different. For large scales, CO is anti-correlated with 21 cm, since the CO implies an increase in the number density of galaxies and ionization, but a decrease in the neutral 21 cm intensity. For small scales, these two metrics are fairly uncorrelated, since CO no longer necessarily traces with galaxy counts and the neutral medium is also too small to contain a galaxy. This CO-21cm anti-correlation traces the size of large scale structure and neutral hydrogen reservoirs, allowing a determination of the ionization bubble sizes as well. 
+%================================================================================================================
+\subsection{Objective 2: The SZE and the Evolution of Large Scale Structure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Study of kSZE has impacts for understanding both the internal gas physics and dynamics of clusters, but also for cosmology as well. In order to understand why, it is necessary to review the process by which this phenomenon is created. There are in fact two distinct flavors of the SZ phenomenon which are split into a thermal and a kinetic effect. The thermal effect is due to a thermally induced motion of intra-cluster medium (ICM) electrons, whereas the kinetic effect probes the bulk motion of cluster gas. Both, are detected as temperature fluctuations in the anisotropic signal of the CMB, and measured as a change in the intensity of the CMB signal (\cite{Sunyaev1970}).  The process by which this occurs is Inverse Compton Scattering (ICS), whereby the photons of the CMB become up-scattered by the highly energetic ICM electrons, and re-emitted at more energetic wavelengths. 
 
-\section{TIME Secondary Science Goal: The SZE and the Evolution of Large Scale Structure}
+For the tSZE, the energy of the CMB photon is increased by a factor of \(\frac{k_{B}T_{e}}{m_{e}c^{2}}\) which in turn causes a 1mK level distortion in the CMB spectrum. This thermal effect also has the interesting property of affecting the CMB differently at different frequencies. For frequencies less than 218 GHz, the intensity of the CMB is decreased, while frequencies greater than 218 GHz the reverse is true (\cite{Carlstrom2002}). 
 
-\subsection{Properties of the Sunyaev-Zeldovich Effect}
-
-Study of kSZE has impacts for understanding both the internal gas physics and dynamics of clusters, but also for cosmology as well. In order to understand why, it is necessary to review the process by which this phenomenon is created. There are in fact two distinct flavors of the SZ phenomenon which are split into a thermal and a kinetic effect. The thermal effect is due to a thermally induced motion of intra-cluster medium (ICM) electrons, whereas the kinetic effect probes the bulk motion of cluster gas. Both, are detected as temperature fluctuations in the anisotropic signal of the CMB, and measured as a change in the intensity of the CMB signal [\cite{Sunyaev1970}].  The process by which this occurs is Inverse Compton Scattering (ICS), whereby the photons of the CMB become up-scattered by the highly energetic ICM electrons, and re-emitted at more energetic wavelengths. For the tSZE, the energy of the CMB photon is increased by a factor of \(\frac{k_{B}T_{e}}{m_{e}c^{2}}\) which in turn causes a 1mK level distortion in the CMB spectrum. This thermal effect also has the interesting property of affecting the CMB differently at different frequencies. For frequencies less than 218 GHz, the intensity of the CMB is decreased, while frequencies greater than 218 GHz the reverse is true [\cite{Carlstrom2002}]. The kSZE is due to the relative motion of the cluster gas with respect to the CMB, which creates a spectral distortion in the CMB due to the Doppler effect, induced by the cluster bulk velocity.  This distortion changes depending on whether or not the ICM electrons have relativistic energies, however, the underlying Planck Spectrum is preserved. The change in the Rayleigh Jean's temperatures is higher for positive velocities, and lower for negative velocities. For non-relativistic energies, in the rest frame of the gas, the CMB appears anisotropic, where ICS acts to create an isotropic radiation field. In the rest frame of the observer, the radiation field appears anisotropic, with the CMB photon energies increased by a factor of \(\tau_{e} v_{pec} / c\) , where \(\tau_{e}\) is the optical depth of the gas, \(v_{pec}\) is the peculiar velocity and \(c\) is the speed of light. [\cite{Birkinshaw1999}] This relationship provides a very real diagnostic tool of the internal motions of the cluster gas and significant clues about the properties of the cluster itself.
+The kSZE is due to the relative motion of the cluster gas with respect to the CMB, which creates a spectral distortion in the CMB due to the Doppler effect, induced by the cluster bulk velocity.  This distortion changes depending on whether or not the ICM electrons have relativistic energies, however, the underlying Planck Spectrum is preserved. The change in the Rayleigh Jean's temperatures is higher for positive velocities, and lower for negative velocities. For non-relativistic energies, in the rest frame of the gas, the CMB appears anisotropic, where ICS acts to create an isotropic radiation field. In the rest frame of the observer, the radiation field appears anisotropic, with the CMB photon energies increased by a factor of \(\tau_{e} v_{pec} / c\) , where \(\tau_{e}\) is the optical depth of the gas, \(v_{pec}\) is the peculiar velocity and \(c\) is the speed of light. (\cite{Birkinshaw1999}) This relationship provides a very real diagnostic tool of the internal motions of the cluster gas and significant clues about the properties of the cluster itself.
 
 \begin{figure}[!ht]%
     \centering
@@ -219,19 +238,17 @@ Study of kSZE has impacts for understanding both the internal gas physics and dy
     \label{fig:tksze}%
 \end{figure}
 
-Although TIME science will explore primarily the kSZE signal, it is still necessary to measure the tSZE. The reason why is easily seen from Figure 1, taken from \cite{Carlstrom2002}, which shows the relative strengths of both signals in terms of the CMB brightness and the Rayleigh-Jeans brightness temperature. In both cases, the kSZE signal is orders of magnitude fainter than the tSZE, except for one special circumstance. There is in fact a null of the tSZE at 218 GHz, but for which the kSZE effect is still non-zero. This property will become fundamentally necessary for disentangling the kSZE from the tSZE. Not only is the signal much fainter, putting strict lower mass limits on the mass of the cluster observed, but the signal is further confused by CMB anisotropies that, when extracted from the full SZE signal, could remove some of the kSZE along with it. This is due to the fact that the kSZE is the first moment of the CMB, and even with careful modeling, can be difficult to remove entirely. In the case of extremely high mass, rich galaxy clusters, there is a much higher abundance of relativistic electrons, and a much better chance of retrieving a pure kSZE signal, independent of the CMB and the tSZE. For a massive cluster with \(k_{B}T_{e} = 10 keV\), modeling suggests that most electrons are well into the relativistic range. Papers of some of the earliest measured clusters found gas temperatures around \(k_{B}T_{e} = 15 keV\) [\cite{Mushotzky1997},\cite{Allen1998}], with high significance SZE detections.
+Although TIME science will explore primarily the kSZE signal, it is still necessary to measure the tSZE. The reason why is easily seen from Figure 1, taken from \cite{Carlstrom2002}, which shows the relative strengths of both signals in terms of the CMB brightness and the Rayleigh-Jeans brightness temperature. In both cases, the kSZE signal is orders of magnitude fainter than the tSZE, except for one special circumstance. There is in fact a null of the tSZE at 218 GHz, but for which the kSZE effect is still non-zero. This property will become fundamentally necessary for disentangling the kSZE from the tSZE. Not only is the signal much fainter, putting strict lower mass limits on the mass of the cluster observed, but the signal is further confused by CMB anisotropies that, when extracted from the full SZE signal, could remove some of the kSZE along with it. This is due to the fact that the kSZE is the first moment of the CMB, and even with careful modeling, can be difficult to remove entirely. In the case of extremely high mass, rich galaxy clusters, there is a much higher abundance of relativistic electrons, and a much better chance of retrieving a pure kSZE signal, independent of the CMB and the tSZE. For a massive cluster with \(k_{B}T_{e} = 10 keV\), modeling suggests that most electrons are well into the relativistic range. Papers of some of the earliest measured clusters found gas temperatures around \(k_{B}T_{e} = 15 keV\) (\cite{Mushotzky1997},\cite{Allen1998}), with high significance SZE detections.
 
-\subsubsection{Redshift Independent Measurements}
+Perhaps the most important property of the SZE is that it produces a redshift independent measurement. This is due to the fact that the SZE is created by photons from the same 2D surface (the CMB) scattering off of electrons in clusters. Under the assumption that photons at the largest scales have had very little interaction with other particles until reaching a cluster, the source for the photons are all from the same redshift. This is more clearly seen from the equation describing the relativistic maxwellian distribution of electrons, like the ones that would be found in the ICM of massive clusters. Equation ~\ref{eq:boltzman} below is taken from \cite{Birkinshaw1999} and shows the intensity change to the CMB from relativistic ICM electrons. \(P_{1}(s)\) is a scattering function for SZE,  and \(\tau_{e}\) is the optical depth for the electrons. Interestingly, nowhere contained within Equation 3 are any signs of redshift dependence.
 
-Several useful applications of kSZE data were given above, however, the most powerful tool in the TIME arsenal is its redshift independent measurements. This is due primarily to the fact that the SZE for both the kinetic and thermal effect is created by photons from the same 2D surface (the CMB) scattering off of electrons in the clusters. Under the assumption that photons at the largest scales have had very little interaction with other particles until reaching a cluster, the source for the photons are all from the same redshift. To make this more abundantly clear, we can retreat back to the equation for a relativistic maxwellian distribution of electrons, like the ones that would be found in the ICM of massive clusters. Equation 3 below is taken from \cite{Birkinshaw1999} and shows the intensity change to the CMB from relativistic ICM electrons. \(P_{1}(s)\) is a scattering function for SZE,  and \(\tau_{e}\) is the optical depth for the electrons. Interestingly, nowhere contained within Equation 3 are any signs of redshift dependence.
-
-\begin{equation}
+\begin{equation}\label{eq:boltzman}
 \Delta I(\nu) = \frac{2h}{c^{2}}\tau_{e} \int_{-\infty}^{\infty} P_{1}(s) ds (\frac{\nu_{0}^{3}}{e^{h\nu_{0}/k_{B}T_{rad}}-1}  - \frac{\nu^{3}}{e^{h\nu/k_{B}T_{rad}}-1})
 \end{equation}
 
-It should be noted that while this equation is redshift independent, it does depend somewhat on cluster properties, such as assumptions that the cluster gas is optically thin, and that the temperature of the gas is in hydrodynamic equilibrium at a constant temperature. Any changes to these parameters would change the resulting spectral distortion of the CMB. The change of these cluster properties could be well modeled after the first surveys of the SZE, as it is suspected that higher redshift clusters are more compact, meaning that the gas temperature function should show a positive trend with increasing redshift. Since this equation is for a relativistic treatment of electrons, we also need a dense, hot massive cluster for it to apply, which sets a somewhat stringent mass limit for detection of the relativistic effect [\cite{Carlstrom2002}].
+It should be noted that while this equation is redshift independent, it does depend somewhat on cluster properties, such as assumptions that the cluster gas is optically thin, and that the temperature of the gas is in hydrodynamic equilibrium at a constant temperature. Any changes to these parameters would change the resulting spectral distortion of the CMB. The change of these cluster properties could be well modeled after the first surveys of the SZE, as it is suspected that higher redshift clusters are more compact, meaning that the gas temperature function should show a positive trend with increasing redshift. Since this equation is for a relativistic treatment of electrons, we also need a dense, hot massive cluster for it to apply, which sets a somewhat stringent mass limit for detection of the relativistic effect (\cite{Carlstrom2002}).
 
-Fortunately, it is also possible to create an analytical function for non-relativistic electrons through the application of the Kompaneets equation [\cite{Birkinshaw1999}].
+Fortunately, it is also possible to create an analytical function for non-relativistic electrons through the application of the Kompaneets equation (\cite{Birkinshaw1999}).
 
 \begin{equation}
 I(\nu) = \int_{-\infty}^{\infty} P_{K}(s) I_{0}(\nu_{0}) ds
@@ -245,18 +262,15 @@ P_{K}(s) = \frac{1}{\sqrt[2]{4 \pi y}} exp(-\frac{(s + 3y)^{2}}{4y}
 While this is simply theory, some of the first interferometric observations of clusters at multiple redshifts confirmed that the SZE had the same ratio to the CMB brightness across a wide range of redshifts. Figure 2, taken from \cite{Carlstrom2002}, shows this redshift-independent feature.
 
 \newpage
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \captionsetup{width=0.85\textwidth}
 \includegraphics[width=0.85\textwidth]{carlstrom1.png}
-\caption[An example of the redshift independence of SZE measurements for six different clusters. -(\cite{Carlstrom2002})]{Deconvolved interferometric SZE images for galaxy clusters between z = 0.17 and z = 0.89. Isophotal contours at multiples of \(2\sigma\) are also shown in white solid lines. In the bottom left corner, the FWHM of the beam ellipse is also shown. [\cite{Carlstrom2002}]}
+\caption[An example of the redshift independence of SZE measurements for six different clusters. -(\cite{Carlstrom2002})]{Deconvolved interferometric SZE images for galaxy clusters between z = 0.17 and z = 0.89. Isophotal contours at multiples of \(2\sigma\) are also shown in white solid lines. In the bottom left corner, the FWHM of the beam ellipse is also shown. The signal appears to suffer from no cosmological dimming as a function of redshift, as the relative intensity across each cluster is roughly the same (\cite{Carlstrom2002}).}
 \end{figure}
 %%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Theorized kSZE Advances}
-
-\subsubsection{Implications for Cosmology}
+\subsubsection{kSZE Implications for Cosmology}
 
 After the formation of the universe in the Big Bang, the temperature was so high that only subatomic particles could survive. Radiation was the dominant energy density, where particles were still heavily coupled to the cosmic plasma. Afterwards, a brief inflationary phase magnified any quantum fluctuations in the surrounding medium and rapidly reduced the temperature to the point where atomic nuclei could form (recombination) and photons decouple (decoupling). Those photons have been propagating ever since, with little interaction, and still retain a perfect Blackbody spectrum, known as the Cosmic Microwave Background (CMB). 
 
@@ -284,7 +298,6 @@ Work has also been done to show the relationship between the emitted photons and
 
 While these equations make it apparent that studying the CMB anisotropies would lead to insights about the dark matter densities in galaxy clusters, it also implies that anything that modifies the local gravitational potential would create deviations from the expected temperature fluctuations. The kinematic effects on the CMB photons from the peculiar velocities of the electrons shown in Equation 3 show a very similar dependence to that of gravitational potentials of the clusters themselves. This leads to the conclusion that the properties of dark matter on large scales can be derived from the kSZE. 
 
-%=================================================================================================
 Cluster velocities measured with respect to the positions of other large scale structures are often referred to as bulk velocities, and have predicted values based on standard cosmology.  Traditionally, bulk flows are determined using peculiar velocities obtained optically, given a fairly close cluster and high resolution telescope. The distance is estimated with photometric, or if available, spectroscopic redshifts, which are more subject to errors with an increase in distance. As explained above, SZE measurements do not suffer from such redshift effects.
 
 Simulations like Illustrus [CITE SOURCE HERE] show this bulk flow particularly well for clusters that are within a cosmic filament, or region of overdensity, where individual clusters are drawn towards the large potential well created by the abundance of dark matter. An example from our local universe would be the ``Great Attractor'', a region of galaxy overdensity with respect to redshift. For a typical spherical region of radius R, the bulk velocity should decrease linearly with comoving distance under standard cosmological parameters, with values around \(v_{rms}(r > 50-100  h^{-1} Mpc) = 250 km/s\) (\cite{Mak2011}). Since this velocity is believed to be caused by both baryonic and dark matter, it can be related back to the surrounding density fluctuations via ~\ref{eq:bulkvelocity}. 
@@ -293,7 +306,7 @@ Simulations like Illustrus [CITE SOURCE HERE] show this bulk flow particularly w
  \end{equation}
 \(\tilde{W}_{r}(k)\) is the 3D Fourier transform of a real space top-hat filter over a comoving sphere of radius r, \(P_{m}(k,z)\) is the matter power spectrum, and E(a) is the energy density change with scale factor. This allows a direct comparison of cluster velocities to the predicted matter power spectrum, as observed using the CMB.
 
-%==========================================================
+%=======================================================================================
 (Bhattacharya \& Kosowsky 2008):
 
 %we describe the dark energy in terms of three phenomenological parameters: its current energy density ΩΛ, and two parameters w0 and wa describing the redshift evolution of its equation of state w(a) = w0 +(1−a)wa. Assuming a spatially flat universe, the set of cosmological parameters p on which the velocity field depends are the normalization of the matter power spectrum σ8 (or equivalently the normalization constant B in Eq. (5)), the power law index of the primordial power spectrum nS, and the Hubble parameter h, plus the dark energy parameters.
@@ -316,8 +329,8 @@ Testing dark energy vs. modified gravity
 (Kitayama 2014):
 % use the observed SZE spectra to measure CMB temperatures at an arbitrary redshift and test the validity of the evolution of CMB temperature with redshift. (see equation 8) Prediction is adiabatic change with z. Use Carlstrom 2002 to find kSZE as given by temperature change rather than intensity change of CMB.
 	
-%===================================================================================
-\subsubsection{Implications for Cluster Physics}
+%=======================================================================================
+\subsubsection{kSZE Implications for Cluster Physics}
 
 Clusters are one of the largest gravitationally bound systems in the universe, meaning that they are also host to unique gas physics, and internal processes not found in individual galaxies. Some of these include movement through equilibrium states (hydrostatic, thermal, ionization), feedback, cooling outflows, mergers, and enrichment of the ICM. So why are these important? For cluster research, better understanding the current state of the ICM can give insights into the process of mergers, and reveal part of the evolutionary history for how these structures were created. From the perspective of kSZE research, these processes disrupt the normal isothermal beta model that has been assumed for most spectral fitting profiles, and have been a significant source of error for compton y estimates. Conversely, kSZE has the potential to reveal these deviations from static, equilibrium conditions and improve the modeling of the ICM, as well as probe gas physics. 
 
@@ -333,7 +346,7 @@ Another discovery of unique cluster physics was found by Chandra, and showed col
 
 These cold shock fronts and others associated with merging activity have typically been easier to observe behind the contact discontinuity, for X-rays. The actual shock fronts themselves can be easily observed with the kSZE, since bulk velocity is a direct probe for gas dynamics. To prove this concept, a simulation of the bullet cluster was made, and then artificially observed using ALMA resolution and sensitivities. The result is given in Figure \ref{fig:bulletcluster}, where in the right graph, the clear kSZE spectrum is observable, as well as definitive jumps near the shock fronts and contact discontinuity (\cite{Kitayama2014}). 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \captionsetup{width=0.8\textwidth}
 \includegraphics[width=0.8\textwidth]{bulletcluster.png}
@@ -342,6 +355,7 @@ These cold shock fronts and others associated with merging activity have typical
 \end{figure}
 With this method, kSZE can be used to determine the velocity field of the cluster gas in cases where the gas is both hot or cold in a shock front, without relying on high electron temperatures or densities. 
 
+%======================================================================================
 %So, there the X-ray-emitting electrons may have a cooler temperature than the invisible protons, resulting in a steeper X-ray temperature gradient towards the outskirts and, therefore, an underestimate of the total mass (Fig. 3). (see equation 16)
 %Because shock heating is an important process, and both protons and electrons are involved in the process of heating and cooling, and one is more efficient than the other, by detecting the x-ray emission from electrons (which cool more quickly), the mass of the cluster is underestimated using x-rays
 
@@ -355,13 +369,11 @@ With this method, kSZE can be used to determine the velocity field of the cluste
 (Scaling Relations to determine cluster mass) 
 	%(Benson et al. 2013 ; Rozo et al. 2010)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % Pitfalls of studying the ICM with Xrays (McNamara et al 2005; Markevitch & Vikhlinin 2007)
 
 %for example the (1 + z)4 dimming of the X-ray surface brightness (eq. 19)
-
-\subsection{Previous Cluster SZE Detections \& Advancements}
+%======================================================================================
+\subsubsection{Previous Cluster SZE Detections \& Advancements}
 
 The study of SZE is not a new branch in the field of Cosmology. Some of the first SZE measurements of clusters were made back in the 1970's on the Chilbolton Observatory 25 meter telescope in England, and at the Owens Valley Radio Observatory (OVRO) in California in the 1980's (\cite{Birkinshaw1999}). These instruments provided proof that SZE was detectable in massive clusters, but the results were often conflicting, as measurements of the same source with different telescopes returned different cluster gas temperatures. These differing values were often not within error of each other, revealing a serious systemic uncertainty not accounted for in the analysis. At the time, so few clusters were being targeted for SZE research that it was impossible to make any global statements about the properties of the intra cluster medium, or to determine the cause of the uncertainty in the measurements. 
 
@@ -445,7 +457,7 @@ This would cause an increase or decrease of the bulk flow depending on the locat
 
 While all are certainly possible, it has been extremely difficult to narrow the options because of small counting statistics. This is in part due to the small number of clusters in the relatively nearby universe (100-200 \(h^{-1} Mpc\)) (\cite{Lavaux2013}), and the limited size of most kSZE surveys. TIME will not be able to create a large survey of kSZE, but by improving detection techniques and increasing the sensitivity of high redshift signals, it will improve the statistical significance of bulk velocity measurements, and increase the total number of clusters measured. Further constraints on the standard model will then be possible.  
 
-\subsection{Expected SZ Measurements \& Noise Sources for TIME}
+\subsubsection{Expected SZ Measurements \& Noise Sources for TIME}
 
 One of the improvements that TIME will seek to make is in modeling atmospheric noise. While SuZIE II suffered from differential atmospheric contamination, TIME will have dedicated monitoring channels that will sample both on and off the cluster. This should help remove any time varying atmospheric signal from the data, but there are also other techniques that could be applied in the data pipeline. In similar form to \cite{Sayers2010}, a combination of atmospheric models combined with instrument parameters can be used to determine the optimal atmospheric subtraction technique for TIME. 
 
@@ -488,7 +500,9 @@ This result takes into account the background and foreground noise sources menti
 \label{fig:time1}
 \end{figure}
 
-\section{TIME Instrument}
+%===========================================================================================================================
+\section{TIME Internal/External Hardware Descriptions}
+\subsection{Instrument Properties Overview}
 
 \begin{center}
     \begin{tabular}{|c|c|}
@@ -566,130 +580,11 @@ The entire instrument is housed in a closed cycle cryostat with 5 cooling stages
 \label{fig:jon2}
 \end{figure}
 
-\newpage
-\subsection{Observation Strategy}
-
-TIME is utilizing grating spectrometers that are capable of rendering not only spectral but also spatial information into a 3 dimensional data cube. This adds the benefit of separating a superposition of signals from different redshifts along the line of sight, but in the same spatial pixel. For research on the CMB and the EOR, this is an especially useful tool as it allows both foreground and background sources to be individually measured. In the case of TIME, this implies the ability to distinguish between the faint dwarf galaxy population of interest and the much brighter foreground galaxies. 
-
-Complementary to the spectrometers, the chosen observing method will have the ability to constrain faint CO and CII line emission at high redshift though intensity mapping. This is a tested technique [\cite{Keating2015},\cite{Keating2016}] accomplished by moving the array of detectors across the sky, and recording the spatial variation in the total surface brightness from all sources in the field of view (FOV), as bolometer arrays are sensitive to the integrated intensity. Traditional measurements of faint galaxies attempt to resolve a single source through interferometry, such as with the Atacama Large Millimeter Array (ALMA), but typically miss the faintest end of the full luminosity function. With intensity mapping, lower limits on the faint end of the function can be determined, using only a single dish, rather than an entire array. Compared to ALMA, which would take roughly 4500 hours to observe a 2.5 degree FOV [\cite{Kovetz2017}], TIME can scan that same area in 1000 hours. 
-
-TIME will be commissioned at the Arizona Radio Observatory (ARO) at Kitt Peak on the 12 meter ALMA Prototype Antenna in February 2019. Once there it will undergo a series of tests and calibrations, and will eventually start observations. It will be completing constant declination scans of several individual clusters by rastering back and forth across a source. An example scan pattern is shown in Figure~\ref{fig:time2ab}  and~\ref{fig:time2cd} below. The ideal strategy will be to scan two 1.3 degree linear fields over the course of 9 hours for CII/CO, and further dedicated time for kSZ detection in selected galaxy clusters.
-
-\begin{figure}[H]%
-    \centering
-    \subfloat{{\includegraphics[width=0.45\textwidth]{time2a.png} }}%
-    \qquad
-    \subfloat{{\includegraphics[width=0.45\textwidth]{time2b.png} }}%
-    \singlespace
-    \caption[TIME Scan Strategy 1]{Left: Arrows indicating motion back and forth across an exaggerated 10 degree field of view, constant in declination. Right: Same scan pattern but given in ALT-AZ coordinates, with different colors showing start of observation at different times for Kitt Peak.}%
-    \label{fig:time2ab}%
-\end{figure}
-
-\begin{figure}[H]%
-    \centering
-    \subfloat{{\includegraphics[width=0.45\textwidth]{time2c.png} }}%
-    \qquad
-    \subfloat{{\includegraphics[width=0.45\textwidth]{time2d.png} }}%
-    \singlespace
-    \caption[TIME Scan Strategy 2]{Left: Closeup of one time of observation in ALT-AZ coordinates, showing how the rastering across the source appears to make a helical motion, due in part to objects moving across the sky while observing. Right: Increased zoom of the left figure. Red arrow shows the motion back and forth across a line of constant declination, while the black line indicates the observed sources path across the sky.}%
-    \label{fig:time2cd}%
-\end{figure}
-
-\newpage
-\section{TIME Software Development}
-
-In order to facilitate the successful completion of the TIME scientific goals, an important consideration is the handling of data and intercommunication between devices.A schematic of the hardware layout and connections is included in Figure ~\ref{fig:km9}, which details the communication pathways for multiple devices, including the telescope, control computer, Multi Channel Electronics (MCE), K-Mirror, and others. The key to successful data acquisition will be synchronous operation of each system, and eventual data collation. 
-
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.95\textwidth}
-\includegraphics[width=0.95\textwidth]{km9.png}
-\caption[TIME Control Flow Diagram]{Communications layout for TIME. Each instrument in blue represents a source of data, some of which will pass through the Control Computer, onto the Remote Observing Computer, and finally into Data Storage. There will be two MCEs each with their own control computer, a telescope computer, and a Raspberry Pi 3 controlling the K-Mirror. Each of those systems will send output to the Remote Observing Computer running the GUI over SSH and SFTP protocols. All data will then be stored in multiple locations, including the remote computer, an external hard drive, and stored in a cloud.}
-\label{fig:km9}
-\end{figure}
- 
- One of the most difficult problems is how to collate the many different ``clocks'' in the schematic into one universal standard time that is placed into the permanent data files. The most sensitive connection is the one between the MCE and telescope, since positional location over a source must correspond directly to a signal received and transmitted from the MCE. In an example scenario of a scan across a cluster for CII detection, if the telescope pointing information were to have some sort of lag relative to the bolometer signal, the final analysis would result in a cluster that appeared to be have a higher fraction of CII present in the outskirts than was predicted by modeling. This could lead to an assumption of physical properties for that cluster that are inaccurate. 
- 
-The solution to this problem is two-fold. The first requires the MCE to have an independent time source. The MCE currently has a device known as a sync box, which sends 25 MHz 32-bit sequential steps that are encoded into each data frame. When both MCE's are run, the sync box ensures that these stamps are placed on the same frame (i.e. both first frames would have the same sequential number), allowing files to be compared during collation. The second involves a configuration of the hardware which produces Data Valid pulses based on an external trigger. The trigger planned for use with TIME will be an N2X system, which is slaved over a Network Time Protocol (NTP) to UTC time in seconds. NTP is a standard time keeping server that simulates an atomic clock and kept accurate with GPS. The device is then configured to produce the exact same number of pulses in between each UTC second. Since the telescope also understands UTC time, the time at frame generation by the MCE can be compared with location of the telescope at that same time without fear of lag. This implementation has yet to be tested, however the sync box has already been integrated into the system and produces the expected behavior. 
-
-Integration of the other components will simply be a matter of data transfer over the local network available at the telescope, processed through a script on the remote observing computer, and then finally stored in multiple locations. The functionality of the software and a description of this process is provided below. 
-
-
-\subsection{Graphical User Interface}
-
-For lab testing and on-site live data visualization, a graphical user interface (GUI) was designed in a {\sc Python} script, and initially implemented in a web based framework using {\sc Dash by Plotly}. The GUI acts like a HUB, with input and output to multiple devices which all show statuses on the screen. Currently added functions include viewing the data from the MCE, with both live and archival data, a heatmap of the detector channels, and simulated inputs from the K-mirror and telescope. Figures ~\ref{fig:gui1} and ~\ref{fig:gui2} show the first and second iterations of the GUI. In the first iteration, the MCE was activated by a python script, the incoming data was parsed by another script and fed to the Plotly servers, and then a separate script stored the data in a preferred format. A web browser could then be opened and sent to a local host address where the user could view and interact with the data. This version was abandoned after testing the MCE at the highest data rate of 400 Hz, with 2 seconds of data on the screen at a time, updates every 1 second, and run for 8 hours. At this data rate, the MCE generates 374 frames per second. When looking at the output for only one detector, 374 data points are added to the screen per second, with over 12,000 data points present in every array. When run for an extended time, the lag on screen became visibly noticeable, as it would take longer and longer for the graphs to update, and some frames were even skipped entirely. This was due to the method by which Plotly updated its streaming plots, where it would have to re-draw every data point every time the graphs were refreshed, meaning that after 30 seconds, 11,000 data points were on the screen at a time. For lab testing, it was necessary to have at least 2 minutes of data on the screen at one time.
-
-\begin{figure}[H]
-	\centering
-	\captionsetup{width=0.85\textwidth}
-	\includegraphics[width=0.85\textwidth]{gui1.png}%
-	\caption[GUI Beta 1.0]{This GUI was made through the use of {\sc Dash by Plotly} which handled all data updating and viewing on the screen, as well as activating the MCE and providing an interactive user interface. This version was abandoned for the unreliability of web servers, and severe lag after several minutes.}%
-	\label{fig:gui1}%
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\captionsetup{width=0.85\textwidth}
-	\includegraphics[width=0.85\textwidth]{gui2.png}%
-	\caption[GUI Beta 2.0]{Version 2 of the GUI was done using a desktop interface created with {\sc PyQTGraph}. This gui had the advantage of using much less CPU, almost no lag after continuous running, and more versatility for customization.}%
-	\label{fig:gui2}%
-\end{figure}
-
-The second version of the GUI was created using PyQt4 graphics packages and required a re-write from the html based script employed before. This script only updated the graphs with the newest data, without redrawing the whole figure, and wasn't subject to the unpredictability of web servers. The necessary packages could also simply be downloaded through ``apt-get'' from a standard library and added to the users existing python library. This new system was tested using the same parameters as the first, which revealed only one minor flaw. The parameters for the MCE input by the user, including data rate, would return a frame per second that would not be an integer value. At a data rate of 45, the value was exactly 374 frames per second, but at a data rate of 10, it was 1683.5 frames per second. This meant that every other second, an extra file was created, and missed by the previous check by the software. This was easily corrected for by adding in a check for an extra file that would be parsed and incorporated onscreen in the correct chronological order. After testing the system with 5 minutes of data onscreen at a time for 8 hours, there were no lags to the system. 
-
-Items that must still be incorporated into the GUI are actual interfacing from the K-Mirror and the Telescope. A telescope simulator was created to mimic the observing patterns required for TIME (constant declination scans) which outputs positional information and other metrics necessary for the K-Mirror operation described in detail later. The next step in testing will involve data generation from these simulated sources, transferred over SSH, and then visualized on the remote observing computer. 
-
-\subsection{Data Storage}
-
-Data storage is a challenge for every scientific mission, and no less so for TIME. With 2 MCEs collecting 50 MHz data, telescope data at 20 packets/second, and numerous other electronics, the sheer volume and speed at which data sets develop requires very specific packaging solutions. 
-
-%One problem is how to collate the data so that it is time sequenced synchronously across each output. The telescope computer has an internal clock, as does the K-Mirror computer and the control computer. But due to the finite nature of data transfer and manipulation, by the time each stream is collected into the remote observing computer, each can be seconds apart from one another. The importance of this flaw is easily seen from a case where corrupted data is removed based on error flags, or problems with the detectors. If data is removed based on the time at which the flag was triggered, but there is a delay between when the control computer reads that flag and commands the telescope to stop tracking, then the two different instances will be recorded as disparate events in the data file, and more data will be deleted than necessary. The solution to this problem is to create a unifying time keeper that will continuously send time ``pulses'' to the control computer, and where it can be appropriately used to tag any information that passes through the hub. For the two MCEs, this device already exists in the form of a ``sync box'', which ensures that both MCE's are acquiring frames and are recording the timestamps synchronously. While this feature has been tested on previous experiments such as BICEP2, integrating it with the control computer and the other components could be complicated. The K-Mirror, for example, is not designed to take a fiber optic input, and the sync box connection has not been tested on anything other than a computer with the MCE control system installed. An alternative solution is to use the Telescope control computer. Information flows out of it and into the control computer and the K-Mirror system. Every other hardware device data stream is collected at the control computer and can be stamped with the telescope time upon storage. This would be ideal since the control computer will be on site at Kitt Peak, and directly connected to the local server. Any lag induced by the transfer would be minimal, and the telescope UTC time is rated accurate to other world clocks to within microseconds. 
-%
-
-The best file system is one that can both be flexible about the type of data (int, string, bool, float), and also the way that it can be packaged and recalled. Several formats were considered including Dirfiles, NetCDF, HDF5, FITS, and custom binaries, because they could all be integrated into Python scripts. Dirfiles are the natural file format for the MCE system which work extremely efficiently for time ordered data. However, there are other data types for which it might be an unnatural fit, such as K-Mirror status flags. It also can only be read out all at once and in chronological order, which could be inhibitive to large data sets. FITS files are a natural choice for working with any sort of image array, but TIME bolometers are not a one to one analog for image data. There were no strong objections to using this method, other than it was outdated and not as efficient as other options. Custom binaries would have been useful, but they have very little documentation, and so the benefits and drawbacks were difficult to assess. 
-
-In the end, the NetCDF4 file option was chosen for a number of reasons. It has an easy integration with Python, and is in fact built into the standard {\sc Anaconda} distribution, without the need to separately install any other supporting packages, such as HDF5 integration. It is also heavily documented, and used by a large variety of different fields. However, the most useful attributes include direct rather than sequential data access, and an unlimited file size (within system limitations). The ability to search for data directly removes the problem of files which are too large to parse. As an example, in python, a text file is read in line by line, with the readout time increasing with the number of lines. In a NetCDF4 file, data can be queried based on the parameters or attributes assigned to it. One parameter set by the TIME GUI is the observer. As such, a massive NetCDF file could be queried to only return data for a specific variable, over a set of times for only that observer. The entire file is not retrieved for the user, but is scanned by the software to look for the appropriate data to return. While these are perfect qualities for our system, the size of the file is still ideally kept to a small value, to facilitate easier transfer over ethernet connections. NetCDF allows the user to break up the data across multiple small files, but still read them back as if they were all the same file. So, if the observer happened to be on call for more than one night, all of the data pertaining to that observer would be called from multiple files. 
-
-Lastly but not least is the flexibility of the underlying architecture for data storage. NetCDF operates similar to a python dictionary, where the user can create logical groupings and assign variables and dimensions with specific attributes. For the TIME GUI, MCE data is stored in three groups; gui parameters, raw data, and heatmap data. Each of these groups has their own set of variables and dimensions, with each variable being assigned an attribute. For the gui parameters, there is a variable called ``header'' which was given attributes ``mce frame header info'', and ``updated once per frame file'', and listing what data types and how much file memory it consumed. Other variables, such as heatmap data, could also have attributes stating what units the data were in. The attributes can be called by the user at any time to assist with recollection of what is contained in the variable. More usefully, attributes can also be added to the time ordered data in the form of flags. If the K-Mirror system malfunctions, it is set to send an error flag to the GUI, which can then be added as an attribute to data over the range of time that the error occurred. Later during data analysis, the attributes can be used to filter out contaminated data. 
-
-\subsection{Higher Level Data Analysis Suite}
-
-The software described above works well for situations in the lab for live visualization of the detector arrays. However, additional software is required for commissioning of the instrument, and actual observations. The interface will have three main components. The first is one that automatically generates images for the user once a test or calibration is complete. The other is a data retrieval suite that allows the user to access the desired files and select analysis procedures to run on archived data. Lastly, a small amount of pre-processing subroutines will be run on raw data files after storage. This includes any scripts that will need to be universally applied across each analysis routine. Table ~\ref{table:pipeline} is included below, and lists the steps necessary for calibration and commissioning at the telescope, as well as the types of analysis that will be included in the suite. 
-
-An example of the first case is performing pointing model checks on the telescope before beginning a night of observing. A ``pointing cross'' is created by nodding the telescope through all four cardinal positions, and comparing the reported position to the one requested in software. After the nod is completed, a visualization of the on-sky positions for both reported and requested data is plotted and shown to the user on screen. They then have the option of saving the image into a pre-selected analysis directory. 
-
-The second and 
-\begin{wrapfigure}{r}{0.55\textwidth}
-\vspace{-0.8cm}
-  \begin{center}
-    \includegraphics[width=0.5\textwidth]{tau.png}
-   \end{center}
-\caption[SCUBA Optical Loading Skydips -(\cite{Archibald2002})]{Optical Loading for Various Wavelengths to determine optical depth for the SCUBA instrument. The sky brightness is determined by performing telescope sky dips. The open circles here are the measurements taken at different airmasses (or elevations), and the solid line is the fit to the data which provides the optical depth. The conversion used by SCUBA is given in \cite{Archibald2002} by Equation 2. A similar model will be used by TIME, but with Rayleigh-Jeans temperature approximations. This type of graph will be produced by the Data Analysis Suite.}
-\label{fig:tau}
-\end{wrapfigure}
-third cases are both run on archival data after calibration or observing tests have been completed. The data retrieval suite will have access to a series of directories that are named based on the Julian Date (JD) and type of data (either telescope or detector), and can be queried for other specifics including the observer, specific times, etc. The pre-processing pipeline will be available as a button on the interface that the user activates, and can include processes such as data decimation, removal of corrupted data, application of anti-aliasing filters, high pass filters, and atmospheric removal, to name a few. An example of this process in action is for determining the change in atmospheric loading on the detectors with elevation. The opacity of the atmosphere changes with elevation and effects the brightness of sources viewed through it. Fortunately, it can be characterized by sky dips, where the telescope is moved through various elevations, while the detectors record the sky brightness temperature. To accomplish the actual goal of measuring \(\tau \) , the raw data must be retrieved and then have several conversions to transform it from sky brightness to optical depth. This type of analysis requires a conversion from the voltage returned by the detector, to resistance, and then finally to the bolometer temperature. This temperature can be related back to the Rayleigh-Jeans equivalent temperature, and then used with a basic plane-parallel atmospheric model to determine \(\tau\) . These conversions will be automated, and present a plot of the subsequent analysis after the appropriate data is selected by the user. An example is shown in Figure ~\ref{fig:tau}.
-
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Tests} & \textbf{Analysis}\\
-\hline
-\hline
-  \tabitem Pointing Model & \tabitem Detector Noise\\
-  \tabitem Beam Model & \tabitem Telescope Noise\\
-  \tabitem Optical Loading for various El & \tabitem Raster Maps\\
-  \tabitem Internal/Software Data Downsampling & \tabitem El Dips\\
-  \tabitem Anti-Aliasing Method & \tabitem Sky Dips\\
-  \tabitem Low/High Pass Filter & \tabitem Pointing Cross\\
-  \tabitem Filter Deconvolution Technique & \tabitem Telescope Focus\\
-  \tabitem Common Mode Atmospheric Template & \tabitem Detector Offsets\\
-  \tabitem Load Curves (lab/telescope) & \tabitem Point Source Calibration\\
-  \tabitem Atmospheric Conditions (airmass, water vapor, etc.) & \tabitem Beam Mapping/Fitting\\
-\hline
-\end{tabular}\label{table:pipeline}
-\end{center}
-
-\section{K-Mirror Image Rotator}
+%===========================================================================================================================
+\subsection{Optics}
+\subsubsection{Telescope}
+\subsubsection{Cryostat}
+\subsubsection{K-Mirror Image Rotator}
 The telescope at which TIME will be deployed is an ALMA Prototype 12m antenna, which rotates on an Alt-Azimuth mount. This presents unique challenges for the optical path from the primary mirror to the cryostat, because of the line scan observation strategy. The reason why can be easily shown in Figure ~\ref{fig:km1}. The rotation of the earth causes objects on the sky to trace out a circular path with time, while the telescope mount provides motion only in linear directions, not circularly. When the line of bolometers is projected on the sky under this rotation, they show an unnatural overlap or gap when measuring the source. Some past experiments have corrected for this in software [cite reference here], but the process is computationally costly, and not well refined. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
@@ -739,7 +634,44 @@ The most efficient way of avoiding problems near zenith was to determine at what
 	\label{fig:km45}%
 \end{figure}
 
-\subsection{Design and Testing}
+\newpage
+\section{Observation Strategy}
+
+TIME is utilizing grating spectrometers that are capable of rendering not only spectral but also spatial information into a 3 dimensional data cube. This adds the benefit of separating a superposition of signals from different redshifts along the line of sight, but in the same spatial pixel. For research on the CMB and the EOR, this is an especially useful tool as it allows both foreground and background sources to be individually measured. In the case of TIME, this implies the ability to distinguish between the faint dwarf galaxy population of interest and the much brighter foreground galaxies. 
+
+Complementary to the spectrometers, the chosen observing method will have the ability to constrain faint CO and CII line emission at high redshift though intensity mapping. This is a tested technique [\cite{Keating2015},\cite{Keating2016}] accomplished by moving the array of detectors across the sky, and recording the spatial variation in the total surface brightness from all sources in the field of view (FOV), as bolometer arrays are sensitive to the integrated intensity. Traditional measurements of faint galaxies attempt to resolve a single source through interferometry, such as with the Atacama Large Millimeter Array (ALMA), but typically miss the faintest end of the full luminosity function. With intensity mapping, lower limits on the faint end of the function can be determined, using only a single dish, rather than an entire array. Compared to ALMA, which would take roughly 4500 hours to observe a 2.5 degree FOV [\cite{Kovetz2017}], TIME can scan that same area in 1000 hours. 
+
+TIME will be commissioned at the Arizona Radio Observatory (ARO) at Kitt Peak on the 12 meter ALMA Prototype Antenna in February 2019. Once there it will undergo a series of tests and calibrations, and will eventually start observations. It will be completing constant declination scans of several individual clusters by rastering back and forth across a source. An example scan pattern is shown in Figure~\ref{fig:time2ab}  and~\ref{fig:time2cd} below. The ideal strategy will be to scan two 1.3 degree linear fields over the course of 9 hours for CII/CO, and further dedicated time for kSZ detection in selected galaxy clusters.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat{{\includegraphics[width=0.45\textwidth]{time2a.png} }}%
+    \qquad
+    \subfloat{{\includegraphics[width=0.45\textwidth]{time2b.png} }}%
+    \singlespace
+    \caption[TIME Scan Strategy 1]{Left: Arrows indicating motion back and forth across an exaggerated 10 degree field of view, constant in declination. Right: Same scan pattern but given in ALT-AZ coordinates, with different colors showing start of observation at different times for Kitt Peak.}%
+    \label{fig:time2ab}%
+\end{figure}
+
+\begin{figure}[H]%
+    \centering
+    \subfloat{{\includegraphics[width=0.45\textwidth]{time2c.png} }}%
+    \qquad
+    \subfloat{{\includegraphics[width=0.45\textwidth]{time2d.png} }}%
+    \singlespace
+    \caption[TIME Scan Strategy 2]{Left: Closeup of one time of observation in ALT-AZ coordinates, showing how the rastering across the source appears to make a helical motion, due in part to objects moving across the sky while observing. Right: Increased zoom of the left figure. Red arrow shows the motion back and forth across a line of constant declination, while the black line indicates the observed sources path across the sky.}%
+    \label{fig:time2cd}%
+\end{figure}
+
+\newpage
+\section{Data Collection, Visualization \& Storage}
+
+\subsection{Data Collation}
+\subsubsection{Multi-Channel Readout Electronics System}
+
+\subsection{Data Visualization}
+
+\subsubsection{KMS Integration \& Testing}
 
 Two different tests have been run on the software, one which tested exclusively the ability to manipulate the given data and produce corrections in rotation and speed, and the other with a more realistic simulation and use with the motor and encoder. The first test was run with a simulation which mimicked the telescope moving back and forth in a straight line. The top left of Figure ~\ref{fig:km78} shows the absolute position as reported by the simulated telescope, with a change in direction clearly shown halfway through. The error graph shows an average offset of the KMS from the desired position of 14 arcseconds, with a maximum error of 100 arcseconds. The third plot is the reported motor speed, and the last graph is the software attempting to compensate for varying speeds of data packets and updates from the telescope. There are two different types of errors being corrected for here. One is the inability of the KMS to correct for differences in the actual versus desired rotational position, and the other is caused by the variability of the telescope data. In the telescope data transfer is some intrinsic noise caused by the data packets arriving at variable speeds, the updates each having a different values, the imperfect speed of the telescope, and the variable response of the KMS. For example, there are certain circumstances where the telescope may send updates at a rate of 40 packets per second, and have such a slow speed that an update to the position of the KMS is not required at each update, and then an update in position is required at the 29th packet. The transition from stationary to moving is jarring for both the software and mechanical system. 
 
@@ -762,9 +694,96 @@ Two different tests have been run on the software, one which tested exclusively 
 
 To address this, a Kalman Filter [CITE REFERENCE HERE] was applied to interpret the telescope data based on data rate, relative velocity changes, and the total change in position required. This algorithm creates an unbiased estimate of the natural ``noise'' of the telescope-K-Mirror system, and then continually corrects the data for this average error, and updates this average error over a period of time. This allowed the motor to more smoothly start and stop, and improved the ability of the software to correct for changes in observational modes. Figure ~\ref{fig:km8} shows this improvement on the actual motor, gearhead and encoder with a more sophisticated telescope simulator. In the first simulation, the telescope speed was set to the sidereal rate, with a box-like pattern of motion set of coordinates provided to the KMS. The second simulation included a ``slewing'' phase, where the telescope was moving at 1 degree per second up to a starting position, and then a ``tracking'' phase at 5 arcseconds per second, where the telescope was moving back and forth across the given coordinates. This scenario produced a line scan akin to TIME, and at roughly the correct observing speeds. This test proved that the software and motor were capable of keeping up with the telescope even at its fastest speed while also reducing error to within tolerances.  Additional testing includes adding the mirror mass models and using the software and motor under a load bearing case, and simulating data transfer from telescope to KMS over an isolated network server. A script designed to simulate telescope socket data transfer has already been written by the University of Arizona and has been successfully integration into the GUI software. 
 
-\subsection{Software Integration}
-
 The KMS software was designed to integrate with the GUI in order to facilitate real-time monitoring of its status. It receives input directly from the telescope, but only sends output to the control computer. This includes several flags for emergencies, like ``emergency stop'', ``standby'', and ``rotating''. There is no way for the control computer to directly communicate with the KMS, and instead will be done by way of the telescope. This reduces the complexity of code necessary for controlling the KMS, reduces the load on the Raspberry Pi 3, and creates less opportunity for software malfunction. In a situation where there is a problem with the KMS, MCE, detectors, or any other connected component to the control computer, an emergency stop button can be pressed on the GUI, which will send a signal to simultaneously stop all other processes (i.e. telescope motion, data acquisition, etc.) Additionally, the current parallactic angle will be output on the screen next to the angle achieved by the KMS, as well as the current speed.
+\subsubsection{TIME Software Development}
+
+In order to facilitate the successful completion of the TIME scientific goals, an important consideration is the handling of data and intercommunication between devices.A schematic of the hardware layout and connections is included in Figure ~\ref{fig:km9}, which details the communication pathways for multiple devices, including the telescope, control computer, Multi Channel Electronics (MCE), K-Mirror, and others. The key to successful data acquisition will be synchronous operation of each system, and eventual data collation. 
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.95\textwidth}
+\includegraphics[width=0.95\textwidth]{km9.png}
+\caption[TIME Control Flow Diagram]{Communications layout for TIME. Each instrument in blue represents a source of data, some of which will pass through the Control Computer, onto the Remote Observing Computer, and finally into Data Storage. There will be two MCEs each with their own control computer, a telescope computer, and a Raspberry Pi 3 controlling the K-Mirror. Each of those systems will send output to the Remote Observing Computer running the GUI over SSH and SFTP protocols. All data will then be stored in multiple locations, including the remote computer, an external hard drive, and stored in a cloud.}
+\label{fig:km9}
+\end{figure}
+ 
+ One of the most difficult problems is how to collate the many different ``clocks'' in the schematic into one universal standard time that is placed into the permanent data files. The most sensitive connection is the one between the MCE and telescope, since positional location over a source must correspond directly to a signal received and transmitted from the MCE. In an example scenario of a scan across a cluster for CII detection, if the telescope pointing information were to have some sort of lag relative to the bolometer signal, the final analysis would result in a cluster that appeared to be have a higher fraction of CII present in the outskirts than was predicted by modeling. This could lead to an assumption of physical properties for that cluster that are inaccurate. 
+ 
+The solution to this problem is two-fold. The first requires the MCE to have an independent time source. The MCE currently has a device known as a sync box, which sends 25 MHz 32-bit sequential steps that are encoded into each data frame. When both MCE's are run, the sync box ensures that these stamps are placed on the same frame (i.e. both first frames would have the same sequential number), allowing files to be compared during collation. The second involves a configuration of the hardware which produces Data Valid pulses based on an external trigger. The trigger planned for use with TIME will be an N2X system, which is slaved over a Network Time Protocol (NTP) to UTC time in seconds. NTP is a standard time keeping server that simulates an atomic clock and kept accurate with GPS. The device is then configured to produce the exact same number of pulses in between each UTC second. Since the telescope also understands UTC time, the time at frame generation by the MCE can be compared with location of the telescope at that same time without fear of lag. This implementation has yet to be tested, however the sync box has already been integrated into the system and produces the expected behavior. 
+
+Integration of the other components will simply be a matter of data transfer over the local network available at the telescope, processed through a script on the remote observing computer, and then finally stored in multiple locations. The functionality of the software and a description of this process is provided below. 
+
+\subsubsection{Graphical User Interface}
+
+For lab testing and on-site live data visualization, a graphical user interface (GUI) was designed in a {\sc Python} script, and initially implemented in a web based framework using {\sc Dash by Plotly}. The GUI acts like a HUB, with input and output to multiple devices which all show statuses on the screen. Currently added functions include viewing the data from the MCE, with both live and archival data, a heatmap of the detector channels, and simulated inputs from the K-mirror and telescope. Figures ~\ref{fig:gui1} and ~\ref{fig:gui2} show the first and second iterations of the GUI. In the first iteration, the MCE was activated by a python script, the incoming data was parsed by another script and fed to the Plotly servers, and then a separate script stored the data in a preferred format. A web browser could then be opened and sent to a local host address where the user could view and interact with the data. This version was abandoned after testing the MCE at the highest data rate of 400 Hz, with 2 seconds of data on the screen at a time, updates every 1 second, and run for 8 hours. At this data rate, the MCE generates 374 frames per second. When looking at the output for only one detector, 374 data points are added to the screen per second, with over 12,000 data points present in every array. When run for an extended time, the lag on screen became visibly noticeable, as it would take longer and longer for the graphs to update, and some frames were even skipped entirely. This was due to the method by which Plotly updated its streaming plots, where it would have to re-draw every data point every time the graphs were refreshed, meaning that after 30 seconds, 11,000 data points were on the screen at a time. For lab testing, it was necessary to have at least 2 minutes of data on the screen at one time.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.85\textwidth}
+	\includegraphics[width=0.85\textwidth]{gui1.png}%
+	\caption[GUI Beta 1.0]{This GUI was made through the use of {\sc Dash by Plotly} which handled all data updating and viewing on the screen, as well as activating the MCE and providing an interactive user interface. This version was abandoned for the unreliability of web servers, and severe lag after several minutes.}%
+	\label{fig:gui1}%
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.85\textwidth}
+	\includegraphics[width=0.85\textwidth]{gui2.png}%
+	\caption[GUI Beta 2.0]{Version 2 of the GUI was done using a desktop interface created with {\sc PyQTGraph}. This gui had the advantage of using much less CPU, almost no lag after continuous running, and more versatility for customization.}%
+	\label{fig:gui2}%
+\end{figure}
+
+The second version of the GUI was created using PyQt4 graphics packages and required a re-write from the html based script employed before. This script only updated the graphs with the newest data, without redrawing the whole figure, and wasn't subject to the unpredictability of web servers. The necessary packages could also simply be downloaded through ``apt-get'' from a standard library and added to the users existing python library. This new system was tested using the same parameters as the first, which revealed only one minor flaw. The parameters for the MCE input by the user, including data rate, would return a frame per second that would not be an integer value. At a data rate of 45, the value was exactly 374 frames per second, but at a data rate of 10, it was 1683.5 frames per second. This meant that every other second, an extra file was created, and missed by the previous check by the software. This was easily corrected for by adding in a check for an extra file that would be parsed and incorporated onscreen in the correct chronological order. After testing the system with 5 minutes of data onscreen at a time for 8 hours, there were no lags to the system. 
+
+Items that must still be incorporated into the GUI are actual interfacing from the K-Mirror and the Telescope. A telescope simulator was created to mimic the observing patterns required for TIME (constant declination scans) which outputs positional information and other metrics necessary for the K-Mirror operation described in detail later. The next step in testing will involve data generation from these simulated sources, transferred over SSH, and then visualized on the remote observing computer. 
+
+\subsection{Data Storage}
+
+Data storage is a challenge for every scientific mission, and no less so for TIME. With 2 MCEs collecting 50 MHz data, telescope data at 20 packets/second, and numerous other electronics, the sheer volume and speed at which data sets develop requires very specific packaging solutions. 
+
+The best file system is one that can both be flexible about the type of data (int, string, bool, float), and also the way that it can be packaged and recalled. Several formats were considered including Dirfiles, NetCDF, HDF5, FITS, and custom binaries, because they could all be integrated into Python scripts. Dirfiles are the natural file format for the MCE system which work extremely efficiently for time ordered data. However, there are other data types for which it might be an unnatural fit, such as K-Mirror status flags. It also can only be read out all at once and in chronological order, which could be inhibitive to large data sets. FITS files are a natural choice for working with any sort of image array, but TIME bolometers are not a one to one analog for image data. There were no strong objections to using this method, other than it was outdated and not as efficient as other options. Custom binaries would have been useful, but they have very little documentation, and so the benefits and drawbacks were difficult to assess. 
+
+In the end, the NetCDF4 file option was chosen for a number of reasons. It has an easy integration with Python, and is in fact built into the standard {\sc Anaconda} distribution, without the need to separately install any other supporting packages, such as HDF5 integration. It is also heavily documented, and used by a large variety of different fields. However, the most useful attributes include direct rather than sequential data access, and an unlimited file size (within system limitations). The ability to search for data directly removes the problem of files which are too large to parse. As an example, in python, a text file is read in line by line, with the readout time increasing with the number of lines. In a NetCDF4 file, data can be queried based on the parameters or attributes assigned to it. One parameter set by the TIME GUI is the observer. As such, a massive NetCDF file could be queried to only return data for a specific variable, over a set of times for only that observer. The entire file is not retrieved for the user, but is scanned by the software to look for the appropriate data to return. While these are perfect qualities for our system, the size of the file is still ideally kept to a small value, to facilitate easier transfer over ethernet connections. NetCDF allows the user to break up the data across multiple small files, but still read them back as if they were all the same file. So, if the observer happened to be on call for more than one night, all of the data pertaining to that observer would be called from multiple files. 
+
+Lastly but not least is the flexibility of the underlying architecture for data storage. NetCDF operates similar to a python dictionary, where the user can create logical groupings and assign variables and dimensions with specific attributes. For the TIME GUI, MCE data is stored in three groups; gui parameters, raw data, and heatmap data. Each of these groups has their own set of variables and dimensions, with each variable being assigned an attribute. For the gui parameters, there is a variable called ``header'' which was given attributes ``mce frame header info'', and ``updated once per frame file'', and listing what data types and how much file memory it consumed. Other variables, such as heatmap data, could also have attributes stating what units the data were in. The attributes can be called by the user at any time to assist with recollection of what is contained in the variable. More usefully, attributes can also be added to the time ordered data in the form of flags. If the K-Mirror system malfunctions, it is set to send an error flag to the GUI, which can then be added as an attribute to data over the range of time that the error occurred. Later during data analysis, the attributes can be used to filter out contaminated data. 
+
+\subsection{Higher Level Data Analysis Suite}
+
+The software described above works well for situations in the lab for live visualization of the detector arrays. However, additional software is required for commissioning of the instrument, and actual observations. The interface will have three main components. The first is one that automatically generates images for the user once a test or calibration is complete. The other is a data retrieval suite that allows the user to access the desired files and select analysis procedures to run on archived data. Lastly, a small amount of pre-processing subroutines will be run on raw data files after storage. This includes any scripts that will need to be universally applied across each analysis routine. Table ~\ref{table:pipeline} is included below, and lists the steps necessary for calibration and commissioning at the telescope, as well as the types of analysis that will be included in the suite. 
+
+An example of the first case is performing pointing model checks on the telescope before beginning a night of observing. A ``pointing cross'' is created by nodding the telescope through all four cardinal positions, and comparing the reported position to the one requested in software. After the nod is completed, a visualization of the on-sky positions for both reported and requested data is plotted and shown to the user on screen. They then have the option of saving the image into a pre-selected analysis directory. 
+
+The second and 
+\begin{wrapfigure}{r}{0.55\textwidth}
+\vspace{-0.8cm}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{tau.png}
+   \end{center}
+\caption[SCUBA Optical Loading Skydips -(\cite{Archibald2002})]{Optical Loading for Various Wavelengths to determine optical depth for the SCUBA instrument. The sky brightness is determined by performing telescope sky dips. The open circles here are the measurements taken at different airmasses (or elevations), and the solid line is the fit to the data which provides the optical depth. The conversion used by SCUBA is given in \cite{Archibald2002} by Equation 2. A similar model will be used by TIME, but with Rayleigh-Jeans temperature approximations. This type of graph will be produced by the Data Analysis Suite.}
+\label{fig:tau}
+\end{wrapfigure}
+third cases are both run on archival data after calibration or observing tests have been completed. The data retrieval suite will have access to a series of directories that are named based on the Julian Date (JD) and type of data (either telescope or detector), and can be queried for other specifics including the observer, specific times, etc. The pre-processing pipeline will be available as a button on the interface that the user activates, and can include processes such as data decimation, removal of corrupted data, application of anti-aliasing filters, high pass filters, and atmospheric removal, to name a few. An example of this process in action is for determining the change in atmospheric loading on the detectors with elevation. The opacity of the atmosphere changes with elevation and effects the brightness of sources viewed through it. Fortunately, it can be characterized by sky dips, where the telescope is moved through various elevations, while the detectors record the sky brightness temperature. To accomplish the actual goal of measuring \(\tau \) , the raw data must be retrieved and then have several conversions to transform it from sky brightness to optical depth. This type of analysis requires a conversion from the voltage returned by the detector, to resistance, and then finally to the bolometer temperature. This temperature can be related back to the Rayleigh-Jeans equivalent temperature, and then used with a basic plane-parallel atmospheric model to determine \(\tau\) . These conversions will be automated, and present a plot of the subsequent analysis after the appropriate data is selected by the user. An example is shown in Figure ~\ref{fig:tau}.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Tests} & \textbf{Analysis}\\
+\hline
+\hline
+  \tabitem Pointing Model & \tabitem Detector Noise\\
+  \tabitem Beam Model & \tabitem Telescope Noise\\
+  \tabitem Optical Loading for various El & \tabitem Raster Maps\\
+  \tabitem Internal/Software Data Downsampling & \tabitem El Dips\\
+  \tabitem Anti-Aliasing Method & \tabitem Sky Dips\\
+  \tabitem Low/High Pass Filter & \tabitem Pointing Cross\\
+  \tabitem Filter Deconvolution Technique & \tabitem Telescope Focus\\
+  \tabitem Common Mode Atmospheric Template & \tabitem Detector Offsets\\
+  \tabitem Load Curves (lab/telescope) & \tabitem Point Source Calibration\\
+  \tabitem Atmospheric Conditions (airmass, water vapor, etc.) & \tabitem Beam Mapping/Fitting\\
+\hline
+\end{tabular}\label{table:pipeline}
+\end{center}
+
 
 \section{In Conclusion}
 
