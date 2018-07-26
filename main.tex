@@ -24,8 +24,9 @@
 \usepackage{tabu}
 \usepackage{indentfirst}
 \usepackage{footmisc}
+%\usepackage{fancyvrb} 
 \renewcommand*{\footnotelayout}{\small}
-
+%\VerbatimFootnotes
 \setcounter{tocdepth}{3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -603,8 +604,8 @@ After a photon creates a temperature change in the circuit, the thermistor shunt
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=0.95\textwidth}
-\includegraphics[width=0.95\textwidth]{squids.PNG}
+\captionsetup{width=0.7\textwidth}
+\includegraphics[width=0.7\textwidth]{squids.PNG}
 \caption[Circuit Diagram for TDM SQUIDS -(\cite{Dobbs2009})]{Circuit diagram for SQUID biasing, feedback, and voltage output read by the MCE. This circuit is Time Domain Multiplexed where each 2nd stage SQUID is activated sequentially, continuously checking for detector bias changes at a 50 MHZ frequency (\cite{Dobbs2009}).}. 
 \label{fig:squids}
 \vspace{-0.8cm}
@@ -613,53 +614,103 @@ After a photon creates a temperature change in the circuit, the thermistor shunt
 %===========================================================================================================   
 \subsection{Multi-Channel Readout Electronics System}
 
-In order to read out the 1840 detectors, TIME will require two MCE's acting in tandem, as each one is only capable of handling 1280 pixels. The MCE has 4 readout cards (RC) whose function is to de-multiplexed the SQUID signals for each pixel and package them into a data frame consisting of housekeeping, data, and checksum blocks. Each RC is responsible for up to 41 x 32 pixels spread over 32 output channels. They are then transferred over fiber to an external computer PCI card\footnote{It should be noted that the mapping of the SQUIDS to the detector arrays is non-trivial, and requires lab testing so that the chosen SQUID biases the correct pixel}. To view the RIT MCE components and setup used for TIME software testing, see Figure~\ref{fig:mce}.
+In order to read out the 1840 detectors, TIME will require two MCE's acting in tandem, as each one is only capable of handling 1280 pixels. The MCE has 4 readout cards (RC), one address card (AC) and one clock card (CC), all with various functions.
 
-It also has one clock card (CC) which is responsible for the sending and receiving of internal commands for the MCE, including requesting data from each RC, assembling the data frame, and passing the frame to the PCI card. The CC also generates an internal 50 MHz clock in order to keep these processes time ordered, but can also take input from a Sync Box (see section 3.5) to produce a timestamp 
+The address card is responsible for the multiplexing of the SQUIDs by turning on one row of SQ1's at a time, with 41 rows being revisited at a frequency of 20 kHz. The clock card (CC) is responsible for the sending and receiving of internal commands for the MCE, including requesting data from each RC, assembling the data frame, and passing the frame to the PCI card in the data acquisition computer. The CC also generates an internal 50 MHz clock in order to keep these processes time ordered, but can also take input from a Sync Box (see section 3.5) to produce a timestamp.
 
-%In a typical time-domain multiplexing configuration the SQ1 signals of one column of an array are summed in a coil coupled to one SQ2 and consequently amplified by one channel of a SSAM. Multiplexing an array consists of turning on one row of SQ1s at a time. This task is performed by the MCE’s Address Card (AC) which drives each row using a 14-bit video DAC with 0–1 V voltage range. The AC’s firmware controls up to 41 DACs through a block that has the following features: (1) the row order is user-specifiable; (2) the multiplexing can be enabled or disabled by command; (3) the delay between the start of a row-dwell period and the assertion of the on value on the DAC can be specified in terms of 50-MHz clock cycles; (4) the AC supports separate on and off values for each row. For any given row the optimal on bias value is a compromise between the SQ1s across the 32 columns. The typical dwell time per row is near to 1 µs. In a 41 row array, this dwell time results in re-visiting the whole array at a frequency of ∼20 kHz.
-(\cite{Battistelli2008}). 
+The 4 RC cards are the source of the most power consumption, as they perform the actual processes commanded by the CC and AC. They de-multiplex the SQUID signals for each pixel and package them into a data frame consisting of housekeeping, data, and checksum blocks. Each RC is responsible for up to 41 x 32 pixels spread over 32 output channels. They are then transferred over fiber to an external computer PCI card\footnote{It should be noted that the mapping of the SQUIDS to the detector arrays is non-trivial, and requires lab testing so that the chosen SQUID biases the correct pixel}. To view the RIT MCE components and setup used for TIME software testing, see Figure~\ref{fig:mce}.
 
-The MCE has several operating modes designed to return different information. Low-pass filtered feedback is considered the normal mode, which returns the data described above, while a mixed mode returns error and feeback information to each 32-bit word recorded. For detector array characterization, it can also be set to consistent acquistion at 20 kHz or small sections of 50 MHz data. In every case above, the MCE must first go through a start-up phase that automatically characterizes the bolometer array and applies the appropriate feedback to keep the SQUIDS in a linear regime. This inital bias is applied based on a configuration file defined by the user, and is implemented for each pixel using a Proportional Integral Differential (PID) servo loop. For a full array this means processing 2100 free parameters in the span of a few minutes (\cite{Dobbs2009}).
+The MCE has several operating modes designed to return different information. Low-pass filtered feedback is considered the normal mode, which returns decimated data down to a frequency of 200 Hz, to reduce the amount of disk spaced used. Mixed mode adds extra data in the form of error and feeback information to each 32-bit word recorded. For detector array characterization, it can also be set to consistent acquistion at 20 kHz or small sections of 50 MHz data. Data are processed into frames, where one data block is an array of 32x41 32-bit numbers and contains one value from each pixel. The MCE accepts user commands for defining the amount of data to be returned, whether it is a single frame of data multiple (\cite{Battistelli2008}). 
 
-
-%(Battistelli 2008):
-
-%Data are packaged by the MCE into frames containing a housekeeping block followed by a data block and a checksum. The data block is (32 × 41) 32-bit numbers and nominally contains one value from each pixel. The MCE can be commanded to return one frame of data, to return N numbered frames timed using an internal crystal clock, or to return N numbered frames taking the timing from an external synch pulse. The MCE can support frame rates of several kHz, but in most cameras 200 Hz is sufficient
+In every case above, the MCE must first go through a start-up phase that automatically characterizes the bolometer array and applies the appropriate feedback to keep the SQUIDS in a linear regime. This initial bias is applied based on a configuration file defined by the user, and is implemented for each pixel using a Proportional Integral Differential (PID) servo loop. For a full array this means processing 2100 free parameters in the span of a few minutes (\cite{Dobbs2009}).
 
 \begin{figure}[H]
 \centering
 \captionsetup{width=0.95\textwidth}
 \includegraphics[width=0.95\textwidth]{mce1.jpg}
-\caption[]{}
+\caption[MCE RIT Setup with Incomplete Rack]{The setup for RIT data acquistion with one partially filled MCE rack. It contains the power supply off to the right foreground, one clock card, one address card, and one readout card. The full TIME setup will have 2 MCEs running syncronously, each with a full rack for a total of 8 RCs controlling the 1840 detectors.}
 \label{fig:mce}
 \vspace{-0.8cm}
 \end{figure}
 
 %==========================================================================================================
 \subsection{Sync Box}
-%(Battistelli 2008):
-%A triggerable Synchronization Box supplies numbered Data Valid Pulses (DVP) bi-phase encoded into a 25 MHz clock to all MCE boxes via optical fibre. The Synchronization Box has extra outputs, allowing these numbered pulses to be used to synchronize collection of telescope pointing system and housekeeping data
-
-%====================================================================================================
-\subsection{Cryostat}
-The spectrometers and bolometers are housed in a closed cycle cystostat with 5 cooling stages ranging from 50 K down to a base temperature of 250 mK. These stages are shown in Figure ~\ref{fig:jon1} without the shields\footnote{The casing is custom fabricated by {\sc Amuneal} and are intended to provide magnetic shielding for the instrument}. The 50 K stage is cooled by a cryomech PT-415 pulse tube refrigerator down to 4 K, with two custom lower temperature stages; a \(^{4}He\) system down to 1 K, and a \(^{3}He\) dual sorption system for 300 mK. A second \(^{3}He\) stage creates the 250 mK required for the spectrometers. Between these stages are also several stops, filters, and supports designed to prevent leakage of the optical load from each subsequent stage. Working outside to in, a zotefoam window provides the first line of defense against stray light, followed by the 4K stage lyot cold stop at the pupil, while the 1K stage holds a final polyethylene reimaging lens with an f/3 focus, covered in a porous teflon AR coating. In addition, the 1 K and 300 mK stages have metal mesh low-pass edge filters and dielectric filters to reduce the optical loading on the final 250 mK stage (\cite{Crites2014}).
+The sync box generates a data-valid pulse and a 32-bit number, based on a 25 MHz clock, that is sent over optical fiber to the CC. This number is then added to the frame header by the CC which currently is programmed to send a random sequential integer. The sync box can control up to 8 full MCE racks, and forces the clock card in each to initiate data frame collection at the same time. The process can be thought of like an orchestra all playing to the beat of the same metronome. All MCE's wait for the sync box to supply the ready pulse before attempting acquistion, preventing any drifting of the frame times across different MCEs. This pulse is triggerable from an external source, in the case of TIME, a box that is communicating with an external Network Time Protocol (NTP) server, which provides the sync box with an atomic world clock timestamp to send to the MCE frame header. This allows data collected by other systems, namely the telescope, to be compared by timestamps in the same units, rather than arbitrary conversions done after the fact (\cite{Battistelli2008}).
 
 \begin{figure}[H]
 \centering
-\captionsetup{width=0.9\textwidth}
-\includegraphics[width=0.9\textwidth]{jon1.png}
+\captionsetup{width=0.95\textwidth}
+\includegraphics[width=0.95\textwidth]{sync.png}
+\caption[University of British Columbia Sync Box]{A 5V DC sync box showing 6 out of the 8 possible fiber outputs for connecting to 8 MCE CCs. From upper left to right is a RS-232 command port that allows the sync box to be programmed over {\sc Minicom}, 25-pin digital I/O, obsolete DB-25M, and finally a femal BNC in/out for an external TTL clock (Taken from UBC MCE Wiki)}
+\label{fig:mce}
+\vspace{-0.8cm}
+\end{figure}
+
+%====================================================================================================
+\subsection{Cryostat}
+The spectrometers and bolometers are housed in a closed cycle cystostat with 5 cooling stages ranging from 50 K down to a base temperature of 250 mK. These stages are shown in Figure ~\ref{fig:jon1} without the shields\footnote{The casing is custom fabricated by {\sc Amuneal} and is intended to provide magnetic shielding for the instrument}. The 50 K stage is cooled by a cryomech PT-415 pulse tube refrigerator down to 4 K, with two custom lower temperature stages; a \(^{4}He\) system down to 1 K, and a \(^{3}He\) dual sorption system for 300 mK. A second \(^{3}He\) stage creates the 250 mK required for the spectrometers. Between these stages are also several stops, filters, and supports designed to prevent leakage of the optical load from each subsequent stage. Working outside to in, a zotefoam window provides the first line of defense against stray light, followed by the 4K stage lyot cold stop at the pupil, while the 1K stage holds a final polyethylene reimaging lens with an f/3 focus, covered in a porous teflon AR coating. In addition, the 1 K and 300 mK stages have metal mesh low-pass edge filters and dielectric filters to reduce the optical loading on the final 250 mK stage (\cite{Crites2014}).
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.85\textwidth}
+\includegraphics[width=0.85\textwidth]{jon1.png}
 \caption[TIME Cryostat -(\cite{Hunacek2016})]{Left: Cryostat on support structure without shields, located in the Caltech Experimental Cosmology Lab. Right: Model of Cryostat showing placement of the spectrometer banks, various cooling stages, and overall support and shock absorptive structure. (\cite{Hunacek2016})}
 \label{fig:jon1}
 \end{figure}
 
-%============================================================================================================
-%============================================================================================================
+%===================================================================================================
+%===================================================================================================
 \section{Optics}
-list all elements in optical path and show CAD model
+
+The optical path into which the TIME instrument will be integrated is given in Figure~\ref{fig:optpath}, and contains three primary elements; the telescope, the K-Mirror System (KMS)(see section 4.2), and the TIME cryostat containing the cold optics. The KMS takes input directly from the telescope secondary mirror through an invar flange, which is incident on K1 in the right figure. This is reflected off of the other two aluminum mirrors K2 and K3, which dynamically rotates the image, and is passed to another mirror, F1. F1 serves to bend the optical path between the K-Mirror system and the cryostat so that it will fit within the cabin. In order to ensure that the image and pupil of the telescope reaches the cold optics of the cryostat, three powered mirrors, P1, P2 and K2 form a relay that effectively connects all three optical elements. Once the cryostat is installed in the cabin, the P2 mirror will also be used to correct the optical path between the KMS and the cryostat to ensure proper alignment. This is necessary because of the great weight of the cryostat, and the flexible carbon fiber floor of the cabin which is expected to warp.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat{{\includegraphics[width=0.45\textwidth]{cadoptpath.png}}}%
+    \qquad
+    \subfloat{{\includegraphics[width=0.45\textwidth]{optpath.png}}}%
+    \singlespace
+    \caption[TIME Full Optical Path in Telescope Cabin -(Isaac Trumper, UOA, TIME Collab)]{Left: CAD model of telescope cabin interior with optical components K-Mirror System and Cryostat. All blue objects are mirror interfaces. The green object is the cryostat that contains the cold optics. Right: Optical path {\sc Zemax} model of all three optical components, including three mirrors in the K-Mirror System, three focusing mirrors, and the cryostat cold optics. (Isaac Trumper, UOA, TIME Collab)}%
+    \label{fig:optpath}%
+    \vspace{-0.8cm}
+\end{figure}
+
+\subsection{Telescope Optical Configuration}
+
+
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.75\textwidth}
+\includegraphics[width=0.75\textwidth]{telopt.png}
+\caption[ALMA Prototype 12m Optical Configuration -(Isaac Trumper, UOA, TIME COllab.)]{Scaled image of ALMA Prototype 12m Antenna Optical Configuration. Values for different scales are given below in Table~\ref{table:telopt} Other optical path elements are located inside the cabin of the telescope (Isaac Trumper, UOA, TIME Collab.).}
+\label{fig:tele}
+\end{figure}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{ALMA Prototype 12m Telescope Optics}\\
+\hline
+\hline
+Primary Aperture (D) & 12.0 m \\
+Focal Length of Primary (\(f_{p}\)) & 4.8 m \\
+(\(f_{p}/D\)) of Primary & 0.40 \\
+Secondary Aperture (d) & 0.74 m \\
+Final f/D & 8.00 \\
+Magnification Factor & 20.0 \\
+Primary Angle of Illumination \(\theta_{p}\) & \(128.02^{\circ}\) \\
+Secondary Angel of Illumination \(\theta_{s}\) & \(7.16^{\circ}\) \\
+Distance Between Primary and Secondary Foci (2c) & 6.177 m \\
+Depth of Primary (H) & 1.875 m \\
+Primary Vertex Hole Clear Aperture (v) & 0.75 m \\
+
+\hline
+\end{tabular}\label{table:telopt}
+\end{center}
 
 \subsection{K-Mirror Image Rotator}
-The telescope at which TIME will be deployed is an ALMA Prototype 12m antenna, which rotates on an Alt-Azimuth mount. This presents unique challenges for the optical path from the primary mirror to the cryostat, because of the line scan observation strategy. The reason why can be easily shown in Figure ~\ref{fig:km1}. The rotation of the earth causes objects on the sky to trace out a circular path with time, while the telescope mount provides motion only in linear directions, not circularly. When the line of bolometers is projected on the sky under this rotation, they show an unnatural overlap or gap when measuring the source. Some past experiments have corrected for this in software [cite reference here], but the process is computationally costly, and not well refined. 
+The telescope at which TIME will be deployed rotates on an Alt-Azimuth mount, which presents unique challenges for the optical path from the primary mirror to the cryostat due to the line scan observation strategy (see section 5). The reason why can be seen in Figure ~\ref{fig:km1}, where the rotation of the earth causes objects on the sky to trace out a circular path with time. The telescope mount provides linear motion, meaning when the line of bolometers is projected onto the sky under this rotation, they show an unnatural overlap or gap when measuring the source with time. Some past experiments have corrected for this in software [cite reference here], but the process is computationally costly, and not well refined. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
   \begin{center}
@@ -670,7 +721,7 @@ The telescope at which TIME will be deployed is an ALMA Prototype 12m antenna, w
 \end{wrapfigure}
 A more effective solution is to introduce an additional element into the optical path, which rotates the image plane before entering the cryostat, and becoming incident on the detectors. This structure consists of three mirrors, with two arranged symmetrically above and below the center of rotation, and a third extended out perpendicularly to the rotation axis. See Figure ~\ref{fig:km23} for CAD model schematic. Hence the name ``K-Mirror''. 
 
-This system is slaved to the motion of the telescope continuously, whether it is moving itself up to scanning position, tracking during an observation, or even in parked mode. Because of this, the telescope sends TCP/IP packets over an ethernet connection containing it's current position and status flags directly to the K-Mirror control computer (Raspberry Pi 3). The motor and gearhead moving the system keep track of their position using an absolute encoder, which states the exact position attained by the system relative to the desired. After receiving the telescope data packets, an internal script is run that calculates the exact amount of rotation that is required to correct the image, based on the current position coordinates. This rotation is actually a well defined term in the field of Astronomy, known as parallactic angle. 
+This system is slaved to the motion of the telescope continuously, whether it is moving itself up to scanning position, tracking during an observation, or even in parked mode. Because of this, the telescope sends TCP/IP packets over an ethernet connection containing the current position and status flags directly to the K-Mirror control computer ({\sc Raspberry Pi 3}). The motor and gearhead moving the system keep track of their position using an absolute encoder, which states the exact position attained by the system relative to the desired. After receiving the telescope data packets, an internal script in the Rasp Pi calculates the exact amount of rotation that is required to correct the image, based on the current position coordinates. This rotation is actually a well defined term in the field of Astronomy, known as parallactic angle. 
 
 \begin{figure}[H]
 	\centering
@@ -678,15 +729,15 @@ This system is slaved to the motion of the telescope continuously, whether it is
 	\qquad
 	\subfloat{{\includegraphics[width=0.45\textwidth]{km3.png} }}%
 	\singlespace
-	\caption[CAD Model of the K-Mirror Structure.]{Left: The K-Mirror structure consists of three main elements; the support structure made out of 80:20 aluminum, the mirrors, and the motor-gearhead-encoder rotation assembly. Right: The KMS attached inside in the telescope cabin to the flange (red circle) which is the optical input from the secondary mirror. Also shown is the TIME cryostat containing the instrument.}%
+	\caption[CAD Model of the K-Mirror Structure.]{Left: The K-Mirror structure consists of three main elements; the support structure made out of 80:20 aluminum, the mirrors, and the motor-gearhead-encoder rotation assembly. Right: The KMS is attached inside the telescope cabin to the flange (red circle) which is the optical input from the secondary mirror. Also shown is the TIME cryostat containing the instrument.}%
 	\label{fig:km23}%
 \end{figure}
 
-This angle describes the rotation of the object on the celestial sphere, where zero degrees of rotation is achieved when the object is at the local zenith. As the object travels before and behind zenith, the angle of rotation becomes more positive and more negative respectively. The equation which calculates this angle depends on the latitude of the observer, the hour angle (a function of the local sidereal time), and the declination of the object on the sky. This would mean that the parallactic angle for an object is completely unique for each observing site. Values for the K-Mirror were calculated using position coordinates for Kitt Peak, where it will eventually be deployed. The equation is given below, which was taken from \cite{Meeus1998}.
+This angle describes the rotation of the object on the celestial sphere, where zero degrees of rotation is achieved when the object is at the local zenith. As the object travels before and behind zenith, the angle of rotation becomes more positive and more negative respectively. The equation which calculates this angle depends on the latitude of the observer, the hour angle (a function of the local sidereal time), and the declination of the object on the sky. This would mean that the parallactic angle for an object is completely unique for each observing site. Values for the K-Mirror were calculated using position coordinates for Kitt Peak, where it will eventually be deployed. The equation is given below, which was taken from \cite{Meeus1998},
 \begin{equation}
-tan(q) = \frac{sin(HA)}{tan(LAT)cos(DEC) - sin(DEC)cos(HA)}
+\tan(q) = \frac{\sin{(HA)}}{\tan(LAT)\cos{(DEC)} - \sin{(DEC)}\cos{(HA)}}
 \end{equation}
-Here q is the parallactic angle, HA is the hour angle, LAT is the latitude, and DEC is the object declination. While this is the exact version, the actual calculation was performed in python, using the {\sc Astropy} and {\sc Astroplan} Packages. These were used because both can calculate the local sidereal time, hour angle, and recalculate object positions entirely from the observers positions and which object position they are starting with, and the starting observation time. Calculation of the local sidereal time (used to calculate the hour angle) was particularly helpful, as this value has complex perturbation errors from nutation in longitude and the true obliquity of the ecliptic that must be included for extremely high precision. The first accounts for the ``wobble" of the earth's axis caused by the moon, with some components having periodic fluctuations on the order of days. The second refers to the difference between the equator and the ecliptic, and how that distance is variable with time. 
+where q is the parallactic angle, HA is the hour angle, LAT is the latitude, and DEC is the object declination. While this is the exact version, the actual calculation was performed in python, using the {\sc Astropy} and {\sc Astroplan} Packages. These were used because both can calculate the local sidereal time, hour angle, and recalculate object positions entirely from the observer positions throughout the night, the objects starting position, and the observation start time. Calculation of the local sidereal time (used to calculate the hour angle) was particularly helpful, as this value has complex perturbation errors from nutation in longitude and the true obliquity of the ecliptic. Nutation in longitude accounts for the ``wobble" of the earth's axis caused by the moon, with some components having periodic fluctuations on the order of days. Obliquity of the ecliptic refers to the difference between the equator and the ecliptic, and how that distance is variable with time. Both are necessary for achieving rotational angles to a high precision, and for comparing observations that happen years apart. 
 
 The equation above also highlights an important situation which is when the numerator and denominator are zero. 
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -697,9 +748,9 @@ The equation above also highlights an important situation which is when the nume
   \caption[Parallactic Angle Versus Hour Angle]{The KMS will hit wraps at the observers local zenith. This graph of PA vs. HA shows that this location is roughly +7 and -7 around 0 HA. The speed at which the KMS would move towards zenith depends on the telescopes declination. The values in the legend correspond to different lines of constant declination on the graph, in degrees.}
   \label{fig:km6}
 \end{wrapfigure}
-This is the case when the object is directly on the zenith of the observer. For this unique position, the equation is undefined, and the object jumps quickly from an angle of $- 90^{\circ}$ to $+ 90^{\circ}$. Movement of that nature for the K-Mirror system (KMS) would be disastrous. The total weight of the system combined with the torque limits of the motor would make a huge jump impossible for the KMS to achieve in a reasonable amount of time, and would probably result in motor failure. Solutions to this problem were three-fold, one set of checks was put in software, another was in hardware, and the last was mapping which observing regions would contain these problem areas. The easiest was hardware, which involved a hard stop limiter that would be tripped if the KMS attempted to move outside of a safe set of ranges. If one of these limit switches was tripped, an error flag would be sent to the command computer, and the system would be stopped. This was meant to be a last resort. In software, a system of checks was implemented to prevent over rotation, and rotation too quickly.
+This is the case when the object is directly on the zenith of the observer. For this unique position, the equation is undefined, and the object jumps quickly from an angle of $- 90^{\circ}$ to $+ 90^{\circ}$. Movement of that nature for the K-Mirror system (KMS) would be disastrous. The total weight of the system combined with the torque limits of the motor would make a huge jump impossible for the KMS to achieve in a reasonable amount of time, and would result in motor failure. Solutions to this problem are three-fold, one set of checks is put in software, another in hardware, and the last is mapping which observing regions will contain these problem areas. The easiest is hardware, which involves adding a hard stop limiter that will be tripped if the KMS attempts to move outside of a safe set of ranges. If one of these limit switches is tripped, an error flag will be sent to the command computer, and the system will be stopped. This is meant to be a last resort. In software, a system of checks is implemented to prevent over rotation, and rapid rotation.
 
-The most efficient way of avoiding problems near zenith was to determine at what positions and times objects in the sky at Kitt Peak would pass through the local meridian. Two different visualizations were made to assist in determining these problem areas. Figure ~\ref{fig:km6} revealed that for a starting observation of local midnight, the KMS could only observe continuously for roughly 6 hours before it would reach local zenith. The left graph of Figure ~\ref{fig:km45} shows for the same period of time, at what coordinates on the sky those zenith positions are located. The right graph is a comparison for the physical location of the second mirror arm in the cabin at zenith. Any position below 25 degrees in declination appeared to be safe at all times of the night. 
+The most efficient way of avoiding problems near zenith is to determine positions and times objects in the sky at Kitt Peak will pass through the local meridian. Two different visualizations were made to assist in determining these problem areas. Figure ~\ref{fig:km6} revealed that for a starting observation of local midnight, the KMS could only observe continuously for roughly 6 hours before it would reach local zenith. The left graph of Figure ~\ref{fig:km45} shows for the same period of time, at what coordinates on the sky those zenith positions are located. The right graph is a comparison for the physical location of the second mirror arm in the cabin at zenith. Any position below 25 degrees in declination appeared to be safe at all times of the night. Because of these limitations, the KMS plays an integral role in the determination of an optimal observation strategy.   
 
 \begin{figure}[ht!]
 	\centering
