@@ -500,9 +500,10 @@ This result takes into account the background and foreground noise sources menti
 \label{fig:time1}
 \end{figure}
 
-%===========================================================================================================================
-\section{TIME Internal/External Hardware Descriptions}
-\subsection{Instrument Properties Overview}
+%============================================================================================================
+\section{TIME Hardware Overview}
+The TIME instrument will have an instantaneous field of view of 11 x 0.35 arcminutes split into a 16 x 1 series of spatial pixels. This wide field is made possible by two banks of curved grating spectrometers, each of which can handle a single polarization, and with an R = 100 resolution (see Figure ~\ref{fig:jon2}). Within are parallel-plate waveguides which both focus and diffract light from a single feedhorn to an array of 60 transition edge sensor (TES) bolometers. Combined, the two banks will store 1920 total detectors divided into 6 blocks, and covering 8-12 spectral pixels  (\cite{Crites2014},\cite{Hunacek2016}). The total expected spectral coverage will range from 183-326 GHz, with each channel width at 2-3 GHz, and added edge channels for atmospheric noise reduction. The detectors are biased through superconducting flex cables by NIST Superconducting Quantum Interference Devices (SQUIDS), which have low noise, low power dissipation, and a low impedance, making them the ideal pre-amplifier for TES bolometers [\cite{Dobbs2009}]. Time domain multiplexing allows the SQUIDS to bias multiple detectors through a single set of cables simultaneously.  The detectors are then read out with two Multi-Channel Electronics system designed by UBC [\cite{Battistelli2008}].
+A thorough description of the spectrometers, bolometers, biasing, and readout systems is described below. 
 
 \begin{center}
     \begin{tabular}{|c|c|}
@@ -521,6 +522,20 @@ This result takes into account the background and foreground noise sources menti
       \hline
     \end{tabular}
 \end{center}
+%============================================================================================================
+\subsection{Curved Grating Spectrometers}
+TIME will utilize two banks of curved grating spectrometers, with each bank servicing one polarization direction and individual input feeds arrange to couple to the same line on the sky. The feed spacing provides a 1 dimensional field of view of 13.6 arcminutes, with a single beam fed to each spectrometer. The spectrometer itself is a machined and bolted aluminum assembly with 190 facets, and a resolving power of 140-200, much lower than the detector sampling rate. Figure ~\ref{fig:jon2} shows the largest dimension of the spectrometer at 23 cm, with a front arc where 6 detector modules will sit. This output arc between the two stacks creates 6 planes at which the detector arrays are mounted, while the back arc holds the grating teeth off of which the feedhorn output is diffracted. The overall design is a drastic reduction in weight and volume compared to similar spectrometers like those used by Z-Spec (\cite{Zemcov2012},\cite{Crites2014}), show in the right of Figure ~\ref{fig:jon2}.
+
+\begin{figure}[H]%
+    \centering
+    \subfloat{{\includegraphics[width=0.6\textwidth]{jon2.png} }}%
+    \qquad
+    \subfloat{{\includegraphics[width=0.2\textwidth]{abby1.png} }}%
+    \singlespace
+    \caption[TIME Spectrometer Banks and Detector Modules -(\cite{Hunacek2016})]{Left: Schematic of one of two spectrometer banks. The 16 input feedhorns take input from the optical path from the telescope into the cryostat, where the signal is incident on the curved diffraction gratings, and finally onto the spider mesh bolometer detector arrays (\cite{Hunacek2016}). Right: image of the Z-Spec grating spectrometer for comparison \cite{Crites2014}).}%
+    \label{fig:jon2}%
+    \vspace{-0.8cm}
+\end{figure}
 
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -540,6 +555,30 @@ This result takes into account the background and foreground noise sources menti
     \hline
     \end{tabular}
 \end{center}
+%===========================================================================================================
+\subsection{TES Bolometers}
+TIME will have a total of 1840 Transition Edge Sensor (TES) Bolometers organized into 48 detector sub arrays. Each sub array will cover 6 stacked spectrometers for one grating output plane, split into 72 low frequency and 80 high frequency detectors. Figure~\ref{fig:jon4} shows the detector module fabricated on silicon wafers, a gold plated aluminum holder, which is connected to a readout circuit board with cabling (not shown)(\cite{Hunacek2016}). A single detector pixel is gold suspended on a released silicon nitride web, which absorbs radiation from the spectrometers, and is connected to thin silicon nitride legs coupling it to the 250 mK bath (see Figure~\ref{fig:jon5}). Significant difficulties arose from attempting to keep the web suspended during normal operation with as few legs as possible, but it was found that a 250 mK bath was more than adequate to allow suspension legs 4 times thicker than average. This allowed the same saturation power without adding phonon noise, and improved the device yield and durability (\cite{Hunacek2016b}). 
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.9\textwidth}
+\includegraphics[width=0.9\textwidth]{jon4.PNG}
+\caption[Diagram of a Half Detector Module -(\cite{Hunacek2016b})]{Half detector wafer module (high frequency) and superconducting readout cables. Each module hosts 12 spectral pixels indicated by gold squares. Green squares show silicon cutouts to expose the circuit board to which the TES bias lines are bonded (\cite{Hunacek2016b}).}
+\label{fig:jon4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.9\textwidth}
+\includegraphics[width=0.9\textwidth]{jon5.PNG}
+\caption[Single TES Detector Pixel -(\cite{Hunacek2016b})]{A close up diagram of a single bolometer mesh absorber pixel. This is one of 80 pixels in the high frequency detector subarray shown in Figure~\ref{fig:jon4} (small gold squares) (\cite{Hunacek2016b})}. 
+\label{fig:jon5}
+\vspace{-0.8cm}
+\end{figure}
+
+Each TES Bolometer is essentially a sophisticated thermometer which uses the resistance in an electrical circuit to measure the temperature of an absorber. The resistor typically used is referred to as a thermistor which has well characterized changes in resistance with changes in temperature. The one used by TIME is an elemental titanium thermistor with a critical temperature at \(T_{c} = 450 mK\) and \(250 mK\) base temp. A second thermistor was purchased for lab characterization with \(T_{c} = 1 K\) (\cite{Crites2014}). These two elements are then coupled to a heat sink (gold pad in Figure~\ref{fig:jon5}). The voltage across the bolometer is biased precisely by SQUIDS (see section 3.3), while incoming photons induce a change in that resistance. This is measured as a voltage and recorded as a count, since the circuit is tuned to respond to a very specific photon energy. 
+
+TES Bolometers were the ideal detector for mm-wave research for several reasons. For one, it has a typical resistance around \(1\ohm\), making it very robust to vibrational pickup. This is due to the voltage being biased into a normal superconducting transition, which has the added advantage of rapid changes in resistance, but small changes in temperature. The detectors are also fabricated by lithographing and etching of thin films, allowing for large and densely packed arrays at a low cost (\cite{O'Brient2010}). Parameters and efficiencies for the TIME detectors is given in the table below.
 
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -556,35 +595,70 @@ This result takes into account the background and foreground noise sources menti
     \hline 
     \end{tabular}
 \end{center}
-\subsection{Detector Characteristics}
+%===========================================================================================================
+\subsection{SQUIDS}
+Superconducting QUantum Interference Devices (SQUIDS) are time-domain multiplexing (TDM) pre-amplifiers for the TES bolometers described above. Multiple bolometers are couple to individual SQUIDS through a single wire with this system, and are biased sequentially. For the NIST SQUIDS, 40 detectors are coupled to one pre-amplifier. This leads to low noise, power dissipation, and impedance compared to traditional pre-amp devices. Despite these advantages, they are still subject to magnetic fields. For this reason, TIME SQUIDS are placed into a superconducting box that produces a field suppression factor of over 70 (\cite{Hunacek2016b}).
 
-The TIME instrument will have an instantaneous field of view of 11 x 0.35 arcminutes split into a 16 x 1 series of spatial pixels. This wide field is made possible by two banks of curved grating spectrometers, each of which can handle a single polarization, and with an R = 100 resolution (see Figure ~\ref{fig:jon2}). Within are parallel-plate waveguides which both focus and diffract light from a single feedhorn to the array of 60 transition edge sensor (TES) bolometers. This unique design drastically reduces the weight and volume of the spectrometer compared to devices used in similar instruments. Combined, the two banks will store 1920 total detectors divided into 6 blocks, and covering 8-12 spectral pixels. The total expected spectral coverage will range from 183-326 GHz, with each channel width at 2-3 GHz, and added edge channels for atmospheric noise reduction [\cite{Crites2014},\cite{Hunacek2016}].
+After a photon creates a temperature change in the circuit, the thermistor shunts the induced current around a first stage of SQUIDS to a second stage where a feedback flux is provided, linearizing the first stage. This feedback signal compensates for changes in the current from the bolometers and produces a measurement of the power received by the photon. This first set of SQUID outputs is further amplified by a column of SQUIDS in series, and then read out by the Multi-Channel Electronics (MCE) (see section 3.4). A circuit diagram of this process is given in Figure~\ref{fig:squids}. Each time a photon hits the detector, the current through the device drops by a specific amount per the energy of the photon. Because of the 40:1 multiplexing factor, each detector pixel is checked for a change in current at a frequency of 20 kHz (\cite{Dobbs2009}).
 
-The detectors are biased through superconducting flex cables by NIST Superconducting Quantum Interference Devices (SQUIDS), which have low noise, low power dissipation, and a low impedance, making them the ideal pre-amplifier for TES bolometers [\cite{Dobbs2009}]. Time domain multiplexing allows the SQUIDS to bias multiple detectors through a single set of cables simultaneously. The detectors are then read out with a Multi-Channel Electronics system designed by UBC [\cite{Battistelli2008}].
-
-The entire instrument is housed in a closed cycle cryostat with 5 cooling stages ranging from 50 K, using pulse tube refrigeration, down to the base temperature of 250 mK, utilizing 3He sorption. The cryostat is shown below in Figure ~\ref{fig:jon1} without the aluminum shields.
-
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \captionsetup{width=0.95\textwidth}
-\includegraphics[width=0.95\textwidth]{jon1.png}
+\includegraphics[width=0.95\textwidth]{squids.PNG}
+\caption[Circuit Diagram for TDM SQUIDS -(\cite{Dobbs2009})]{Circuit diagram for SQUID biasing, feedback, and voltage output read by the MCE. This circuit is Time Domain Multiplexed where each 2nd stage SQUID is activated sequentially, continuously checking for detector bias changes at a 50 MHZ frequency (\cite{Dobbs2009}).}. 
+\label{fig:squids}
+\vspace{-0.8cm}
+\end{figure}
+
+%===========================================================================================================   
+\subsection{Multi-Channel Readout Electronics System}
+
+In order to read out the 1840 detectors, TIME will require two MCE's acting in tandem, as each one is only capable of handling 1280 pixels. The MCE has 4 readout cards (RC) whose function is to de-multiplexed the SQUID signals for each pixel and package them into a data frame consisting of housekeeping, data, and checksum blocks. Each RC is responsible for up to 41 x 32 pixels spread over 32 output channels. They are then transferred over fiber to an external computer PCI card\footnote{It should be noted that the mapping of the SQUIDS to the detector arrays is non-trivial, and requires lab testing so that the chosen SQUID biases the correct pixel}. To view the RIT MCE components and setup used for TIME software testing, see Figure~\ref{fig:mce}.
+
+It also has one clock card (CC) which is responsible for the sending and receiving of internal commands for the MCE, including requesting data from each RC, assembling the data frame, and passing the frame to the PCI card. The CC also generates an internal 50 MHz clock in order to keep these processes time ordered, but can also take input from a Sync Box (see section 3.5) to produce a timestamp 
+
+%In a typical time-domain multiplexing configuration the SQ1 signals of one column of an array are summed in a coil coupled to one SQ2 and consequently amplified by one channel of a SSAM. Multiplexing an array consists of turning on one row of SQ1s at a time. This task is performed by the MCE’s Address Card (AC) which drives each row using a 14-bit video DAC with 0–1 V voltage range. The AC’s firmware controls up to 41 DACs through a block that has the following features: (1) the row order is user-specifiable; (2) the multiplexing can be enabled or disabled by command; (3) the delay between the start of a row-dwell period and the assertion of the on value on the DAC can be specified in terms of 50-MHz clock cycles; (4) the AC supports separate on and off values for each row. For any given row the optimal on bias value is a compromise between the SQ1s across the 32 columns. The typical dwell time per row is near to 1 µs. In a 41 row array, this dwell time results in re-visiting the whole array at a frequency of ∼20 kHz.
+(\cite{Battistelli2008}). 
+
+The MCE has several operating modes designed to return different information. Low-pass filtered feedback is considered the normal mode, which returns the data described above, while a mixed mode returns error and feeback information to each 32-bit word recorded. For detector array characterization, it can also be set to consistent acquistion at 20 kHz or small sections of 50 MHz data. In every case above, the MCE must first go through a start-up phase that automatically characterizes the bolometer array and applies the appropriate feedback to keep the SQUIDS in a linear regime. This inital bias is applied based on a configuration file defined by the user, and is implemented for each pixel using a Proportional Integral Differential (PID) servo loop. For a full array this means processing 2100 free parameters in the span of a few minutes (\cite{Dobbs2009}).
+
+
+%(Battistelli 2008):
+
+%Data are packaged by the MCE into frames containing a housekeeping block followed by a data block and a checksum. The data block is (32 × 41) 32-bit numbers and nominally contains one value from each pixel. The MCE can be commanded to return one frame of data, to return N numbered frames timed using an internal crystal clock, or to return N numbered frames taking the timing from an external synch pulse. The MCE can support frame rates of several kHz, but in most cameras 200 Hz is sufficient
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.95\textwidth}
+\includegraphics[width=0.95\textwidth]{mce1.jpg}
+\caption[]{}
+\label{fig:mce}
+\vspace{-0.8cm}
+\end{figure}
+
+%==========================================================================================================
+\subsection{Sync Box}
+%(Battistelli 2008):
+%A triggerable Synchronization Box supplies numbered Data Valid Pulses (DVP) bi-phase encoded into a 25 MHz clock to all MCE boxes via optical fibre. The Synchronization Box has extra outputs, allowing these numbered pulses to be used to synchronize collection of telescope pointing system and housekeeping data
+
+%====================================================================================================
+\subsection{Cryostat}
+The spectrometers and bolometers are housed in a closed cycle cystostat with 5 cooling stages ranging from 50 K down to a base temperature of 250 mK. These stages are shown in Figure ~\ref{fig:jon1} without the shields\footnote{The casing is custom fabricated by {\sc Amuneal} and are intended to provide magnetic shielding for the instrument}. The 50 K stage is cooled by a cryomech PT-415 pulse tube refrigerator down to 4 K, with two custom lower temperature stages; a \(^{4}He\) system down to 1 K, and a \(^{3}He\) dual sorption system for 300 mK. A second \(^{3}He\) stage creates the 250 mK required for the spectrometers. Between these stages are also several stops, filters, and supports designed to prevent leakage of the optical load from each subsequent stage. Working outside to in, a zotefoam window provides the first line of defense against stray light, followed by the 4K stage lyot cold stop at the pupil, while the 1K stage holds a final polyethylene reimaging lens with an f/3 focus, covered in a porous teflon AR coating. In addition, the 1 K and 300 mK stages have metal mesh low-pass edge filters and dielectric filters to reduce the optical loading on the final 250 mK stage (\cite{Crites2014}).
+
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.9\textwidth}
+\includegraphics[width=0.9\textwidth]{jon1.png}
 \caption[TIME Cryostat -(\cite{Hunacek2016})]{Left: Cryostat on support structure without shields, located in the Caltech Experimental Cosmology Lab. Right: Model of Cryostat showing placement of the spectrometer banks, various cooling stages, and overall support and shock absorptive structure. (\cite{Hunacek2016})}
 \label{fig:jon1}
 \end{figure}
 
-\begin{figure}[h!]
-\centering
-\captionsetup{width=0.95\textwidth}
-\includegraphics[width=0.95\textwidth]{jon2.png}
-\caption[TIME Spectrometer Banks and Detector Modules -(\cite{Hunacek2016})]{Schematic of one of two spectrometer banks. The 16 input feedhorns take input from the optical path from the telescope into the cryostat, where the signal is incident on the curved diffraction gratings, and finally onto the spider mesh bolometer detector arrays (\cite{Hunacek2016}).}
-\label{fig:jon2}
-\end{figure}
+%============================================================================================================
+%============================================================================================================
+\section{Optics}
+list all elements in optical path and show CAD model
 
-%===========================================================================================================================
-\subsection{Optics}
-\subsubsection{Telescope}
-\subsubsection{Cryostat}
-\subsubsection{K-Mirror Image Rotator}
+\subsection{K-Mirror Image Rotator}
 The telescope at which TIME will be deployed is an ALMA Prototype 12m antenna, which rotates on an Alt-Azimuth mount. This presents unique challenges for the optical path from the primary mirror to the cryostat, because of the line scan observation strategy. The reason why can be easily shown in Figure ~\ref{fig:km1}. The rotation of the earth causes objects on the sky to trace out a circular path with time, while the telescope mount provides motion only in linear directions, not circularly. When the line of bolometers is projected on the sky under this rotation, they show an unnatural overlap or gap when measuring the source. Some past experiments have corrected for this in software [cite reference here], but the process is computationally costly, and not well refined. 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
@@ -664,12 +738,31 @@ TIME will be commissioned at the Arizona Radio Observatory (ARO) at Kitt Peak on
 \end{figure}
 
 \newpage
-\section{Data Collection, Visualization \& Storage}
+\section{Data Collation, Visualization, Storage \& Analysis}
 
-\subsection{Data Collation}
-\subsubsection{Multi-Channel Readout Electronics System}
+\subsection{Graphical User Interface}
+For lab testing and on-site live data visualization, a graphical user interface (GUI) was designed in a {\sc Python} script, and initially implemented in a web based framework using {\sc Dash by Plotly}. The GUI acts like a HUB, with input and output to multiple devices which all show statuses on the screen. Currently added functions include viewing the data from the MCE, with both live and archival data, a heatmap of the detector channels, and simulated inputs from the K-mirror and telescope. Figures ~\ref{fig:gui1} and ~\ref{fig:gui2} show the first and second iterations of the GUI. In the first iteration, the MCE was activated by a python script, the incoming data was parsed by another script and fed to the Plotly servers, and then a separate script stored the data in a preferred format. A web browser could then be opened and sent to a local host address where the user could view and interact with the data. This version was abandoned after testing the MCE at the highest data rate of 400 Hz, with 2 seconds of data on the screen at a time, updates every 1 second, and run for 8 hours. At this data rate, the MCE generates 374 frames per second. When looking at the output for only one detector, 374 data points are added to the screen per second, with over 12,000 data points present in every array. When run for an extended time, the lag on screen became visibly noticeable, as it would take longer and longer for the graphs to update, and some frames were even skipped entirely. This was due to the method by which Plotly updated its streaming plots, where it would have to re-draw every data point every time the graphs were refreshed, meaning that after 30 seconds, 11,000 data points were on the screen at a time. For lab testing, it was necessary to have at least 2 minutes of data on the screen at one time.
 
-\subsection{Data Visualization}
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.85\textwidth}
+	\includegraphics[width=0.85\textwidth]{gui1.png}%
+	\caption[GUI Beta 1.0]{This GUI was made through the use of {\sc Dash by Plotly} which handled all data updating and viewing on the screen, as well as activating the MCE and providing an interactive user interface. This version was abandoned for the unreliability of web servers, and severe lag after several minutes.}%
+	\label{fig:gui1}%
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{width=0.85\textwidth}
+	\includegraphics[width=0.85\textwidth]{gui2.png}%
+	\caption[GUI Beta 2.0]{Version 2 of the GUI was done using a desktop interface created with {\sc PyQTGraph}. This gui had the advantage of using much less CPU, almost no lag after continuous running, and more versatility for customization.}%
+	\label{fig:gui2}%
+\end{figure}
+
+The second version of the GUI was created using PyQt4 graphics packages and required a re-write from the html based script employed before. This script only updated the graphs with the newest data, without redrawing the whole figure, and wasn't subject to the unpredictability of web servers. The necessary packages could also simply be downloaded through ``apt-get'' from a standard library and added to the users existing python library. This new system was tested using the same parameters as the first, which revealed only one minor flaw. The parameters for the MCE input by the user, including data rate, would return a frame per second that would not be an integer value. At a data rate of 45, the value was exactly 374 frames per second, but at a data rate of 10, it was 1683.5 frames per second. This meant that every other second, an extra file was created, and missed by the previous check by the software. This was easily corrected for by adding in a check for an extra file that would be parsed and incorporated onscreen in the correct chronological order. After testing the system with 5 minutes of data onscreen at a time for 8 hours, there were no lags to the system. 
+
+Items that must still be incorporated into the GUI are actual interfacing from the K-Mirror and the Telescope. A telescope simulator was created to mimic the observing patterns required for TIME (constant declination scans) which outputs positional information and other metrics necessary for the K-Mirror operation described in detail later. The next step in testing will involve data generation from these simulated sources, transferred over SSH, and then visualized on the remote observing computer. 
+
 
 \subsubsection{KMS Integration \& Testing}
 
@@ -695,6 +788,7 @@ Two different tests have been run on the software, one which tested exclusively 
 To address this, a Kalman Filter [CITE REFERENCE HERE] was applied to interpret the telescope data based on data rate, relative velocity changes, and the total change in position required. This algorithm creates an unbiased estimate of the natural ``noise'' of the telescope-K-Mirror system, and then continually corrects the data for this average error, and updates this average error over a period of time. This allowed the motor to more smoothly start and stop, and improved the ability of the software to correct for changes in observational modes. Figure ~\ref{fig:km8} shows this improvement on the actual motor, gearhead and encoder with a more sophisticated telescope simulator. In the first simulation, the telescope speed was set to the sidereal rate, with a box-like pattern of motion set of coordinates provided to the KMS. The second simulation included a ``slewing'' phase, where the telescope was moving at 1 degree per second up to a starting position, and then a ``tracking'' phase at 5 arcseconds per second, where the telescope was moving back and forth across the given coordinates. This scenario produced a line scan akin to TIME, and at roughly the correct observing speeds. This test proved that the software and motor were capable of keeping up with the telescope even at its fastest speed while also reducing error to within tolerances.  Additional testing includes adding the mirror mass models and using the software and motor under a load bearing case, and simulating data transfer from telescope to KMS over an isolated network server. A script designed to simulate telescope socket data transfer has already been written by the University of Arizona and has been successfully integration into the GUI software. 
 
 The KMS software was designed to integrate with the GUI in order to facilitate real-time monitoring of its status. It receives input directly from the telescope, but only sends output to the control computer. This includes several flags for emergencies, like ``emergency stop'', ``standby'', and ``rotating''. There is no way for the control computer to directly communicate with the KMS, and instead will be done by way of the telescope. This reduces the complexity of code necessary for controlling the KMS, reduces the load on the Raspberry Pi 3, and creates less opportunity for software malfunction. In a situation where there is a problem with the KMS, MCE, detectors, or any other connected component to the control computer, an emergency stop button can be pressed on the GUI, which will send a signal to simultaneously stop all other processes (i.e. telescope motion, data acquisition, etc.) Additionally, the current parallactic angle will be output on the screen next to the angle achieved by the KMS, as well as the current speed.
+
 \subsubsection{TIME Software Development}
 
 In order to facilitate the successful completion of the TIME scientific goals, an important consideration is the handling of data and intercommunication between devices.A schematic of the hardware layout and connections is included in Figure ~\ref{fig:km9}, which details the communication pathways for multiple devices, including the telescope, control computer, Multi Channel Electronics (MCE), K-Mirror, and others. The key to successful data acquisition will be synchronous operation of each system, and eventual data collation. 
@@ -713,31 +807,7 @@ The solution to this problem is two-fold. The first requires the MCE to have an 
 
 Integration of the other components will simply be a matter of data transfer over the local network available at the telescope, processed through a script on the remote observing computer, and then finally stored in multiple locations. The functionality of the software and a description of this process is provided below. 
 
-\subsubsection{Graphical User Interface}
-
-For lab testing and on-site live data visualization, a graphical user interface (GUI) was designed in a {\sc Python} script, and initially implemented in a web based framework using {\sc Dash by Plotly}. The GUI acts like a HUB, with input and output to multiple devices which all show statuses on the screen. Currently added functions include viewing the data from the MCE, with both live and archival data, a heatmap of the detector channels, and simulated inputs from the K-mirror and telescope. Figures ~\ref{fig:gui1} and ~\ref{fig:gui2} show the first and second iterations of the GUI. In the first iteration, the MCE was activated by a python script, the incoming data was parsed by another script and fed to the Plotly servers, and then a separate script stored the data in a preferred format. A web browser could then be opened and sent to a local host address where the user could view and interact with the data. This version was abandoned after testing the MCE at the highest data rate of 400 Hz, with 2 seconds of data on the screen at a time, updates every 1 second, and run for 8 hours. At this data rate, the MCE generates 374 frames per second. When looking at the output for only one detector, 374 data points are added to the screen per second, with over 12,000 data points present in every array. When run for an extended time, the lag on screen became visibly noticeable, as it would take longer and longer for the graphs to update, and some frames were even skipped entirely. This was due to the method by which Plotly updated its streaming plots, where it would have to re-draw every data point every time the graphs were refreshed, meaning that after 30 seconds, 11,000 data points were on the screen at a time. For lab testing, it was necessary to have at least 2 minutes of data on the screen at one time.
-
-\begin{figure}[H]
-	\centering
-	\captionsetup{width=0.85\textwidth}
-	\includegraphics[width=0.85\textwidth]{gui1.png}%
-	\caption[GUI Beta 1.0]{This GUI was made through the use of {\sc Dash by Plotly} which handled all data updating and viewing on the screen, as well as activating the MCE and providing an interactive user interface. This version was abandoned for the unreliability of web servers, and severe lag after several minutes.}%
-	\label{fig:gui1}%
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\captionsetup{width=0.85\textwidth}
-	\includegraphics[width=0.85\textwidth]{gui2.png}%
-	\caption[GUI Beta 2.0]{Version 2 of the GUI was done using a desktop interface created with {\sc PyQTGraph}. This gui had the advantage of using much less CPU, almost no lag after continuous running, and more versatility for customization.}%
-	\label{fig:gui2}%
-\end{figure}
-
-The second version of the GUI was created using PyQt4 graphics packages and required a re-write from the html based script employed before. This script only updated the graphs with the newest data, without redrawing the whole figure, and wasn't subject to the unpredictability of web servers. The necessary packages could also simply be downloaded through ``apt-get'' from a standard library and added to the users existing python library. This new system was tested using the same parameters as the first, which revealed only one minor flaw. The parameters for the MCE input by the user, including data rate, would return a frame per second that would not be an integer value. At a data rate of 45, the value was exactly 374 frames per second, but at a data rate of 10, it was 1683.5 frames per second. This meant that every other second, an extra file was created, and missed by the previous check by the software. This was easily corrected for by adding in a check for an extra file that would be parsed and incorporated onscreen in the correct chronological order. After testing the system with 5 minutes of data onscreen at a time for 8 hours, there were no lags to the system. 
-
-Items that must still be incorporated into the GUI are actual interfacing from the K-Mirror and the Telescope. A telescope simulator was created to mimic the observing patterns required for TIME (constant declination scans) which outputs positional information and other metrics necessary for the K-Mirror operation described in detail later. The next step in testing will involve data generation from these simulated sources, transferred over SSH, and then visualized on the remote observing computer. 
-
-\subsection{Data Storage}
+\subsection{Storage}
 
 Data storage is a challenge for every scientific mission, and no less so for TIME. With 2 MCEs collecting 50 MHz data, telescope data at 20 packets/second, and numerous other electronics, the sheer volume and speed at which data sets develop requires very specific packaging solutions. 
 
