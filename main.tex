@@ -489,7 +489,7 @@ In Figure \ref{fig:dust}, the isolated dust contribution for SZE measurements of
 
 Intrinsic to this frequency range is also the ability to isolate the kSZE signal to high significance. In the left graph of Figure \ref{fig:tksze}, it was shown that for most frequencies, the kSZE signal is so faint that it is virtually impossible to detect for a high redshift cluster, if the tSZE signal is present. If the Kompaneets Equation presented above is examined more carefully, it can be seen that the tSZE has a null at 218 GHz, directly in the spectral range of TIME. This value can shift slightly for clusters with large numbers of relativistic electrons, as shown in the right graph of Figure \ref{fig:tksze}, but the effect is minimal. 
 
-The next noise contributor that must be taken into account is sub-mm point sources. A common problem with early instruments a low resultion, incapable of distinguishing between the cluster and contaminating foreground galaxies. Massive clusters are rich environments for many different types of phenomena, including dusty galaxies and lensing contamination, which can radiate heavily in the radio to sub-mm portion of the spectrum. If the resolution is poor, the radio contamination would be misconstrued as the actual SZE signal for the cluster. With the angular resolution of TIME, the cluster contaminating sources can simply be removed from the offending data cube ``pixel'' and fitted with a smoothing function to reduce signal averaging errors. 
+The next noise contributor that must be taken into account is sub-mm point sources. A common problem with early instruments was a low resolution, incapable of distinguishing between the cluster and contaminating foreground galaxies. Massive clusters are rich environments for many different types of phenomena, including dusty galaxies and lensing contamination, which can radiate heavily in the radio to sub-mm portion of the spectrum. If the resolution is poor, the radio contamination would be misconstrued as the actual SZE signal for the cluster. With the angular resolution of TIME, the cluster contaminating sources can simply be removed from the offending data cube ``pixel'' and fitted with a smoothing function to reduce signal averaging errors. 
 
 This result takes into account the background and foreground noise sources mentioned above, as well as the differential atmospheric removal technique. The expected measurements of kSZE for TIME are shown in Figure \ref{fig:time1}. TIME's sensitivity will easily reach kSZE intensities for a massive cluster at $v_{pec} = 1000 km/s$, and extend to clusters below that velocity.
 
@@ -503,26 +503,19 @@ This result takes into account the background and foreground noise sources menti
 
 %============================================================================================================
 \section{TIME Hardware Overview}
-The TIME instrument will have an instantaneous field of view of 11 x 0.35 arcminutes split into a 16 x 1 series of spatial pixels. This wide field is made possible by two banks of curved grating spectrometers, each of which can handle a single polarization, and with an R = 100 resolution (see Figure ~\ref{fig:jon2}). Within are parallel-plate waveguides which both focus and diffract light from a single feedhorn to an array of 60 transition edge sensor (TES) bolometers. Combined, the two banks will store 1920 total detectors divided into 6 blocks, and covering 8-12 spectral pixels  (\cite{Crites2014},\cite{Hunacek2016}). The total expected spectral coverage will range from 183-326 GHz, with each channel width at 2-3 GHz, and added edge channels for atmospheric noise reduction. The detectors are biased through superconducting flex cables by NIST Superconducting Quantum Interference Devices (SQUIDS), which have low noise, low power dissipation, and a low impedance, making them the ideal pre-amplifier for TES bolometers [\cite{Dobbs2009}]. Time domain multiplexing allows the SQUIDS to bias multiple detectors through a single set of cables simultaneously.  The detectors are then read out with two Multi-Channel Electronics system designed by UBC [\cite{Battistelli2008}].
-A thorough description of the spectrometers, bolometers, biasing, and readout systems is described below. 
+Following in the footsteps of previous instruments, TIME will utilize bolometer technology to attain the previously mentioned science goals. Compared to traditional CCD or CMOS devices, they can operate at a lower resolution, integrate faster, and are sensitive to the total surface brightness of a source. With a complementary scan strategy (see section 5), TIME will not need to resolve individual galaxies, and won't need to integrate one patch of sky for several minutes, allowing it to cover more area in the same time. Rather than fabricating a single monolithic bolometer mesh, TIME will use a 16x1 array of spatial pixels spanning an instantaneous field of view (FOV) of 11 x 0.35 arcminutes. A small portion of the array is shown for clarity in Figure~\ref{fig:focalplane}. Each pixel is a spider web mesh of wire that will respond to incoming mm-wavelength photons.
 
-\begin{center}
-    \begin{tabular}{|c|c|}
-    \hline
-     \multicolumn{2}{|c|}{TIME Experiment Parameters} \\
-     \hline
-     \hline
-      Number of Spectrometers & 32: 16 each pol, grid diplexed \\
-      Number of 150 GHz photometers   & 11, spectrally diplexed at 2 $f\lambda$ spacing \\
-      Total Num of Detectors & 1920 + 11 = 1931: TES Bolometers with SQUID MUX \\
-      Instantaneous FOV (ARO 12m) & 14 arcmin x 0.43 arcmin (mid-band) \\
-      Cryostat, Base Temp & Existing 4K / 1K system w/ Helium cooler at 250 mK \\
-      CII Survey Volume & 153 Mpc x 1.1 Mpc x 1240 Mpc deep \\
-      CII Survey Integration Time & 1000 hours \\
-      kSZ Peculiar Velocity Sensitivity & $\pm 1000 km/s$ per beam in 10 hours \\
-      \hline
-    \end{tabular}
-\end{center}
+\begin{figure}[H]
+\centering
+\captionsetup{width=0.8\textwidth}
+\includegraphics[width=0.8\textwidth]{focalplane.png}
+\caption[TIME Prototype bolometers -(Jon Hunacek, Caltech, TIME Collab)]{Partial TIME prototype bolometers fabricated at JPL by C. Frez. Each pixel contains a single spider web mesh absorber (Jon Hunacek, Caltech, TIME Collab)}
+\label{fig:time1}
+\end{figure}
+
+TIME will also collect spectral information of the FOV by coupling the bolometer array to two banks of curved grating spectrometers, each of which can handle a single polarization, at an R = 100 resolution (see Figure ~\ref{fig:jon2}). A single feedhorn on the grating input couples to 60 transition edge sensor (TES) bolometers. Combined, the two banks will store 1920 total detectors divided into 6 blocks, and covering 8-12 spectral pixels  (\cite{Crites2014},\cite{Hunacek2016}). The total expected spectral coverage will range from 183-326 GHz, with each channel width at 2-3 GHz, and added edge channels for atmospheric noise reduction. 
+
+The detectors are biased through superconducting flex cables by NIST Superconducting Quantum Interference Devices (SQUIDS), which have low noise, low power dissipation, and a low impedance, making them a useful pre-amplifier for TES bolometers [\cite{Dobbs2009}]. Time domain multiplexing allows the SQUIDS to bias multiple detectors through a single set of cables simultaneously, lightening the burden of electrical connections to the cryostat.  The detectors are then read out with two Multi-Channel Electronics system designed by UBC [\cite{Battistelli2008}]. A thorough description of the spectrometers, bolometers, biasing, and readout systems is described below. 
 %============================================================================================================
 \subsection{Curved Grating Spectrometers}
 TIME will utilize two banks of curved grating spectrometers, with each bank servicing one polarization direction and individual input feeds arrange to couple to the same line on the sky. The feed spacing provides a 1 dimensional field of view of 13.6 arcminutes, with a single beam fed to each spectrometer. The spectrometer itself is a machined and bolted aluminum assembly with 190 facets, and a resolving power of 140-200, much lower than the detector sampling rate. Figure ~\ref{fig:jon2} shows the largest dimension of the spectrometer at 23 cm, with a front arc where 6 detector modules will sit. This output arc between the two stacks creates 6 planes at which the detector arrays are mounted, while the back arc holds the grating teeth off of which the feedhorn output is diffracted. The overall design is a drastic reduction in weight and volume compared to similar spectrometers like those used by Z-Spec (\cite{Zemcov2012},\cite{Crites2014}), show in the right of Figure ~\ref{fig:jon2}.
@@ -537,25 +530,6 @@ TIME will utilize two banks of curved grating spectrometers, with each bank serv
     \label{fig:jon2}%
     \vspace{-0.8cm}
 \end{figure}
-
-\begin{center}
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    \multicolumn{4}{|c|}{TIME Instrument Parameters} \\
-    \hline
-    \hline
-    Parameter & Photometers & Grating LF Band & Grating HF Band \\
-    \hline
-    Spectral Range [GHz] & 135-165 & 183-230 & 230-326 \\
-    Estimated end-to-end optical efficiency & 0.3 & 0.3 & 0.3 \\
-    Num of Bolometers per sub-band & 1 & 24 (8x3) & 36 (12x3) \\
-    Atmospheric PWV Monitor Channels & & 10: 183-199 GHz & 6: 305-326 GHz \\
-    Frequency Resolution per Detector & 5 & 92-122 & 90-120 \\
-    NEI on sky per detector [(MJy/sr)$\sqrt{s}$] & 0.44 & 4.7-5.8 & 7.3-15.2 \\
-    NEFD on sky per detector [mJy$\sqrt{s}$] & 6.7 & 84-105 & 101-131 \\
-    \hline
-    \end{tabular}
-\end{center}
 %===========================================================================================================
 \subsection{TES Bolometers}
 TIME will have a total of 1840 Transition Edge Sensor (TES) Bolometers organized into 48 detector sub arrays. Each sub array will cover 6 stacked spectrometers for one grating output plane, split into 72 low frequency and 80 high frequency detectors. Figure~\ref{fig:jon4} shows the detector module fabricated on silicon wafers, a gold plated aluminum holder, which is connected to a readout circuit board with cabling (not shown)(\cite{Hunacek2016}). A single detector pixel is gold suspended on a released silicon nitride web, which absorbs radiation from the spectrometers, and is connected to thin silicon nitride legs coupling it to the 250 mK bath (see Figure~\ref{fig:jon5}). Significant difficulties arose from attempting to keep the web suspended during normal operation with as few legs as possible, but it was found that a 250 mK bath was more than adequate to allow suspension legs 4 times thicker than average. This allowed the same saturation power without adding phonon noise, and improved the device yield and durability (\cite{Hunacek2016b}). 
@@ -579,7 +553,7 @@ TIME will have a total of 1840 Transition Edge Sensor (TES) Bolometers organized
 
 Each TES Bolometer is essentially a sophisticated thermometer which uses the resistance in an electrical circuit to measure the temperature of an absorber. The resistor typically used is referred to as a thermistor which has well characterized changes in resistance with changes in temperature. The one used by TIME is an elemental titanium thermistor with a critical temperature at \(T_{c} = 450 mK\) and \(250 mK\) base temp. A second thermistor was purchased for lab characterization with \(T_{c} = 1 K\) (\cite{Crites2014}). These two elements are then coupled to a heat sink (gold pad in Figure~\ref{fig:jon5}). The voltage across the bolometer is biased precisely by SQUIDS (see section 3.3), while incoming photons induce a change in that resistance. This is measured as a voltage and recorded as a count, since the circuit is tuned to respond to a very specific photon energy. 
 
-TES Bolometers were the ideal detector for mm-wave research for several reasons. For one, it has a typical resistance around \(1\ohm\), making it very robust to vibrational pickup. This is due to the voltage being biased into a normal superconducting transition, which has the added advantage of rapid changes in resistance, but small changes in temperature. The detectors are also fabricated by lithographing and etching of thin films, allowing for large and densely packed arrays at a low cost (\cite{O'Brient2010}). Parameters and efficiencies for the TIME detectors is given in the table below.
+TES Bolometers were the ideal detector for mm-wave research for several reasons. For one, it has a typical resistance around \(1\Omega\), making it very robust to vibrational pickup. This is due to the voltage being biased into a normal superconducting transition, which has the added advantage of rapid changes in resistance, but small changes in temperature. The detectors are also fabricated by lithographing and etching of thin films, allowing for large and densely packed arrays at a low cost (\cite{O'Brient2010}). Parameters and efficiencies for the TIME detectors is given in the table below.
 
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -587,13 +561,21 @@ TES Bolometers were the ideal detector for mm-wave research for several reasons.
     \multicolumn{4}{|c|}{TES Bolometer Parameters} \\
     \hline
     \hline
+    \multicolumn{2}{|c|}{Total Num of Detectors} & \multicolumn{2}{|c|}{1920 + 11 = 1931} \\
+    \hline
     Parameter & Photometers & Grating LF Band & Grating HF Band \\
     \hline
     TES safety factor ($P_{elec}/P_{opt}$) & 2.5 & 2.4-2.8 & 2.1-5.1 \\
     Detector + MUX NEP [$10^{-18} W Hz^{-1/2}$] & 40 & 9.7 & 13 \\
     Photon NEP [$10^{-18} W Hz^{-1/2}$] & 60 & 23-26 & 26-43 \\
     Absorber Size [mm] & 4.0 & 3.0 x 3.48 & 3.0 x 2.32 \\
-    \hline 
+    Spectral Range [GHz] & 135-165 & 183-230 & 230-326 \\
+    Estimated end-to-end optical efficiency & 0.3 & 0.3 & 0.3 \\
+    Num of Bolometers per sub-band & 1 & 24 (8x3) & 36 (12x3) \\
+    Frequency Resolution per Detector & 5 & 92-122 & 90-120 \\
+    NEI on sky per detector [(MJy/sr)$\sqrt{s}$] & 0.44 & 4.7-5.8 & 7.3-15.2 \\
+    NEFD on sky per detector [mJy$\sqrt{s}$] & 6.7 & 84-105 & 101-131 \\
+    \hline
     \end{tabular}
 \end{center}
 %===========================================================================================================
@@ -764,7 +746,22 @@ The most efficient way of avoiding problems near zenith is to determine position
 
 TIME is utilizing grating spectrometers that are capable of rendering not only spectral but also spatial information into a 3 dimensional data cube. This adds the benefit of separating a superposition of signals from different redshifts along the line of sight, but in the same spatial pixel. For research on the CMB and the EOR, this is an especially useful tool as it allows both foreground and background sources to be individually measured. In the case of TIME, this implies the ability to distinguish between the faint dwarf galaxy population of interest and the much brighter foreground galaxies. 
 
-Complementary to the spectrometers, the chosen observing method will have the ability to constrain faint CO and CII line emission at high redshift though intensity mapping. This is a tested technique [\cite{Keating2015},\cite{Keating2016}] accomplished by moving the array of detectors across the sky, and recording the spatial variation in the total surface brightness from all sources in the field of view (FOV), as bolometer arrays are sensitive to the integrated intensity. Traditional measurements of faint galaxies attempt to resolve a single source through interferometry, such as with the Atacama Large Millimeter Array (ALMA), but typically miss the faintest end of the full luminosity function. With intensity mapping, lower limits on the faint end of the function can be determined, using only a single dish, rather than an entire array. Compared to ALMA, which would take roughly 4500 hours to observe a 2.5 degree FOV [\cite{Kovetz2017}], TIME can scan that same area in 1000 hours. 
+Complementary to the spectrometers, the chosen observing method will have the ability to constrain faint CO and CII line emission at high redshift though intensity mapping. This is a tested technique [\cite{Keating2015},\cite{Keating2016}] accomplished by moving the array of detectors across the sky, and recording the spatial variation in the total surface brightness from all sources in the field of view (FOV), as bolometer arrays are sensitive to the integrated intensity. Traditional measurements of faint galaxies attempt to resolve a single source through interferometry, such as with the Atacama Large Millimeter Array (ALMA), but typically miss the faintest end of the full luminosity function. With intensity mapping, lower limits on the faint end of the function can be determined, using only a single dish, rather than an entire array. Compared to ALMA, which would take roughly 4500 hours to observe a 2.5 degree FOV [\cite{Kovetz2017}], TIME can scan that same area in 1000 hours. The survey parameters for different sources is given in the table below. 
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+     \multicolumn{2}{|c|}{TIME Survey Parameters} \\
+     \hline
+     \hline
+      Atmospheric PWV Monitor Channels & & 10: 183-199 GHz & 6: 305-326 GHz \\
+      Instantaneous FOV (ARO 12m) & 14 arcmin x 0.43 arcmin (mid-band) \\
+      CII Survey Volume & 153 Mpc x 1.1 Mpc x 1240 Mpc deep \\
+      CII Survey Integration Time & 1000 hours \\
+      kSZ Peculiar Velocity Sensitivity & $\pm 1000 km/s$ per beam in 10 hours \\
+      \hline
+    \end{tabular}
+\end{center}
 
 TIME will be commissioned at the Arizona Radio Observatory (ARO) at Kitt Peak on the 12 meter ALMA Prototype Antenna in February 2019. Once there it will undergo a series of tests and calibrations, and will eventually start observations. It will be completing constant declination scans of several individual clusters by rastering back and forth across a source. An example scan pattern is shown in Figure~\ref{fig:time2ab}  and~\ref{fig:time2cd} below. The ideal strategy will be to scan two 1.3 degree linear fields over the course of 9 hours for CII/CO, and further dedicated time for kSZ detection in selected galaxy clusters.
 
