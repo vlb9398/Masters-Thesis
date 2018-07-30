@@ -653,40 +653,40 @@ The optical path into which the TIME instrument will be integrated is given in F
     \vspace{-0.8cm}
 \end{figure}
 
-\subsection{Telescope Optical Configuration}
+% \subsection{Telescope Optical Configuration}
 
-\begin{figure}[H]
-\centering
-\captionsetup{width=0.75\textwidth}
-\includegraphics[width=0.75\textwidth]{telopt.png}
-\caption[ALMA Prototype 12m Optical Configuration -(Isaac Trumper, UOA, TIME COllab.)]{Scaled image of ALMA Prototype 12m Antenna Optical Configuration. Values for different scales are given below in Table~\ref{table:telopt} Other optical path elements are located inside the cabin of the telescope (Isaac Trumper, UOA, TIME Collab.).}
-\label{fig:tele}
-\end{figure}
+% \begin{figure}[H]
+% \centering
+% \captionsetup{width=0.75\textwidth}
+% \includegraphics[width=0.75\textwidth]{telopt.png}
+% \caption[ALMA Prototype 12m Optical Configuration -(Isaac Trumper, UOA, TIME COllab.)]{Scaled image of ALMA Prototype 12m Antenna Optical Configuration. Values for different scales are given below in Table~\ref{table:telopt} Other optical path elements are located inside the cabin of the telescope (Isaac Trumper, UOA, TIME Collab.).}
+% \label{fig:tele}
+% \end{figure}
 
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\multicolumn{2}{|c|}{ALMA Prototype 12m Telescope Optics}\\
-\hline
-\hline
-Primary Aperture (D) & 12.0 m \\
-Focal Length of Primary (\(f_{p}\)) & 4.8 m \\
-(\(f_{p}/D\)) of Primary & 0.40 \\
-Secondary Aperture (d) & 0.74 m \\
-Final f/D & 8.00 \\
-Magnification Factor & 20.0 \\
-Primary Angle of Illumination \(\theta_{p}\) & \(128.02^{\circ}\) \\
-Secondary Angel of Illumination \(\theta_{s}\) & \(7.16^{\circ}\) \\
-Distance Between Primary and Secondary Foci (2c) & 6.177 m \\
-Depth of Primary (H) & 1.875 m \\
-Primary Vertex Hole Clear Aperture (v) & 0.75 m \\
+% \begin{center}
+% \begin{tabular}{|c|c|}
+% \hline
+% \multicolumn{2}{|c|}{ALMA Prototype 12m Telescope Optics}\\
+% \hline
+% \hline
+% Primary Aperture (D) & 12.0 m \\
+% Focal Length of Primary (\(f_{p}\)) & 4.8 m \\
+% (\(f_{p}/D\)) of Primary & 0.40 \\
+% Secondary Aperture (d) & 0.74 m \\
+% Final f/D & 8.00 \\
+% Magnification Factor & 20.0 \\
+% Primary Angle of Illumination \(\theta_{p}\) & \(128.02^{\circ}\) \\
+% Secondary Angel of Illumination \(\theta_{s}\) & \(7.16^{\circ}\) \\
+% Distance Between Primary and Secondary Foci (2c) & 6.177 m \\
+% Depth of Primary (H) & 1.875 m \\
+% Primary Vertex Hole Clear Aperture (v) & 0.75 m \\
 
-\hline
-\end{tabular}\label{table:telopt}
-\end{center}
+% \hline
+% \end{tabular}\label{table:telopt}
+% \end{center}
 
 \subsection{K-Mirror Image Rotator}
-The telescope at which TIME will be deployed rotates on an Alt-Azimuth mount, which presents unique challenges for the optical path from the primary mirror to the cryostat due to the line scan observation strategy (see section 5). The reason why can be seen in Figure ~\ref{fig:km1}, where the rotation of the earth causes objects on the sky to trace out a circular path with time. The telescope mount provides linear motion, meaning when the line of bolometers is projected onto the sky under this rotation, they show an unnatural overlap or gap when measuring the source with time. Some past experiments have corrected for this in software [cite reference here], but the process is computationally costly, and not well refined. 
+The telescope at which TIME will be deployed rotates on an Alt-Azimuth mount, which presents unique challenges for the optical path from the primary mirror to the cryostat due to the line scan observation strategy (see section 5). The reason why can be seen in Figure ~\ref{fig:km1}, where the rotation of the earth causes objects on the sky to trace out a circular path with time. The telescope mount provides linear motion, meaning when the line of bolometers is projected onto the sky under this rotation, they show an unnatural overlap or gap when measuring the source with time.
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
   \begin{center}
@@ -695,9 +695,9 @@ The telescope at which TIME will be deployed rotates on an Alt-Azimuth mount, wh
   \caption[Diagram of Bolometer De-rotation on Source from Alt-Az Mount.]{The white rectangles are a representation of the bolometer array projected on a galaxy source. As the galaxy naturally moves with time due to the earth's rotation, the line becomes rotated, causing overlapping regions and missing pixels. When the telescope moves to keep itself centered on the source, this problem would become more pronounced. For KSZ measurements, the resulting data would show extremely high thermal measurements in the centers of clusters, and almost none on the outskirts.}
   \label{fig:km1}
 \end{wrapfigure}
-A more effective solution is to introduce an additional element into the optical path, which rotates the image plane before entering the cryostat, and becoming incident on the detectors. This structure consists of three mirrors, with two arranged symmetrically above and below the center of rotation, and a third extended out perpendicularly to the rotation axis. See Figure ~\ref{fig:km23} for CAD model schematic. Hence the name ``K-Mirror''. 
+The solution to this problem that will be implemented for TIME is to introduce an additional element into the optical path, which rotates the image plane before entering the cryostat, and becoming incident on the detectors. Figure~\ref{fig:km23} shows a CAD model of the basic structure for the K-Mirror System (KMS), consisting of two perpendicular mirrors to the rotation axis and one parallel.
 
-This system is slaved to the motion of the telescope continuously, whether it is moving itself up to scanning position, tracking during an observation, or even in parked mode. Because of this, the telescope sends TCP/IP packets over an ethernet connection containing the current position and status flags directly to the K-Mirror control computer ({\sc Raspberry Pi 3}). The motor and gearhead moving the system keep track of their position using an absolute encoder, which states the exact position attained by the system relative to the desired. After receiving the telescope data packets, an internal script in the Rasp Pi calculates the exact amount of rotation that is required to correct the image, based on the current position coordinates. This rotation is actually a well defined term in the field of Astronomy, known as parallactic angle. 
+The KMS is slaved to the motion of the telescope continuously, whether it is moving itself up to scanning position, tracking during an observation, or even in parked mode. Because of this, the telescope sends TCP/IP packets over an ethernet connection containing the current position and status flags directly to the KMS control computer ({\sc Raspberry Pi 3}). The motor and gearhead moving the system keep track of their position using an absolute encoder, which states the exact position attained by the system relative to the desired. After receiving the telescope data packets, an internal script in the Rasp Pi calculates the exact amount of rotation that is required to correct the image, based on the current position coordinates. This rotation is defined as half the parallactic angle.
 
 \begin{figure}[H]
 	\centering
@@ -709,13 +709,13 @@ This system is slaved to the motion of the telescope continuously, whether it is
 	\label{fig:km23}%
 \end{figure}
 
-This angle describes the rotation of the object on the celestial sphere, where zero degrees of rotation is achieved when the object is at the local zenith. As the object travels before and behind zenith, the angle of rotation becomes more positive and more negative respectively. The equation which calculates this angle depends on the latitude of the observer, the hour angle (a function of the local sidereal time), and the declination of the object on the sky. This would mean that the parallactic angle for an object is completely unique for each observing site. Values for the K-Mirror were calculated using position coordinates for Kitt Peak, where it will eventually be deployed. The equation is given below, which was taken from \cite{Meeus1998},
-\begin{equation}
+The angle that describes the rotation in the cabin also defines the rotation of the observed source on the celestial sphere, where zero degrees of rotation is achieved when the object is at the local zenith. As the object travels before and behind zenith, the angle of rotation becomes more positive and more negative respectively. The equation which calculates this angle depends on the latitude of the observer, the hour angle (a function of the local sidereal time), and the declination of the object on the sky. The parallactic angle for an object is therefor completely unique for each observing site. Values for the KMS were calculated using position coordinates for Kitt Peak, where it will eventually be deployed. The equation is given below, which was taken from \cite{Meeus1998},
+\begin{equation}\label{eq:parangle}
 \tan(q) = \frac{\sin{(HA)}}{\tan(LAT)\cos{(DEC)} - \sin{(DEC)}\cos{(HA)}}
 \end{equation}
-where q is the parallactic angle, HA is the hour angle, LAT is the latitude, and DEC is the object declination. While this is the exact version, the actual calculation was performed in python, using the {\sc Astropy} and {\sc Astroplan} Packages. These were used because both can calculate the local sidereal time, hour angle, and recalculate object positions entirely from the observer positions throughout the night, the objects starting position, and the observation start time. Calculation of the local sidereal time (used to calculate the hour angle) was particularly helpful, as this value has complex perturbation errors from nutation in longitude and the true obliquity of the ecliptic. Nutation in longitude accounts for the ``wobble" of the earth's axis caused by the moon, with some components having periodic fluctuations on the order of days. Obliquity of the ecliptic refers to the difference between the equator and the ecliptic, and how that distance is variable with time. Both are necessary for achieving rotational angles to a high precision, and for comparing observations that happen years apart. 
+where q is the parallactic angle, HA is the hour angle, LAT is the latitude, and DEC is the object declination. Some correctional factors are also calculated to increase the precision of (q), namely the true obliquity of the ecliptic and the nutation in longitude. Nutation in longitude accounts for the ``wobble" of the earth's axis caused by the moon, with some components having periodic fluctuations on the order of days. Obliquity of the ecliptic refers to the difference between the equator and the ecliptic, and how that distance is variable with time.
 
-The equation above also highlights an important situation which is when the numerator and denominator are zero. 
+Some uniques software challenges exist for the KMS in the event that it travels through zenith, since Equation~\ref{eq:parangle} generates and undefined solution.  
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-0.8cm}
   \begin{center}
@@ -724,9 +724,11 @@ The equation above also highlights an important situation which is when the nume
   \caption[Parallactic Angle Versus Hour Angle]{The KMS will hit wraps at the observers local zenith. This graph of PA vs. HA shows that this location is roughly +7 and -7 around 0 HA. The speed at which the KMS would move towards zenith depends on the telescopes declination. The values in the legend correspond to different lines of constant declination on the graph, in degrees.}
   \label{fig:km6}
 \end{wrapfigure}
-This is the case when the object is directly on the zenith of the observer. For this unique position, the equation is undefined, and the object jumps quickly from an angle of $- 90^{\circ}$ to $+ 90^{\circ}$. Movement of that nature for the K-Mirror system (KMS) would be disastrous. The total weight of the system combined with the torque limits of the motor would make a huge jump impossible for the KMS to achieve in a reasonable amount of time, and would result in motor failure. Solutions to this problem are three-fold, one set of checks is put in software, another in hardware, and the last is mapping which observing regions will contain these problem areas. The easiest is hardware, which involves adding a hard stop limiter that will be tripped if the KMS attempts to move outside of a safe set of ranges. If one of these limit switches is tripped, an error flag will be sent to the command computer, and the system will be stopped. This is meant to be a last resort. In software, a system of checks is implemented to prevent over rotation, and rapid rotation.
+The movement of the KMS at this location would be a rapid jump from $- 90^{\circ}$ to $+ 90^{\circ}$, which is not mechanically feasible. The total weight of the system combined with the torque limits of the motor would make a huge jump impossible for the KMS to achieve in a reasonable amount of time, and would result in motor failure. 
 
-The most efficient way of avoiding problems near zenith is to determine positions and times objects in the sky at Kitt Peak will pass through the local meridian. Two different visualizations were made to assist in determining these problem areas. Figure ~\ref{fig:km6} revealed that for a starting observation of local midnight, the KMS could only observe continuously for roughly 6 hours before it would reach local zenith. The left graph of Figure ~\ref{fig:km45} shows for the same period of time, at what coordinates on the sky those zenith positions are located. The right graph is a comparison for the physical location of the second mirror arm in the cabin at zenith. Any position below 25 degrees in declination appeared to be safe at all times of the night. Because of these limitations, the KMS plays an integral role in the determination of an optimal observation strategy.   
+Solutions to this problem are three-fold, one set of checks is put in software, another in hardware, and the last is mapping which observing regions contain these problem areas. The easiest is hardware, which involves adding a hard stop limiter that will be tripped if the KMS attempts to move outside of a safe set of ranges. If one of these limit switches is tripped, an error flag will be sent to the command computer, and the system will be stopped. This is meant to be a last resort. In software, a system of checks is implemented to prevent over rotation, and rapid rotation.
+
+The most efficient way of avoiding problems near zenith is to determine positions and times objects in the sky at Kitt Peak will pass through the local meridian. Two different visualizations were made to assist in determining these problem areas. Figure ~\ref{fig:km6} revealed that for a starting observation of local midnight, the KMS could only observe continuously for roughly 6 hours before it would reach local zenith. The left graph of Figure ~\ref{fig:km45} shows for the same period of time, at what coordinates on the sky those zenith positions are located. The right graph is a comparison for the physical location of the second mirror arm in the cabin at zenith. Any location near the cryostat, or next to the left hand wall will also require a wrap of the arm, in addition to the zenith positions. Any position below 25 degrees in declination appeared to be safe at all times of the night. Because of these limitations, the KMS plays an integral role in the determination of an optimal observation strategy.   
 
 \begin{figure}[ht!]
 	\centering
