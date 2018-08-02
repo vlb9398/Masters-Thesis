@@ -738,27 +738,27 @@
   \vskip 2ex
  }%
 }%
-\def\@rcvaccrule{\vrule\@width1.75in\@height0.5pt\@depth\z@}%
-\def\@dates{\ifx\@title\@empty\else {Received}\space%
- \ifx\@empty\@recvdate\@rcvaccrule\else\@recvdate\fi;%
- \hspace{1.5em}{accepted}\space%
- \ifx\@empty\@accptdate\@rcvaccrule\else\@accptdate\fi%
-\fi}%                                                 %
-\def\@dates@pptt{%
- \@ifx@empty\@recvdate{}{%
-  \@ifx@empty\@accptdate{}{%
-   {\center
-     \@ifnum{\col@number=\tw@}{\small}{\normalsize}%
-     {\itshape Received}\space
-     \@recvdate
-     \@ifnum{\col@number=\tw@}{\\[.5ex]}{\hspace{1.5em}}%
-     {\itshape accepted}\space
-     \@accptdate
-    \endcenter
-   }%
-  }%
- }%
-}%
+% \def\@rcvaccrule{\vrule\@width1.75in\@height0.5pt\@depth\z@}%
+% \def\@dates{\ifx\@title\@empty\else {Received}\space%
+%  \ifx\@empty\@recvdate\@rcvaccrule\else\@recvdate\fi;%
+%  \hspace{1.5em}{accepted}\space%
+%  \ifx\@empty\@accptdate\@rcvaccrule\else\@accptdate\fi%
+% \fi}%                                                 %
+% \def\@dates@pptt{%
+%  \@ifx@empty\@recvdate{}{%
+%   \@ifx@empty\@accptdate{}{%
+%    {\center
+%      \@ifnum{\col@number=\tw@}{\small}{\normalsize}%
+%      {\itshape Received}\space
+%      \@recvdate
+%      \@ifnum{\col@number=\tw@}{\\[.5ex]}{\hspace{1.5em}}%
+%      {\itshape accepted}\space
+%      \@accptdate
+%     \endcenter
+%    }%
+%   }%
+%  }%
+% }%
 \def\sluginfo@mss{%
  {%
   \addpenalty{\@M}%
